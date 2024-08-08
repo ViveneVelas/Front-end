@@ -1,0 +1,70 @@
+:root {
+    --dark-blue: #000E17;
+    --light-blue: #94CAD2;
+    --white: #FFFFFF;
+    --red: #E63946;
+    --cream: #FFECD1;
+    --black: #000000;
+    --large-font-size: 20px;
+    --normal-font-size: 16px;
+}
+
+
+
+.main-container {
+    display: flex;
+}
+
+.box-1,
+.box-2 {
+    flex: 1;
+}
+
+.box-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-input{
+    display: flex;
+    border: solid 1px var(--black);
+    width: 40%;
+    justify-content: space-between;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.main-input input {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+.box-2 {
+    height: 90vh;
+}
+
+.box-2 img{
+    position: absolute;
+    right: 0;
+    top: 1.5vh;
+    z-index: -1;
+}
+
+.box-2 button {
+    position: absolute;
+    top: 75vh;
+    align-self: start;
+    background-color: var(--red);
+    padding: .5rem;
+    color: var(--white);
+    font-size: medium;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+

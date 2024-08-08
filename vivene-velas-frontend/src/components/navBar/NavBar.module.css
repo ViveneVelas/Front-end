@@ -1,0 +1,59 @@
+:root {
+    --dark-blue: #000E17;
+    --light-blue: #94CAD2;
+    --white: #FFFFFF;
+    --red: #E63946;
+    --cream: #FFECD1;
+} 
+
+
+
+.navbar{
+    /*position: fixed;  Deixo a posição fixada já que vai ser um header*/
+    overflow: hidden; /* Oculto tudo que sair das limitações da navbar*/
+    left: 0; /* Defino a posição da navbar */
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-blue);
+    width: 100vw;
+    height: 10vh;
+    color: var(--white);
+    z-index: 1000; /* Coloca a navbar acima de outros elementos */
+}
+
+.navbar-logo{
+    width: 6em;
+    height: 3em;
+    padding-left: 4rem;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+}
+
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    padding-left: 4rem;
+    width: 20vw;
+    justify-content: space-around;
+}
+
+.navbar-container p:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+

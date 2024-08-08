@@ -1,0 +1,31 @@
+:root {
+    --dark-blue: #000E17;
+    --light-blue: #94CAD2;
+    --white: #FFFFFF;
+    --red: #E63946;
+    --cream: #FFECD1;
+    --large-font-size: 20px;
+    --normal-font-size: 16px;
+    --text-font: 'NotoSans';
+    --title-font: 'Lora';
+    --buttons-font: 'LibreBodoni';
+}
+
+
+html, body {
+    font-size: var(--normal-font-size);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+}
+
+body{
+    z-index: -10;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
