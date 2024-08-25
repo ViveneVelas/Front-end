@@ -1,7 +1,16 @@
 @charset "UTF-8";
-  
+@import url("../components/cardestoque/Cardeestoque.module.css");
+@import url("../pages/estoque/Estoque.module.css");
+@import url("../pages/login/Login.module.css");
+@import url("../components/sidebar/Sidebar.module.css");  
+
 :root,
 [data-bs-theme=light] {
+    /* Minhas variaveis */
+    --color-terciaria-100: "#8C5B55";
+    --color-primaria-20: "#FCE4DE";
+    --color-primaria-80: "#F5947D";
+
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
@@ -2417,11 +2426,11 @@ progress {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--bs-body-color);
+    color: var(--color-terciaria-100);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: var(--bs-body-bg);
+    background-color: var(--color-terciaria-100);
     background-clip: padding-box;
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
@@ -3511,18 +3520,18 @@ fieldset:disabled .btn {
 
 .btn-primary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #D4746D;
-    --bs-btn-border-color: #a8544e;
+    --bs-btn-bg: #8C5B55;
+    --bs-btn-border-color: #8C5B55;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #a8544e;
-    --bs-btn-hover-border-color: #D4746D;
+    --bs-btn-hover-bg: #8C5B55;
+    --bs-btn-hover-border-color: #8C5B55;
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #D4746D;
-    --bs-btn-active-border-color: #a8544e;
+    --bs-btn-active-bg: #8C5B55;
+    --bs-btn-active-border-color: #8C5B55;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #a8544e;
+    --bs-btn-disabled-bg: #8C5B55;
     --bs-btn-disabled-border-color: #0d6efd
 }
 
@@ -5051,11 +5060,6 @@ fieldset:disabled .btn {
     flex: 1 1 auto;
     padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
     color: var(--bs-card-color)
-}
-
-.card-title {
-    margin-bottom: var(--bs-card-title-spacer-y);
-    color: var(--bs-card-title-color)
 }
 
 .card-subtitle {

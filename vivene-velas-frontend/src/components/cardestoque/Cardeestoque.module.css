@@ -1,0 +1,34 @@
+.add-card {
+    background-color: #f5e0da;
+    border: none;
+    color: #924c4c;
+    height: 100%;
+}
+
+.card {
+    background-color: #f5e0da;
+    color: #555;
+    border: none;
+    height: 100%;
+}
+
+.card img {
+    object-fit: cover; 
+    height: 100%; 
+    width: 100%;
+}
+
+.card-title {
+    color: #8C5B55;
+    font-weight: bold;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .card p {
+        font-size: 0.875rem;
+    }
+}

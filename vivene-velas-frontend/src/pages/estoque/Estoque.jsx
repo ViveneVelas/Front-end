@@ -2,6 +2,8 @@ import React from 'react';
 import Cardestoque from '../../components/cardestoque/Cardestoque';
 import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
+import Botao from '../../components/botao/Botao';
+import Busca from '../../components/busca/Busca';
 
 const Estoque = () => {
     return (
@@ -10,60 +12,61 @@ const Estoque = () => {
             <Sidebar />
 
             <main id="main" className="main">
-                <div className="pagetitle">
-                    <h1>Estoque</h1>
-                    <nav>
-                        <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li className="breadcrumb-item active">Estoque</li>
-                        </ol>
-                    </nav>
-                </div>
-
                 <section className="section dashboard">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="row">
-                                <div className="col-lg-5">
-                                    <div className="search-bar col-lg-8">
-                                        <form className="search-form d-flex align-items-center" method="POST" action="#">
-                                            <input type="text" name="query" placeholder="Buscar Vela Pelo Nome" title="Enter search keyword" />
-                                            <button type="submit" title="Search"><i className="bi bi-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3">
-                                    <button type="button" className="btn btn-primary"><i className="bi bi-filter me-1"></i> Filtrar</button>
-                                </div>
-
-                                <div className="col-lg-3">
-                                    <button type="button" className="btn btn-primary"><i className="bi bi-plus-lg me-1"></i> Adicionar Vela</button>
+                            <div className="container my-4">
+                                <div className="row">
+                                    <Busca />
+                                    <Botao
+                                        nome="Filtrar"
+                                        icone="bi bi-filter"
+                                    />
                                 </div>
                             </div>
                             <br />
 
                             <div className="row">
-                                <Cardestoque
-                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                    title="Vela de Cacau"
-                                    quantity={70}
-                                />
-                                <Cardestoque
-                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipPLKlqBN6N299tRvdKUvwkBfN1g07TSjPjl29ox=s680-w680-h510"
-                                    title="Vela de Chocolate"
-                                    quantity={70}
-                                />
-                                <Cardestoque
-                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                    title="Vela de Lavanda"
-                                    quantity={70}
-                                />
-                                <Cardestoque
-                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipPLKlqBN6N299tRvdKUvwkBfN1g07TSjPjl29ox=s680-w680-h510"
-                                    title="Vela de Framboesa"
-                                    quantity={70}
-                                />
+                                <div className="col-md-3 col-12 mb-3">
+                                    <div className="card add-card text-center p-4">
+                                        <div className="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h1 className="display-1 text-plus">+</h1>
+                                            <p>Adicionar lote de velas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-9 col-12">
+                                    <div className="row">
+                                        <Cardestoque
+                                            imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                            title="Vela de Cacau"
+                                            qtd={70}
+                                            dtValidade={"10/09/2005"}
+                                            descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
+                                        />
+                                        <Cardestoque
+                                            imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                            title="Vela de Cacau"
+                                            qtd={70}
+                                            dtValidade={"10/09/2005"}
+                                            descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
+                                        />
+                                        <Cardestoque
+                                            imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                            title="Vela de Cacau"
+                                            qtd={70}
+                                            dtValidade={"10/09/2005"}
+                                            descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
+                                        />
+                                        <Cardestoque
+                                            imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                            title="Vela de Cacau"
+                                            qtd={70}
+                                            dtValidade={"10/09/2005"}
+                                            descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
