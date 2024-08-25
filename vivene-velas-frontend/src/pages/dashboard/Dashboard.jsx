@@ -1,49 +1,22 @@
 import React from 'react';
-import './Dashboard.module.css';
-import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Grafico from '../../components/grafico/Grafico';
 import Graficobarras from '../../components/graficobarras/Graficobarras';
+import Cardkpi from '../../components/cardkpi/Cardkpi';
 
 function Dashboard() {
   return (
     <>
-      <Header />
       <Sidebar />
 
       <main id="main" className="main">
-        <div className="pagetitle">
-          <h1>Dashboard</h1>
-          <nav>
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="/">Home</a></li>
-              <li className="breadcrumb-item active">Dashboard</li>
-            </ol>
-          </nav>
-        </div>
-
         <section className="section dashboard">
           <div className="row">
             <div className="col-lg-12">
               <div className="row">
-                {/* Cards */}
-                {[...Array(4)].map((_, index) => (
-                  <div key={index} className="col-xxl-3 col-md-6">
-                    <div className="card info-card sales-card">
-                      <div className="card-body">
-                        <h5 className="card-title">KPI 1</h5>
-                        <div className="d-flex align-items-center">
-                          <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i className="bi bi-currency-dollar"></i>
-                          </div>
-                          <div className="ps-3">
-                            <h6>50%</h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                <Cardkpi/>
+                <Cardkpi/>
+                <Cardkpi/>
               </div>
               {/* Gráficos e Tabelas */}
               <div className="col-lg-12 row">

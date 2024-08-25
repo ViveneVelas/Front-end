@@ -1,6 +1,5 @@
 import React from 'react';
 import Cardestoque from '../../components/cardestoque/Cardestoque';
-import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Botao from '../../components/botao/Botao';
 import Busca from '../../components/busca/Busca';
@@ -8,14 +7,13 @@ import Busca from '../../components/busca/Busca';
 const Estoque = () => {
     return (
         <>
-            <Header />
             <Sidebar />
 
             <main id="main" className="main">
                 <section className="section dashboard">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="container my-4">
+                            <div className="">
                                 <div className="row">
                                     <Busca />
                                     <Botao

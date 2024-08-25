@@ -1,17 +1,20 @@
-body {
+#root{
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
-
 header {
-    background-color: #FAD4CD;
-    height: 50px;
+    background-color: #F5947D;
+    height: 70px;
     width: 100%;
 }
-
+.div-inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    gap: 30px;
+}
 .content {
     flex: 1;
     display: flex;
@@ -33,10 +36,7 @@ header {
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
-}
-
-.form-control {
-    margin-bottom: 15px;
+    align-items: center;
 }
 
 .btn {

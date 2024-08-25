@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Cardvela from '../../components/cardvela/Cardvela';
 
 const Vela = () => {
     return (
         <>
-            <Header />
             <Sidebar />
             <main id="main" className="main">
                 <div className="pagetitle">
