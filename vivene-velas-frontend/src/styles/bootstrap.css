@@ -1,15 +1,23 @@
 @charset "UTF-8";
+/* Componente */
 @import url("../components/cardestoque/Cardeestoque.module.css");
-@import url("../pages/estoque/Estoque.module.css");
-@import url("../pages/login/Login.module.css");
 @import url("../components/sidebar/Sidebar.module.css");  
+
+/* Pages */
+@import url("../pages/estoque/Estoque.module.css");
+@import url("../pages/vela/Vela.module.css");
+@import url("../pages/login/Login.module.css");
 
 :root,
 [data-bs-theme=light] {
     /* Minhas variaveis */
-    --color-terciaria-100: "#8C5B55";
-    --color-primaria-20: "#FCE4DE";
-    --color-primaria-80: "#F5947D";
+    --color-terciaria-100: #8C5B55;
+    --color-primaria-20: #FCE4DE;
+    --color-primaria-80: #F5947D;
+    --color-roxo: #AE6DD6;
+    --color-azul: #7CC6D7;
+    --color-dia-hoje: #FAC9BE;
+    --color-btn: #F2795C;
 
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
@@ -215,7 +223,6 @@ hr {
     margin: 1rem 0;
     color: inherit;
     border: 0;
-    border-top: var(--bs-border-width) solid;
     opacity: .25
 }
 
@@ -2418,7 +2425,13 @@ progress {
     font-size: .875em;
     color: var(--bs-secondary-color)
 }
-
+hr{
+    border: 3px solid black;
+}
+.btn-show {
+    font-size: 25px !important;
+    color: black !important;
+}
 .form-control {
     display: block;
     width: 100%;
@@ -2430,7 +2443,6 @@ progress {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: var(--color-terciaria-100);
     background-clip: padding-box;
     border: 2px solid #8C5B55;
     border-radius: var(--bs-border-radius);
@@ -3534,22 +3546,22 @@ fieldset:disabled .btn {
     --bs-btn-disabled-bg: #8C5B55;
     --bs-btn-disabled-border-color: #0d6efd
 }
-
+/* F2795C */
 .btn-secondary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #6c757d;
-    --bs-btn-border-color: #6c757d;
+    --bs-btn-bg: #F2795C;
+    --bs-btn-border-color: #F2795C;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #5c636a;
-    --bs-btn-hover-border-color: #565e64;
+    --bs-btn-hover-bg: #F2795C;
+    --bs-btn-hover-border-color: #F2795C;
     --bs-btn-focus-shadow-rgb: 130, 138, 145;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #565e64;
-    --bs-btn-active-border-color: #51585e;
+    --bs-btn-active-bg: #F2795C;
+    --bs-btn-active-border-color: #F2795C;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #6c757d;
-    --bs-btn-disabled-border-color: #6c757d
+    --bs-btn-disabled-bg: #F2795C;
+    --bs-btn-disabled-border-color: #F2795C
 }
 
 .btn-success {
@@ -13889,10 +13901,6 @@ fieldset:disabled .btn {
         display: none !important
     }
 }
-/**
-* Template Name: NiceAdmin
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Updated: Apr 20 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+.display-flex{
+    display: flex;
+}

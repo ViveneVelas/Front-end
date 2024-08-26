@@ -1,6 +1,6 @@
 import React from "react";
 
-const Botao = ({nome},{icone}) => {
+const Botao = ({nome,icone}) => {
     return (
         <>
             <div className="col-md-2 col-12 mb-3">

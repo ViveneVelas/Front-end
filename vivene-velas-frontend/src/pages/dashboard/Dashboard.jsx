@@ -14,9 +14,22 @@ function Dashboard() {
           <div className="row">
             <div className="col-lg-12">
               <div className="row">
-                <Cardkpi/>
-                <Cardkpi/>
-                <Cardkpi/>
+                <Cardkpi
+                  titulo={"Vela mais vendida"}
+                  conteudo={"Vela de Laranja"}
+                />
+                <Cardkpi
+                  titulo={"Vela mais vendida"}
+                  conteudo={"Vela de Laranja"}
+                />
+                <Cardkpi
+                  titulo={"Vela mais vendida"}
+                  conteudo={"Vela de Laranja"}
+                />
+                <Cardkpi
+                  titulo={"Vela mais vendida"}
+                  conteudo={"Vela de Laranja"}
+                />
               </div>
               {/* Gráficos e Tabelas */}
               <div className="col-lg-12 row">
