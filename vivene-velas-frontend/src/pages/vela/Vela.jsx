@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Cardvela from '../../components/cardvela/Cardvela';
 import Busca from '../../components/busca/Busca';
+import velaPng from "../../img/vela.png"
 
 const Vela = () => {
     return (
@@ -14,7 +15,7 @@ const Vela = () => {
                         <div className="col-lg-12">
 
                             <div className="div-filtros col-lg-12">
-                                <div className='div-one col-lg-5'>
+                                <div className='div-one col-lg-6'>
                                     <div className="col-lg-7">
                                         <Busca />
                                     </div>
@@ -30,17 +31,37 @@ const Vela = () => {
                             <br />
 
                             <div className="row">
-                                <div className="card">
+                                <div className="">
                                     <div className="card-body">
-                                        <h5 className="card-title">Velas Gerais</h5>
-
                                         <div className="news">
-                                            <div className="row col-lg-12 coln">
+                                            <div className=" col-lg-12 coln">
                                                 <Cardvela
-
+                                                    id={1}
+                                                    img={velaPng}
+                                                    dias={"7"}
+                                                    titulo={"Vela de Cacau"}
+                                                    descricao={"t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
                                                 />
                                                 <Cardvela
-
+                                                    id={2}
+                                                    img={velaPng}
+                                                    dias={"7"}
+                                                    titulo={"Vela de Cacau"}
+                                                    descricao={"t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
+                                                />
+                                                <Cardvela
+                                                    id={3}
+                                                    img={velaPng}
+                                                    dias={"7"}
+                                                    titulo={"Vela de Cacau"}
+                                                    descricao={"t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
+                                                />
+                                                <Cardvela
+                                                    id={4}
+                                                    img={velaPng}
+                                                    dias={"7"}
+                                                    titulo={"Vela de Cacau"}
+                                                    descricao={"t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
                                                 />
                                             </div>
                                         </div>

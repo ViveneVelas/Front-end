@@ -22,15 +22,33 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="/vela">
-              <i className="bi bi-candle"></i>
-              {!collapsed && <span>Velas</span>}
+            <a href="/">
+              <i className="bi bi-calendar3-week"></i>
+              {!collapsed && <span>Agenda</span>}
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <i className="bi bi-plus-lg"></i>
+              {!collapsed && <span>Adicionar Velas</span>}
             </a>
           </li>
           <li>
             <a href="/estoque">
               <i className="bi bi-box"></i>
               {!collapsed && <span>Estoque</span>}
+            </a>
+          </li>
+          <li>
+            <a href="/vela">
+              <i className="bi bi-clipboard-heart"></i>
+              {!collapsed && <span>Velas Padronizadas</span>}
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <i className="bi bi-people"></i>
+              {!collapsed && <span>Clientes</span>}
             </a>
           </li>
           <li>

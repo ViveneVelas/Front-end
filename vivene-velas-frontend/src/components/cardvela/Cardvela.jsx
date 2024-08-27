@@ -8,7 +8,6 @@ const Container = styled.div`
   border-radius: 8px;
   padding: 16px;
   background-color: #ffffff;
-  max-width: 800px;
   margin: auto;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,8 +18,8 @@ const ImageContainer = styled.div`
   margin-right: 16px;
 
   img {
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -29,7 +28,7 @@ const ImageContainer = styled.div`
 const Content = styled.div`
   flex: 1;
   h3 {
-    font-size: 1em;
+    font-size: 2m;
     margin: 0;
     color: #333;
   }
@@ -41,15 +40,15 @@ const Content = styled.div`
     line-height: 1.4;
   }
 
-  p:first-of-type {
-    font-weight: bold;
-    display: inline;
+  label{
+  font-weight:500
   }
+
 `;
 
 const InfoContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: flex-end;
   justify-content: space-between;
   height: 100%;
@@ -67,29 +66,27 @@ const InfoContainer = styled.div`
     svg {
       cursor: pointer;
       margin-left: 12px;
-      color: #888;
+      color: #8C5B55;
     }
   }
 `;
 
-const Cardvela = () => {
+const Cardvela = ({img, titulo, descricao, dias, id}) => {
   return (
-    <Container>
+    <Container id={id}>
       <ImageContainer>
-        <img src="https://via.placeholder.com/80" alt="Candle" />
+        <img src={img} alt="Candle" />
       </ImageContainer>
       <Content>
-        <h3>Vela de Cacau</h3>
-        <p>Descrição:</p>
+        <h3>{titulo}</h3>
         <p>
-          t is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here'.
+          <label htmlFor="">Descrição: </label>
+          &ensp;
+          {descricao}
         </p>
       </Content>
       <InfoContainer>
-        <div className="info-text">Dias para vencer: 7 dias</div>
+        <div className="info-text">Dias para vencer: {dias} dias</div>
         <div className="icons">
           <FaEdit />
           <FaTrash />

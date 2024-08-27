@@ -2,62 +2,98 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 
 const Grafico = () => {
-  const options = {
+  const lineData = [12, 10, 15, 20, 13, 18]; // Dados da linha
+  const barData = [15, 8, 18, 10, 16, 14]; // Dados das barras
+
+  // Gerando as cores das barras dinamicamente
+  const barColors = barData.map((barValue, index) => {
+    console.log("BAR VALUE "+ barValue+ "  Value Index"+ lineData[index])
+    if(barValue > lineData[index]){
+        return "#FFF"
+    }else{
+      return '#dc3545'; // Verde se maior, vermelho se menor
+    }
+  });
+
+  const chartOptions = {
     chart: {
-      height: 350,
-      type: 'area',
+      type: 'line',
+      height: '100%',
       toolbar: {
         show: false
       },
     },
-    markers: {
-      size: 4
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: '55%',
+        endingShape: 'rounded',
+      },
     },
-    colors: ['#4154f1', '#2eca6a'],
-    fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.3,
-        opacityTo: 0.4,
-        stops: [0, 90, 100]
-      }
-    },
+    colors: ['#8b0000'], // Cor da linha
     dataLabels: {
       enabled: false
     },
     stroke: {
       curve: 'smooth',
-      width: 2
+      width: [0, 4],
     },
     xaxis: {
-      categories: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho"],
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    },
+    fill: {
+      opacity: 1,
+      colors: ["#64D82D"], // Aplicando as cores dinâmicas aqui
+    },
+    yaxis: {
+      title: {
+        text: 'Quantidade'
+      }
     },
     tooltip: {
-      x: {
-        format: 'dd/MM/yy HH:mm'
-      },
-    }
+      y: {
+        formatter: function (val) {
+          return `${val} vendas`;
+        }
+      }
+    },
+    responsive: [{
+      breakpoint: 768,
+      options: {
+        plotOptions: {
+          bar: {
+            columnWidth: '70%'
+          }
+        },
+      }
+    }]
   };
 
-  const series = [{
+  const chartSeries = [{
     name: 'Vendas',
-    data: [31, 40, 28, 51, 42, 82, 56],
+    type: 'bar',
+    data: barData,
   }, {
-    name: 'Metas',
-    data: [11, 32, 45, 32, 34, 52, 41]
+    name: 'Meta',
+    type: 'line',
+    data: lineData,
   }];
 
   return (
-    <div className="col-lg-8">
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">Metas x Vendas</h5>
-          <Chart options={options} series={series} type="area" height={350} />
-        </div>
+    <div style={{ maxWidth: '100%', margin: '0 auto' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+        <h2 style={{ margin: 0 }}>Quantidade de vendas por meta</h2>
+        <button style={{ border: 'none', background: 'none', color: '#8b0000', fontSize: '14px', cursor: 'pointer' }}>
+          Adicionar meta +
+        </button>
       </div>
+      <Chart 
+        options={chartOptions}
+        series={chartSeries}
+        type="line"
+        height="350"
+      />
     </div>
   );
 };
-
 export default Grafico;

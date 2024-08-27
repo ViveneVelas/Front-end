@@ -1,0 +1,40 @@
+.table-container {
+    overflow-x: auto;
+}
+
+.tabela-vendas {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-vendas th, .tabela-vendas td {
+    padding: 12px 15px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #8D5E58;
+}
+
+.tabela-vendas th {
+    background-color: #FCE4DE;
+    color: #8D5E58;
+    font-weight: bold;
+}
+
+.tabela-vendas td {
+    border-top: 1px solid #f0f0f0;
+}
+
+.tabela-vendas tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .tabela-vendas th, .tabela-vendas td {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}

@@ -7,11 +7,12 @@ const Graficobarras = () => {
       type: 'bar',
       height: 350
     },
+    colors: ["#F7AF9D"],
     plotOptions: {
       bar: {
         horizontal: false,
         columnWidth: '55%',
-        endingShape: 'rounded'
+        endingShape: 'rounded',
       },
     },
     dataLabels: {
@@ -20,10 +21,10 @@ const Graficobarras = () => {
     stroke: {
       show: true,
       width: 2,
-      colors: ['transparent']
+      colors: ['#F7AF9D']
     },
     xaxis: {
-      categories: ['Café', 'Chocolate', 'Lavanda', 'Framboesa', 'Chá Doce', 'Banana', 'Morango'],
+      categories: ['Café', 'Chocolate', 'Lavanda', 'Framboesa'],
     },
     yaxis: {
       title: {
@@ -44,7 +45,7 @@ const Graficobarras = () => {
 
   const series = [{
     name: 'Net Profit',
-    data: [44, 55, 57, 56, 61, 58, 63]
+    data: [44, 55, 57, 5]
   }];
 
   return (

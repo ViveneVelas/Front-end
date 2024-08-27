@@ -2,6 +2,8 @@
 /* Componente */
 @import url("../components/cardestoque/Cardeestoque.module.css");
 @import url("../components/sidebar/Sidebar.module.css");  
+@import url("../components/tabelavendas/Tabelavendas.module.css");  
+@import url("../components/cardkpi/Cardkpi.module.css");  
 
 /* Pages */
 @import url("../pages/estoque/Estoque.module.css");

@@ -3,6 +3,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Grafico from '../../components/grafico/Grafico';
 import Graficobarras from '../../components/graficobarras/Graficobarras';
 import Cardkpi from '../../components/cardkpi/Cardkpi';
+import Tabelavendas from '../../components/tabelavendas/Tabelavendas';
 
 function Dashboard() {
   return (
@@ -18,22 +19,14 @@ function Dashboard() {
                   titulo={"Vela mais vendida"}
                   conteudo={"Vela de Laranja"}
                 />
-                <Cardkpi
-                  titulo={"Vela mais vendida"}
-                  conteudo={"Vela de Laranja"}
-                />
-                <Cardkpi
-                  titulo={"Vela mais vendida"}
-                  conteudo={"Vela de Laranja"}
-                />
-                <Cardkpi
-                  titulo={"Vela mais vendida"}
-                  conteudo={"Vela de Laranja"}
-                />
               </div>
               {/* Gráficos e Tabelas */}
               <div className="col-lg-12 row">
-                <Grafico />
+                <div className='col-lg-8'>
+
+                  <Grafico />
+                </div>
+                
                 <div className="col-lg-4">
                   <div className="card">
                     <div className="card-body">
@@ -69,31 +62,10 @@ function Dashboard() {
               </div>
               {/* Outra linha de gráficos/tabelas */}
               <div className="col-lg-12 row">
-                <Graficobarras />
                 <div className="col-lg-4">
-                  <div className="card">
-                    <div className="card-body">
-                      <h5 className="card-title">Principais Clientes</h5>
-                      <table className="table table-striped">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Quantidade de Compras</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Bárbara Barbato</td>
-                            <td>18</td>
-                          </tr>
-                          {/* Adicione mais linhas conforme necessário */}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                  <Tabelavendas />
                 </div>
+                <Graficobarras />
               </div>
             </div>
           </div>
