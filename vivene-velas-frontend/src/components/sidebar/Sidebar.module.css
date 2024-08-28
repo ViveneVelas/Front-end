@@ -28,6 +28,8 @@
 
 .nav {
   flex-grow: 1;
+  display: flex;
+    justify-content: center;
 }
 
 .nav ul {

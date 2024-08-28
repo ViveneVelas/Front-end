@@ -1,83 +1,122 @@
-import React from 'react';
+import React, { useState } from 'react';
+import moment from 'moment';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
+import '../../components/Components-Calendario-css.css';
+import eventosPadrao from '../../components/eventosPadrao';
+import EventModal from '../../components/ModalEvent/EventModal';
+import Adicionar from '../../components/adicionar/Adicionar';
+import CustomTollbar from '../../components/CustomCalendar/CustomTollbar';
+import FiltroAtividades from '../../components/filtro/FiltroAtividades.jsx';
 import Sidebar from '../../components/sidebar/Sidebar';
-import { Calendar, Whisper, Popover, Badge } from 'rsuite';
 
-function getTodoList(date) {
-    const day = date.getDate();
-    const n = 10
-    switch (day) {
-      case n:
-        return [
-          { time: '10:30', title: 'Vela Morango' },
-          { time: '12:00', title: 'Vela Chocolate' }
-        ];
-      case 15:
-        return [
-          { time: '09:30 pm', title: 'Products Introduction Meeting' },
-          { time: '12:30 pm', title: 'Client entertaining' },
-          { time: '02:00 pm', title: 'Product design discussion' },
-          { time: '05:00 pm', title: 'Product test and acceptance' },
-          { time: '06:30 pm', title: 'Reporting' },
-          { time: '10:00 pm', title: 'Going home to walk the dog' }
-        ];
-      default:
-        return [];
-    }
+
+const DragAndDropCalendar = withDragAndDrop(Calendar);
+const localizer = momentLocalizer(moment);
+
+function Calendario() {
+  const [eventos, setEventos] = useState(eventosPadrao);
+  const [eventoSelecionado, SeteventoSelecionado] = useState(null);
+  const [eventosFiltrados, setEventosFiltrados] = useState(eventosPadrao);
+
+  const eventStyle = (event) => ({
+    style: {
+      backgroundColor: event.color,
+    },
+  });
+
+  const moverEventos = (data) => {
+    const { start, end } = data;
+    const updatedEvents = eventos.map((event) => {
+      if (event.id === data.event.id) {
+        return {
+          ...event,
+          start: new Date(start),
+          end: new Date(end),
+        };
+      }
+      return event;
+    });
+    setEventos(updatedEvents);
+  };
+
+  const handleEventClick = (evento) => {
+    SeteventoSelecionado(evento);
+  };
+
+  const handleEventClose = () => {
+    SeteventoSelecionado(null);
+  };
+
+  const handleAdicionar = (novoEvento) => {
+    //Logica do banco
+    setEventos([...eventos, { ...novoEvento, id: eventos.length + 1 }]);
+  };
+
+  const handleEventDelete = (eventId) => {
+    //Logica do banco
+    const updatedEvents = eventos.filter((event) => event.id !== eventId)
+    setEventos(updatedEvents);
+    SeteventoSelecionado(null);
+  };
+
+  const handleEventUpdate = (updatedEvent) => {
+    //Logica do banco
+    const updatedEvents = eventos.map((event) => {
+      if (event.id === updatedEvent.id) {
+        return updatedEvent;
+      }
+      return event;
+    });
+    setEventos(updatedEvents);
+    SeteventoSelecionado(null);
   }
 
-const Calendario = () => {
-    function renderCell(date) {
-        const list = getTodoList(date);
-        const displayList = list.filter((item, index) => index < 2);
-    
-        if (list.length) {
-          const moreCount = list.length - displayList.length;
-          const moreItem = (
-            <li>
-              <Whisper
-                placement="top"
-                trigger="click"
-                speaker={
-                  <Popover>
-                    {list.map((item, index) => (
-                      <p key={index}>
-                        <b>{item.time}</b> - {item.title}
-                      </p>
-                    ))}
-                  </Popover>
-                }
-              >
-                <a>{moreCount} more</a>
-              </Whisper>
-            </li>
-          );
-    
-          return (
-            <ul className="calendar-todo-list">
-              {displayList.map((item, index) => (
-                <li key={index}>
-                  <Badge /> <b>{item.time}</b> - {item.title}
-                </li>
-              ))}
-              {moreCount ? moreItem : null}
-            </ul>
-          );
-        }
-    
-        return null;
-      }
-    
-    return (
-        <>
-            <Sidebar />
+  const handleSelecionarAtividades = (atividadesSelecionadas) => {
+    setEventosFiltrados(atividadesSelecionadas);
+  }
 
-            <main id="main" className="main">
-                <Calendar bordered renderCell={renderCell} />;           
-            </main>
-        </>
-    );
-};
+
+
+  return (
+    <>
+      <Sidebar />
+      <main id="main" className="main tela-calendar">
+        
+      <div className='tela ' >
+        {/* <div className='toolbar p-4' style={{maxHeight:'100vh', overflowY:'auto'}}>
+                <Adicionar onAdicionar= {handleAdicionar}/>
+
+                <FiltroAtividades atividades={eventos} onSelecionarAtividades={handleSelecionarAtividades}/>
+                </div> */}
+
+        <div className='calendario'>
+          <DragAndDropCalendar
+            defaultDate={moment().toDate()}
+            defaultView='month'
+            events={eventosFiltrados}
+            localizer={localizer}
+            resizable
+            onEventDrop={moverEventos}
+            onEventResize={moverEventos}
+            onSelectEvent={handleEventClick}
+            eventPropGetter={eventStyle}
+            components={{
+              toolbar: CustomTollbar,
+            }}
+            className='calendar'
+            />
+        </div>
+        {eventoSelecionado && (
+          <EventModal evento={eventoSelecionado} onClose={handleEventClose} onDelete={handleEventDelete} onUpdate={handleEventUpdate} />
+        )}
+      </div>
+        </main>
+    </>
+  );
+}
+
 
 export default Calendario;
-
-

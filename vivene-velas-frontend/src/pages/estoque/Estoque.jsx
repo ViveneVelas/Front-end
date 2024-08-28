@@ -4,8 +4,8 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Busca from '../../components/busca/Busca';
 
 const Estoque = () => {
-    const [showCardsEstudio, setShowCardsEstudio] = useState(false);
     const [showCardsCasa, setShowCardsCasa] = useState(false);
+    const [showCardsEstudio, setShowCardsEstudio] = useState(false);
 
     const toggleCardsCasa = () => {
         setShowCardsCasa(!showCardsCasa);
@@ -13,10 +13,10 @@ const Estoque = () => {
     const toggleCardsEstudio = () => {
         setShowCardsEstudio(!showCardsEstudio);
     };
+    
     return (
         <>
             <Sidebar />
-
             <main id="main" className="main">
                 <section className="section dashboard">
                     <div className="row">

@@ -22,7 +22,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="/">
+            <a href="/calendario">
               <i className="bi bi-calendar3-week"></i>
               {!collapsed && <span>Agenda</span>}
             </a>
