@@ -15,12 +15,12 @@ function Cardkpi({titulo, conteudo}) {
         <div className="card-icon"> {/* Ícone aqui */} </div>
       </div>
       
-      <div className="card red-card">
+      <div className="card yellow-card">
         <p className="card-title">Título</p>
         <h3 className="card-content">Conteúdo</h3>
       </div>
       
-      <div className="card yellow-card">
+      <div className="card red-card">
         <p className="card-title">Título</p>
         <h3 className="card-content">Conteúdo</h3>
       </div>

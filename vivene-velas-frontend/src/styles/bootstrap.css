@@ -1,4 +1,10 @@
 @charset "UTF-8";
+/* Título */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* Texto */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 /* Componente */
 @import url("../components/cardestoque/Cardeestoque.module.css");
 @import url("../components/sidebar/Sidebar.module.css");  
@@ -10,6 +16,16 @@
 @import url("../pages/vela/Vela.module.css");
 @import url("../pages/login/Login.module.css");
 
+
+.font-padrao{
+    font-family: "Sora" !important;
+}
+.font-Secundari{
+    font-size: "Lora" !important;
+}
+.titulo-h3{
+    font-size: 25px !important;
+}
 :root,
 [data-bs-theme=light] {
     /* Minhas variaveis */
@@ -3531,8 +3547,24 @@ fieldset:disabled .btn {
     border-color: var(--bs-btn-disabled-border-color);
     opacity: var(--bs-btn-disabled-opacity)
 }
+.btn-green{
+    background-color: #1EB736;
+    border: none;
+}
+.btn-red{
+    border: none;
+    background-color: red;
+}
+.btn-green:hover{
+    background-color: green;
+}
+.btn-red:hover{
+    background-color: rgb(164, 0, 0);
+}
 
 .btn-primary {
+    width: 180px;
+    font-size: 15px;
     --bs-btn-color: #fff;
     --bs-btn-bg: #8C5B55;
     --bs-btn-border-color: #8C5B55;
@@ -3549,7 +3581,13 @@ fieldset:disabled .btn {
     --bs-btn-disabled-border-color: #0d6efd
 }
 /* F2795C */
+.btn-secondary i{font-size: 18px;}
 .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    font-size: 15px;
     --bs-btn-color: #fff;
     --bs-btn-bg: #F2795C;
     --bs-btn-border-color: #F2795C;

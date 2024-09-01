@@ -5,6 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 const Container = styled.div`
   display: flex;
   border: 1px solid #dcdcdc;
+  position: relative;
   border-radius: 8px;
   padding: 16px;
   background-color: #ffffff;
@@ -27,14 +28,11 @@ const ImageContainer = styled.div`
 
 const Content = styled.div`
   flex: 1;
-  h3 {
-    font-size: 2m;
-    margin: 0;
-    color: #333;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   p {
-    color: #555;
     font-size: 0.85em;
     margin: 8px 0 0;
     line-height: 1.4;
@@ -55,13 +53,14 @@ const InfoContainer = styled.div`
   margin-left: 16px;
 
   .info-text {
-    color: #888;
     font-size: 0.85em;
   }
 
   .icons {
     display: flex;
     margin-top: 8px;
+    top: 10px;
+    position: absolute;
 
     svg {
       cursor: pointer;
@@ -71,14 +70,14 @@ const InfoContainer = styled.div`
   }
 `;
 
-const Cardvela = ({img, titulo, descricao, dias, id}) => {
+const Cardvela = ({img, titulo, descricao, funcaoDeletar, funcaoAlterar, id}) => {
   return (
     <Container id={id}>
       <ImageContainer>
         <img src={img} alt="Candle" />
       </ImageContainer>
       <Content>
-        <h3>{titulo}</h3>
+        <h3 className="font-padrao titulo-h3">{titulo}</h3>
         <p>
           <label htmlFor="">Descrição: </label>
           &ensp;
@@ -86,10 +85,9 @@ const Cardvela = ({img, titulo, descricao, dias, id}) => {
         </p>
       </Content>
       <InfoContainer>
-        <div className="info-text">Dias para vencer: {dias} dias</div>
         <div className="icons">
-          <FaEdit />
-          <FaTrash />
+          <FaEdit onClick={funcaoAlterar}/>
+          <FaTrash onClick={funcaoDeletar}/>
         </div>
       </InfoContainer>
     </Container>

@@ -13,7 +13,7 @@ const CustomTollbar = ({ label, onView, onNavigate, views }) => {
                 </div>
                 <div className="dropdown">
                     <button className='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-bs-toggle="dropdown" aria-expanded="false">
-                        {itemText}
+                        Mensal
                     </button>
                     <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
                         {views.map((view, index) => (
