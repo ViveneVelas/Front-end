@@ -9,7 +9,7 @@ const Cardestoque = ({ imgSrc, title, qtd, dtValidade, descr }) => {
                         <img src={imgSrc} className="img-fluid" alt="Vela de Laranja" />
                     </div>
                     <div className="col-7 d-flex flex-column p-3">
-                        <h5 className="card-title">Vela de Laranja</h5>
+                        <h4 className="">Vela de Laranja</h4>
                         <p className="card-text">Vela com aroma de laranja com pote comprido, e com tampa...</p>
                         <p className="card-text"><strong>Data de Validade:</strong> 24/11/2024</p>
                         <p className="card-text"><strong>Quantidade de velas:</strong> 70</p>

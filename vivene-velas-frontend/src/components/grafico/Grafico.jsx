@@ -7,10 +7,10 @@ const Grafico = () => {
 
   // Gerando as cores das barras dinamicamente
   const barColors = barData.map((barValue, index) => {
-    console.log("BAR VALUE "+ barValue+ "  Value Index"+ lineData[index])
-    if(barValue > lineData[index]){
-        return "#FFF"
-    }else{
+    console.log("BAR VALUE " + barValue + "  Value Index" + lineData[index])
+    if (barValue > lineData[index]) {
+      return "#FFF"
+    } else {
       return '#dc3545'; // Verde se maior, vermelho se menor
     }
   });
@@ -80,19 +80,21 @@ const Grafico = () => {
   }];
 
   return (
-    <div style={{ maxWidth: '100%', margin: '0 auto' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-        <h2 style={{ margin: 0 }}>Quantidade de vendas por meta</h2>
-        <button style={{ border: 'none', background: 'none', color: '#8b0000', fontSize: '14px', cursor: 'pointer' }}>
-          Adicionar meta +
-        </button>
+    <div className="card">
+      <div className="card-body">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <h5 style={{ margin: 0 }}>Quantidade de vendas por meta</h5>
+          <button style={{ border: 'none', background: 'none', color: '#8b0000', fontSize: '14px', cursor: 'pointer' }}>
+            Adicionar meta +
+          </button>
+        </div>
+        <Chart
+          options={chartOptions}
+          series={chartSeries}
+          type="line"
+          height="350"
+        />
       </div>
-      <Chart 
-        options={chartOptions}
-        series={chartSeries}
-        type="line"
-        height="350"
-      />
     </div>
   );
 };

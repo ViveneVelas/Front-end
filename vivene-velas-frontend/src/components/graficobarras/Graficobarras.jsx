@@ -52,7 +52,7 @@ const Graficobarras = () => {
     <div className="col-lg-8">
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title">Velas Mais Vendidas</h5>
+          <h5>Velas Mais Vendidas</h5>
           <Chart options={options} series={series} type="bar" height={350} />
         </div>
       </div>

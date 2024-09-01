@@ -4,11 +4,13 @@
 
 /* Texto */
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 /* Componente */
 @import url("../components/cardestoque/Cardeestoque.module.css");
 @import url("../components/sidebar/Sidebar.module.css");  
 @import url("../components/tabelavendas/Tabelavendas.module.css");  
+@import url("../components/tabelavelas/Tabelavelas.module.css");  
 @import url("../components/cardkpi/Cardkpi.module.css");  
 
 /* Pages */
@@ -20,11 +22,14 @@
 .font-padrao{
     font-family: "Sora" !important;
 }
-.font-Secundari{
-    font-size: "Lora" !important;
+.font-secundaria{
+    font-family: "Nunito" !important;
 }
 .titulo-h3{
     font-size: 25px !important;
+}
+h5{
+    padding: 10px;
 }
 :root,
 [data-bs-theme=light] {

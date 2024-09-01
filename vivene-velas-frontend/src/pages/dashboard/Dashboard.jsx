@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Grafico from '../../components/grafico/Grafico';
 import Graficobarras from '../../components/graficobarras/Graficobarras';
 import Cardkpi from '../../components/cardkpi/Cardkpi';
 import Tabelavendas from '../../components/tabelavendas/Tabelavendas';
+import Tabelavelas from '../../components/tabelavelas/Tabelavelas';
 
 function Dashboard() {
+  const [qtd, setQtd] = useState(null);
+  const [vela, setVela] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [quantidadeResponse, velaResponse] = await Promise.all([
+          axios.get('http://localhost:8080/vendas/semanal/quantidade', {
+            headers: {
+              'accept': '*/*',
+            },
+          }),
+          axios.get('http://localhost:8080/velas/maisvendida', {
+            headers: {
+              'accept': '*/*',
+            },
+          })
+        ]);
+        console.log("VELA + VENDIDA RESPOSTA: "+velaResponse.data[0].nomeVela)
+
+        setQtd(quantidadeResponse.data);
+        setVela(velaResponse.data);
+      } catch (error) {
+        console.error('Erro ao buscar os dados:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <Sidebar />
@@ -16,51 +48,19 @@ function Dashboard() {
             <div className="col-lg-12">
               <div className="row">
                 <Cardkpi
-                  titulo={"Vela mais vendida"}
-                  conteudo={"Vela de Laranja"}
+                  velaVendia={vela[0].nomeVela}
+                  qtd={qtd}
                 />
               </div>
-              {/* Gráficos e Tabelas */}
               <div className="col-lg-12 row">
                 <div className='col-lg-8'>
-
                   <Grafico />
                 </div>
                 
                 <div className="col-lg-4">
-                  <div className="card">
-                    <div className="card-body">
-                      <h5 className="card-title">Velas em Vencimento</h5>
-                      <table className="table table-striped">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Quantidade</th>
-                            <th scope="col">Data</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Vela de Morango</td>
-                            <td>8</td>
-                            <td>2016-05-25</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Vela de Chocolate</td>
-                            <td>3</td>
-                            <td>2014-12-05</td>
-                          </tr>
-                          {/* Adicione mais linhas conforme necessário */}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                  <Tabelavelas />
                 </div>
               </div>
-              {/* Outra linha de gráficos/tabelas */}
               <div className="col-lg-12 row">
                 <div className="col-lg-4">
                   <Tabelavendas />

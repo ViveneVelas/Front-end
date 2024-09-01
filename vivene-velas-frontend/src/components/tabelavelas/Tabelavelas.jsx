@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tabelavendas = () => {
+const Tabelavelas = () => {
     const dados = [
         { nome: 'Carlos Andrade', vendas: 20 },
         { nome: 'Carlos Andrade', vendas: 20 },
@@ -14,21 +14,26 @@ const Tabelavendas = () => {
     return (
         <>
             <div className="table-container card">
-            <h5>Clientes Mais Assíduos </h5>
+                <h5 className="">Velas em Vencimento</h5>
                 <table className="tabela-vendas">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Quantidade de vendas</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Data</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {dados.map((item, index) => (
-                            <tr key={index}>
-                                <td>{item.nome}</td>
-                                <td>{item.vendas}</td>
-                            </tr>
-                        ))}
+                        <tr>
+                            <td>Vela de Morango</td>
+                            <td>8</td>
+                            <td>2016-05-25</td>
+                        </tr>
+                        <tr>
+                            <td>Vela de Chocolate</td>
+                            <td>3</td>
+                            <td>2014-12-05</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -36,4 +41,4 @@ const Tabelavendas = () => {
     );
 };
 
-export default Tabelavendas;
+export default Tabelavelas;
