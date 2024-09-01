@@ -29,7 +29,7 @@ function Dashboard() {
         console.log("VELA + VENDIDA RESPOSTA: "+velaResponse.data[0].nomeVela)
 
         setQtd(quantidadeResponse.data);
-        setVela(velaResponse.data);
+        setVela(velaResponse.data[0].nomeVela);
       } catch (error) {
         console.error('Erro ao buscar os dados:', error);
       }
@@ -48,7 +48,7 @@ function Dashboard() {
             <div className="col-lg-12">
               <div className="row">
                 <Cardkpi
-                  velaVendia={vela[0].nomeVela}
+                  velaVendia={vela}
                   qtd={qtd}
                 />
               </div>

@@ -1,6 +1,9 @@
-import React from "react";
+import { useState } from 'react';
 import styled from "styled-components";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -70,27 +73,74 @@ const InfoContainer = styled.div`
   }
 `;
 
-const Cardvela = ({img, titulo, descricao, funcaoDeletar, funcaoAlterar, id}) => {
+const Cardvela = ({ img, titulo, descricao, funcaoDeletar, funcaoAlterar, id, preco, tamanho }) => {
+  
+  
+  const deleteVela = async () => {
+    try {
+      const response = await axios.delete(`http://localhost:8080/velas/${id}`, {
+        headers: {
+          'accept': '*/*'
+        }
+      });
+      console.log('Vela deletada com sucesso:', response.data);
+    } catch (error) {
+      console.error('Erro ao deletar a vela:', error);
+    }
+    window.location.reload();
+  };
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <Container id={id}>
-      <ImageContainer>
-        <img src={img} alt="Candle" />
-      </ImageContainer>
-      <Content>
-        <h3 className="font-padrao titulo-h3">{titulo}</h3>
-        <p>
-          <label htmlFor="">Descrição: </label>
-          &ensp;
-          {descricao}
-        </p>
-      </Content>
-      <InfoContainer>
-        <div className="icons">
-          <FaEdit onClick={funcaoAlterar}/>
-          <FaTrash onClick={funcaoDeletar}/>
-        </div>
-      </InfoContainer>
-    </Container>
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{titulo}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Tem certeza que deseja deletar essa vela?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancelar
+          </Button>
+          <Button variant="primary" onClick={deleteVela}>
+            Deletar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Container id={id} className="col-lg-12">
+        <ImageContainer>
+          <img src={img} alt="Candle" />
+        </ImageContainer>
+        <Content>
+          <h3 className="font-padrao titulo-h3">{titulo}</h3>
+          <p>
+            <label htmlFor="">Descrição: </label>
+            &ensp;
+            {descricao}
+          </p>
+          <p>
+            <label htmlFor="">Preço: </label>
+            &ensp;
+            {preco}
+          </p>
+          <p>
+            <label htmlFor="">Tamanho: </label>
+            &ensp;
+            {tamanho}
+          </p>
+        </Content>
+        <InfoContainer>
+          <div className="icons">
+            <FaEdit onClick={funcaoAlterar} />
+            <FaTrash onClick={handleShow} />
+          </div>
+        </InfoContainer>
+      </Container>
+    </>
   );
 };
 
