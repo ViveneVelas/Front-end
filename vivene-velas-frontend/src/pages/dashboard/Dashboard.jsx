@@ -15,7 +15,7 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const [quantidadeResponse, velaResponse] = await Promise.all([
-          axios.get('http://localhost:8080/vendas/semanal/quantidade', {
+          axios.get('http://localhost:8080/velas/maisvendida', {
             headers: {
               'accept': '*/*',
             },
@@ -28,7 +28,8 @@ function Dashboard() {
         ]);
         console.log("VELA + VENDIDA RESPOSTA: "+velaResponse.data[0].nomeVela)
 
-        setQtd(quantidadeResponse.data);
+        // setQtd(quantidadeResponse.data);
+        setQtd(10);
         setVela(velaResponse.data[0].nomeVela);
       } catch (error) {
         console.error('Erro ao buscar os dados:', error);

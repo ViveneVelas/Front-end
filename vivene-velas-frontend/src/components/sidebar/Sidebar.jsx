@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styles from './Sidebar.module.css'; // Importe o CSS Module
 
 const Sidebar = () => {
@@ -7,6 +8,11 @@ const Sidebar = () => {
   const handleToggle = () => {
     setCollapsed(!collapsed);
   };
+
+  const back = () => {
+      localStorage.clear()
+      window.location.href = '/login';
+  }
 
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
@@ -51,8 +57,8 @@ const Sidebar = () => {
               {!collapsed && <span>Clientes</span>}
             </a>
           </li>
-          <li>
-            <a href="/login">
+          <li onClick={back}>
+            <a>
               <i className="bi bi-box-arrow-right"></i>
               {!collapsed && <span>Sair</span>}
             </a>

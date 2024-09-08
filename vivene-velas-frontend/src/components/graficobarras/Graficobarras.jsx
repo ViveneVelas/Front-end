@@ -1,7 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Chart from 'react-apexcharts';
 
 const Graficobarras = () => {
+  const [velas, setVela] = useState([]);
+  const [nome, setNome] = useState([]); 
+  const [qtd, setQtd] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const velaResponse = await axios.get('http://localhost:8080/velas/top-mais-vendidas', {
+          headers: {
+            'accept': '*/*',
+          },
+        });
+        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].totalVendido);
+        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].nomeVela);
+        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data.length);
+
+        setVela(velaResponse.data);
+      } catch (error) {
+        console.error('Erro ao buscar os dados:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (velas.length > 0) {
+      const novoNome = [];
+      const novoQtd = [];
+      for (let cont = 0; cont < velas.length; cont++) {
+        novoQtd[cont] = velas[cont].totalVendido;
+        novoNome[cont] = velas[cont].nomeVela;
+      }
+
+      setNome(novoNome); // Atualiza o estado 'nome'
+      setQtd(novoQtd); // Atualiza o estado 'soma'
+
+      console.log("NOMES:", novoNome);
+      console.log("SOMAS:", novoQtd);
+    }
+  }, [velas]);
+
+
   const options = {
     chart: {
       type: 'bar',
@@ -24,7 +68,7 @@ const Graficobarras = () => {
       colors: ['#F7AF9D']
     },
     xaxis: {
-      categories: ['Café', 'Chocolate', 'Lavanda', 'Framboesa'],
+      categories: nome,
     },
     yaxis: {
       title: {
@@ -45,7 +89,7 @@ const Graficobarras = () => {
 
   const series = [{
     name: 'Net Profit',
-    data: [44, 55, 57, 5]
+    data: qtd
   }];
 
   return (

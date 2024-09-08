@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Tabelavendas = () => {
-    const dados = [
-        { nome: 'Carlos Andrade', vendas: 20 },
-        { nome: 'Carlos Andrade', vendas: 20 },
-        { nome: 'Carlos Andrade', vendas: 20 },
-        { nome: 'Carlos Andrade', vendas: 20 },
-        { nome: 'Carlos Andrade', vendas: 20 },
-        { nome: 'Carlos Andrade', vendas: 20 },
-        { nome: 'Carlos Andrade', vendas: 20 }
-    ];
-
+    const [dados, setDados] = useState([]); // Variável global para 'nome'
+    
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const velaResponse = await axios.get('http://localhost:8080/clientes/clientes-mais-compras', {
+            headers: {
+              'accept': '*/*',
+            },
+          });
+    
+          setDados(velaResponse.data); // Atualiza o estado 'velas'
+        } catch (error) {
+          console.error('Erro ao buscar os dados:', error);
+        }
+      };
+    
+      fetchData();
+    }, []);
+    
+    
     return (
         <>
             <div className="table-container card">
@@ -25,8 +37,8 @@ const Tabelavendas = () => {
                     <tbody>
                         {dados.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.nome}</td>
-                                <td>{item.vendas}</td>
+                                <td>{item.nomeCliente}</td>
+                                <td>{item.numPedidos}</td>
                             </tr>
                         ))}
                     </tbody>

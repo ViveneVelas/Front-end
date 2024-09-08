@@ -3,7 +3,9 @@
     gap: 16px; /* Espaçamento entre os cards */
     justify-content: space-between; /* Distribui os cards com espaçamento igual */
   }
-  
+  .h3-nine{
+    font-size: 18px !important;
+  }
   .card {
     background-color: #fff;
     border-radius: 8px;

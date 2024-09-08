@@ -875,7 +875,10 @@ progress {
         max-width: 1320px
     }
 }
-
+.reverse{
+    display: flex;
+    flex-direction: row-reverse;
+}
 :root {
     --bs-breakpoint-xs: 0;
     --bs-breakpoint-sm: 576px;

@@ -7,7 +7,7 @@ const Grafico = () => {
 
   // Gerando as cores das barras dinamicamente
   const barColors = barData.map((barValue, index) => {
-    console.log("BAR VALUE " + barValue + "  Value Index" + lineData[index])
+    // console.log("BAR VALUE " + barValue + "  Value Index" + lineData[index])
     if (barValue > lineData[index]) {
       return "#FFF"
     } else {

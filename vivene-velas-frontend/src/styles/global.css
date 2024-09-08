@@ -42,7 +42,6 @@ a{
 --------------------------------------------------------------*/
 @import "rsuite/dist/rsuite.css";
 
-#root{ padding: 10px; }
 .calendar-todo-list {
     text-align: left;
     padding: 0;

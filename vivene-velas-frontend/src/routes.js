@@ -4,6 +4,7 @@ import Estoque from "./pages/estoque/Estoque";
 import Vela from "./pages/vela/Vela";
 import Calendario from "./pages/calendario/Calendario";
 import Login from './pages/login/Login'
+import Cadastro from './pages/cadastro/Cadastro'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -12,11 +13,13 @@ function Rotas() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/" element={<Login />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/vela" element={<Vela />} />
                     <Route path="/estoque" element={<Estoque />} />
                     <Route path="/calendario" element={<Calendario />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/cadastro" element={<Cadastro />} />
                 </Routes>
             </BrowserRouter>
         </>
