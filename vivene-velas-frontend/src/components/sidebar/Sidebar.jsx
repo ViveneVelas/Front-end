@@ -17,31 +17,31 @@ const Sidebar = () => {
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
       <button className={styles.toggleBtn} onClick={handleToggle}>
-        {collapsed ? '☰' : '×'}
+        {collapsed ? <i class="bi bi-list"></i> : <i class="bi bi-x-lg"></i>}
       </button>
       <nav className={styles.nav}>
         <ul>
           <li>
-            <a href="/">
-              <i className="bi bi-grid"></i>
+            <a href="/dashboard">
+              <i className="bi bi-bar-chart"></i>
               {!collapsed && <span>Dashboard</span>}
             </a>
           </li>
           <li>
             <a href="/calendario">
-              <i className="bi bi-calendar3-week"></i>
+              <i class="bi bi-calendar4-week"></i>
               {!collapsed && <span>Agenda</span>}
             </a>
           </li>
           <li>
-            <a href="/">
+            <a href="/cadastro-velas">
               <i className="bi bi-plus-lg"></i>
               {!collapsed && <span>Adicionar Velas</span>}
             </a>
           </li>
           <li>
             <a href="/estoque">
-              <i className="bi bi-box"></i>
+              <i className="bi bi-boxes"></i>
               {!collapsed && <span>Estoque</span>}
             </a>
           </li>
@@ -53,8 +53,8 @@ const Sidebar = () => {
           </li>
           <li>
             <a href="/">
-              <i className="bi bi-people"></i>
-              {!collapsed && <span>Clientes</span>}
+            <i class="bi bi-clipboard-plus"></i>
+              {!collapsed && <span>pedidos</span>}
             </a>
           </li>
           <li onClick={back}>
