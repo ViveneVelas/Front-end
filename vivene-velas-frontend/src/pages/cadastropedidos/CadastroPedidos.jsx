@@ -107,8 +107,8 @@ const CadastroPedidos = () => {
 
                     <div className='form-buttons'>
 
-                        <button className='cancel-button'>Cancelar Pedido</button>
-                        <button className='confirm-button'>Salvar Pedido</button>
+                        <button className='cancel-button' onClick={""}>Cancelar Pedido</button>
+                        <button className='confirm-button'onClick={""}>Salvar Pedido</button>
 
                     </div>
 

@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import './CadastroVelas.modules.css';
 import Sidebar from '../../components/sidebar/Sidebar';
+import { useNavigate } from 'react-router-dom'
 
 const CadastroVelas = () => {
 
     const [image, setImage] = useState(null);
+
+    const navigate = useNavigate();
+
+
+    const vela = () => {
+        navigate('/vela');
+    };
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -68,8 +76,8 @@ const CadastroVelas = () => {
 
                     <div className='form-buttons'>
 
-                        <button className='cancel-button'>Cancelar</button>
-                        <button className='confirm-button'>Adicionar Vela</button>
+                        <button className='cancel-button' onClick={vela}>Cancelar</button>
+                        <button className='confirm-button' onClick={vela}>Adicionar Vela</button>
 
                     </div>
 
