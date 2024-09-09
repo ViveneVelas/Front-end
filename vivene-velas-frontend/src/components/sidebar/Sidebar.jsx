@@ -52,7 +52,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="/">
+            <a href="/cadastro-pedidos">
             <i class="bi bi-clipboard-plus"></i>
               {!collapsed && <span>pedidos</span>}
             </a>
