@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./CadastroPedidos.modules.css"
 import Sidebar from '../../components/sidebar/Sidebar';
 
+
 const CadastroPedidos = () => {
 
     const [image, setImage] = useState(null);
