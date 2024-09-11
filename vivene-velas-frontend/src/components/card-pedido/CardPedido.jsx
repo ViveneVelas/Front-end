@@ -4,6 +4,8 @@ import Styles from "./CardPedido.module.css"
 const CardPedido = ({ tipoVela, qtde, nomeCliente, qtdeCompra }) => {
     return (
         <>
+        <div className={Styles['card-container']}>
+
             <div className={Styles['card-pedidos']}>
 
                 <div className={Styles['div-card-dados']}>
@@ -39,6 +41,8 @@ const CardPedido = ({ tipoVela, qtde, nomeCliente, qtdeCompra }) => {
                 </div>
 
             </div>
+
+        </div>
         </>
     );
 };

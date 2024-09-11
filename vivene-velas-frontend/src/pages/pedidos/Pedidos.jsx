@@ -4,14 +4,21 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import BarraData from '../../components/barradata/BarraData';
 
 const Pedidos = () => {
-   
-    
+
+    // const[barraAberta, setBarraAberta] = useState(false)
+
+    // const pedidosAbertos = () => setAberto(!aberto)
+
+
     return (
         <>
             {/* <Sidebar /> */}
-            
-            <CardPedido/>
-            <BarraData/>
+            <div>
+                <BarraData />
+           
+            </div>
+
+
 
         </>
     );
