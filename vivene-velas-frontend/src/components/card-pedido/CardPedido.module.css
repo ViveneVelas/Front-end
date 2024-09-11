@@ -11,6 +11,10 @@
     padding-top: 16px;
 }
 
+.card-pedidos:hover{
+    background-color: #f2f2f2a4;
+}
+
 .botao-cancelar{
     background-color: white;
     color: #8C5B55;

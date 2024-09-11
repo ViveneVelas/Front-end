@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import CardPedido from "../../components/card-pedido/CardPedido"
+import CardPedido from '../../components/card-pedido/CardPedido';
 import Sidebar from '../../components/sidebar/Sidebar';
-import Busca from '../../components/busca/Busca';
+import BarraData from '../../components/barradata/BarraData';
 
 const Pedidos = () => {
    
@@ -11,6 +11,7 @@ const Pedidos = () => {
             {/* <Sidebar /> */}
             
             <CardPedido/>
+            <BarraData/>
 
         </>
     );

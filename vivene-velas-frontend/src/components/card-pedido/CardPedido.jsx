@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from "../card-pedido/CardPedido.module.css"
+import Styles from "./CardPedido.module.css"
 
 const CardPedido = ({ tipoVela, qtde, nomeCliente, qtdeCompra }) => {
     return (

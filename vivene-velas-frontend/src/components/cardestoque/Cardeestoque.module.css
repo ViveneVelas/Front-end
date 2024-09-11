@@ -29,8 +29,3 @@
 h4{
     margin-left: -2px;
 }
-@media (max-width: 768px) {
-    .card p {
-        font-size: 0.875rem;
-    }
-}
