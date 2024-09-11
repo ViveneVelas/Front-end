@@ -2,9 +2,21 @@ import React, { useState } from 'react';
 import Style from './BarraData.module.css'
 import CardPedido from '../card-pedido/CardPedido';
 
-const BarraData = ({ diaSemana, data }) => {
-
+const BarraData = ({diaSemana, data}) => {
+    // tipoVela, qtde, nomeCliente, qtdeCompra
     const [aberto, setAberto] = useState(false)
+    const [array, setArray] = useState([{tipoVela: 'Cacau', 
+                                        qtde: '3',
+                                        nomeCliente: "Carlinhos",
+                                        qtdeCompra: "10"},
+                                        {tipoVela: 'Morango Silvestre', 
+                                            qtde: '1',
+                                            nomeCliente: "Claudete",
+                                            qtdeCompra: "10"},
+                                        {tipoVela: 'Café', 
+                                         qtde: '3',
+                                         nomeCliente: "Claudete",
+                                         qtdeCompra: "11"}])
 
     const barraAberta = () => setAberto(!aberto)
 
@@ -24,7 +36,21 @@ const BarraData = ({ diaSemana, data }) => {
 
                 <div className={Style['div-card-pedido']}>
 
-                    {aberto ? <CardPedido /> : null}
+                    {aberto && (array.map((item, index)=> (
+
+                        <CardPedido 
+                        id={`card-pedido-${index}`}
+                        tipoVela={item.tipoVela}
+                        qtde={item.qtde}
+                        nomeCliente={item.nomeCliente}
+                        qtdeCompra={item.qtdeCompra}
+                    
+                        /> 
+
+                    ))
+                      
+                    
+                    )}
 
                 </div>
 

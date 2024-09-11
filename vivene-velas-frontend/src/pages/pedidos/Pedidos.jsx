@@ -12,7 +12,8 @@ const Pedidos = () => {
 
     return (
         <>
-            {/* <Sidebar /> */}
+            <Sidebar />
+            
             <div>
                 <BarraData />
            

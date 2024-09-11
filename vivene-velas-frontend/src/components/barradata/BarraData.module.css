@@ -22,4 +22,5 @@ width: 65%;
     width: 65%;
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
