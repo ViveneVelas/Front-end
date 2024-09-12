@@ -39,6 +39,8 @@ const Pedidos = () => {
                 <div className={style['dados-pedido']}>
 
                     <BarraData />
+                    <BarraData />
+                    <BarraData />
 
                 </div>
 

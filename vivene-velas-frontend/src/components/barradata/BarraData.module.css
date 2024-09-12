@@ -16,7 +16,7 @@ width: 90%;
     flex-direction: column;
     justify-content: center;
     min-width: 10vw;
-
+    margin-bottom: 40px;
 }
 
 .div-card-pedido{
