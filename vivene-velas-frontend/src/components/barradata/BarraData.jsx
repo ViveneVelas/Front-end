@@ -27,7 +27,7 @@ const BarraData = ({diaSemana, data}) => {
                 <div>
                     <div className={Style['div-data']} onClick={barraAberta}>
                         <div>
-                            <span>Dia de hoje</span> <span> - </span> <span>DATA</span>
+                            <span>08/09/2024</span> <span> - </span> <span>Domingo</span>
                         </div>
                         {aberto ? <i class="bi bi-chevron-down"></i> : <i class="bi bi-chevron-up"></i>}
                     </div>
