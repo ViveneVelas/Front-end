@@ -3,6 +3,12 @@
 O projeto foi desenvolvido utilizando **React** e documentado em português. <br>
 [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev)
 
+## Andamento do projeto
+
+<p align = "center">
+<img src="https://img.shields.io/static/v1?label=STATUS&message=EM%20ANDAMENTO&color=yellow&style=for-the-badge"/>
+</p>
+
 ## Convenções de Codificação
 
 - **Padrão para Variáveis:** Camel Case
