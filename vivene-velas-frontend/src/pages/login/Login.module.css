@@ -9,13 +9,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fff5f1;
+    background-color: #ffffff;
   }
   
   .login-card {
     display: flex;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.37);
     border-radius: 8px;
     overflow: hidden;
   }
