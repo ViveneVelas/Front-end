@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+  .login-card {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.37);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .mini-p{
+    font-size: 15px;
+  }
+  .login-image img {
+    width: 400px;
+    height: 100%;
+  }
+  
+  .login-form {
+    width: 500px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-form button {
+    background-color: #ff725e;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .login-form button:hover {
+    background-color: #ff9980;
+  }
+  
+  .login-form a {
+    color: #7CC6D7;
+  }
+  footer{
+    position: absolute;
+    bottom: 0;
+    height: 10vh;
+    width: 100%;
+    background-color: #F2795C;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 80px;
+    border-radius: 100px;
+    background-color: #F7AF9D;
+    position: absolute;
+    top: 0;
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .signup-btn {
+    background-color: transparent;
+    border: 3px solid #8C5B55;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #8C5B55;
+    font-weight: bold;
+  }
+  .login-form label{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .signup-btn:hover {
+    background-color: #8C5B55;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .login-card {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .login-image img {
+      width: 100%;
+    }
+  }
+  

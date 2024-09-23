@@ -1,0 +1,57 @@
+.four-cards-container {
+    display: flex;
+    gap: 16px; /* Espaçamento entre os cards */
+    justify-content: space-between; /* Distribui os cards com espaçamento igual */
+  }
+  .h3-nine{
+    font-size: 18px !important;
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    flex: 1; /* Faz com que todos os cards tenham a mesma largura */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-title {
+    font-size: 14px;
+    color: #060606;
+  }
+  
+  .card-content {
+    font-size: 24px;
+  }
+  
+  .orange-card {
+    border-left: 8px solid #7A3C2F !important;
+  }
+  
+  .green-card {
+    border-left: 8px solid #7A3C2F !important;
+  }
+  
+  .red-card {
+    border-left: 8px solid #7A3C2F !important;
+  }
+  
+  .yellow-card {
+    border-left: 8px solid #7A3C2F !important;
+  }
+
+
+  .card_kpi{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    width: 28%;
+    height: 80%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  

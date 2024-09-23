@@ -1,0 +1,12 @@
+.card-estoque{
+    display: flex;
+    gap: 10px;
+}
+
+.text-plus{
+    color: "#8C5B55";
+}
+
+.sub-title-h4{
+    margin-bottom: -10px;
+}

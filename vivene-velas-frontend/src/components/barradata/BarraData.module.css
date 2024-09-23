@@ -1,0 +1,27 @@
+.estilo-hr{
+    width: 90%;
+    background-color: black;
+    height: 1px;
+   
+}
+
+.div-data{
+display: flex;
+justify-content: space-between;
+width: 90%;
+}
+
+.div-pedido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 10vw;
+    margin-bottom: 40px;
+}
+
+.div-card-pedido{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
