@@ -1,0 +1,91 @@
+.card-pedidos{
+    background-color: white;
+    box-shadow: 0px 0px 8px 1px rgba(163, 161, 163, 0.363);
+    width: 98%;
+    height: 80px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 16px;
+}
+
+.card-container{
+    margin-top: 2.5vh;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #4eff08; */
+}
+
+.card-pedidos:hover{
+    background-color: #f2f2f2;
+}
+
+.botao-cancelar{
+    background-color: white;
+    color: #8C5B55;
+    border: 1px solid #8C5B55;
+    border-radius: 6px;
+    width: 49%;
+    height: 27px;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-cancelar:hover{
+    background-color: #8C5B55;
+    color: white;
+}
+
+.botao-reagendar{
+    background-color: #F2795C;
+    color: white;
+    border-radius: 6px;
+    width: 49%;
+    height: 27px;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-reagendar:hover{
+    background-color: #8C5B55;
+    color: white;
+}
+
+.div-botao{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    padding-bottom: 8px;
+}
+
+.titulo{
+    font-weight: 500;
+}
+
+.div-dados-pedido{
+    height: 35px;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.div-card-dados{
+    padding-top: 16px;
+    height: 130%;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}

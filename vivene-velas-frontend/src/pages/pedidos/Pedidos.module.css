@@ -1,0 +1,80 @@
+.dados-pedido{
+    /* display: flex;
+    /* align-items: center; */
+    /* justify-content: center;
+     background-color: bisque; */ 
+    /* background-color: aqua; */
+    width: 90%;
+    margin-left: 12%;
+}
+
+.div-global{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div-busca-input{
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+    align-items: center;
+    border: 2px solid #8C5B55;
+    height: 30px;
+    padding-right: 4px;
+}
+
+.input{
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    outline: none;
+    height: 25px;
+}
+
+.bi-search {
+    color: #D4A190; /* Cor do ícone */
+    padding: 0 5px;
+}
+
+.botao-filtrar{
+    padding: 5px 10px;
+    margin-left: 14px;
+    border: none;
+    background-color: #F2795C;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.div-caixa-busca{
+    display: flex;
+    align-items: center;
+    border: none;
+    flex-grow: 1;
+}
+
+
+.botao-adicionar-pedido{
+    background-color: #F2795C;
+    cursor: pointer;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 6px;  
+    width: 170px;
+}
+
+.div-topo-busca-filtro{
+    display: flex;
+    width: 81%;
+    align-items: row;
+    /* align-items: center; */
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}

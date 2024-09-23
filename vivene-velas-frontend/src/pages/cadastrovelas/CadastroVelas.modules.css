@@ -1,0 +1,145 @@
+.form-group {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.form-input {
+    margin: 3px;
+    width: 360px;
+    height: 32px;
+    border: 1px solid #8C5B55;
+    border-radius: 8px;
+    /* outline: none; */
+}
+
+.form-label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.8rem;
+    color: #8C5B55;
+    transition: 0.2s ease all;
+    pointer-events: none;
+    background: white;
+    padding: 0 0.2rem;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -1.5rem;
+    left: 0.8rem;
+    font-size: 0.75rem;
+    color: #8C5B55;
+}
+
+.image-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #8C5B55;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #8C5B55;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    position: absolute;
+    top: 24.2rem;
+    left: 23.7rem;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.815); 
+    border-radius: 15px;
+    height: 40px;
+    padding: 0.5rem; 
+    display: flex;
+    align-items: center;
+}
+
+.upload-text {
+    margin-top: 2rem;
+}
+
+.uploaded-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.form-align-card {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.form-text-area{
+    margin: 3px;
+    width: 360px;
+    height: 150px;
+    padding: 0.8rem;
+    border: 1px solid #8C5B55;
+    border-radius: 4px;
+    outline: none;
+}
+
+.form-text-area:focus + .form-label,
+.form-text-area:not(:placeholder-shown) + .form-label {
+    top: -1.5rem;
+    left: 0.8rem;
+    font-size: 0.75rem;
+    color: #8C5B55;
+}
+
+
+.div-imputs-form {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+
+.confirm-button {
+    background-color: #4ECA5A;
+    color: white;
+    width: 120px;
+    border-radius: 4px;
+    height: 30px;
+    margin: 4px;
+}
+
+
+.cancel-button{
+    background-color: #D94D4D;
+    color: white;
+    width: 120px;
+    border-radius: 4px;
+    height: 30px;
+    margin: 4px;
+
+}
+
+.form-buttons{
+    display: flex;
+    align-items: center;
+    flex-direction: end;
+}
