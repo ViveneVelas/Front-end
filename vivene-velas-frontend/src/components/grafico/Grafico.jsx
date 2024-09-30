@@ -9,9 +9,9 @@ const Grafico = () => {
   const barColors = barData.map((barValue, index) => {
     // console.log("BAR VALUE " + barValue + "  Value Index" + lineData[index])
     if (barValue > lineData[index]) {
-      return "#FFF"
+      return "#E43939"
     } else {
-      return '#dc3545'; // Verde se maior, vermelho se menor
+      return '#64D82D'; // Verde se maior, vermelho se menor
     }
   });
 

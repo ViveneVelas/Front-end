@@ -6,7 +6,6 @@ import Graficobarras from '../../components/graficobarras/Graficobarras';
 import Cardkpi from '../../components/cardkpi/Cardkpi';
 import Tabelavendas from '../../components/tabelavendas/Tabelavendas';
 import Tabelavelas from '../../components/tabelavelas/Tabelavelas';
-import style from "./Dashboard.module.css"
 
 function Dashboard() {
   const [qtd, setQtd] = useState(null);
@@ -27,7 +26,7 @@ function Dashboard() {
             },
           })
         ]);
-        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].nomeVela)
+        console.log("VELA + VENDIDA RESPOSTA: "+velaResponse.data[0].nomeVela)
 
         // setQtd(quantidadeResponse.data);
         setQtd(10);
@@ -44,46 +43,35 @@ function Dashboard() {
     <>
       <Sidebar />
 
-      <div className={style['div_pagina']}>
-
-        {/* KPIS */}
-        <div className='div_kpis'>
-          <Cardkpi
-            velaVendia={vela}
-            qtd={qtd}
-          />
-        </div>
-
-        {/* Gráfico e tabela 1 */}
-        <div className={style['div_grafico_tabela']}>
-
-          <div className={style['div_grafico']}>
-            <Grafico />
+      <main id="main" className="main">
+        <section className="section dashboard">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="row">
+                <Cardkpi
+                  velaVendia={vela}
+                  qtd={qtd}
+                />
+              </div>
+              <div className="col-lg-12 row">
+                <div className='col-lg-8'>
+                  <Grafico />
+                </div>
+                
+                <div className="col-lg-4">
+                  <Tabelavelas />
+                </div>
+              </div>
+              <div className="col-lg-12 row">
+                <div className="col-lg-4">
+                  <Tabelavendas />
+                </div>
+                <Graficobarras />
+              </div>
+            </div>
           </div>
-
-          <div className={style['div_tabela']}>
-            <Tabelavelas />
-
-          </div>
-        </div>
-
-        {/* Gráfico e tabela 2 */}
-        <div className={style['div_grafico_tabela']}>
-
-          <div className={style['div_tabela']}>
-            <Tabelavelas />
-
-          </div>
-
-          <div className={style['div_grafico']}>
-            <Graficobarras />
-          </div>
-
-
-        </div>
-
-
-      </div>
+        </section>
+      </main>
     </>
   );
 };

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import dashIcon from '../../img/dashIcon.svg'
+import calendarioIcon from '../../img/calendarioIcon.svg'
+
 import styles from './Sidebar.module.css'; // Importe o CSS Module
 
 const Sidebar = () => {
@@ -23,13 +26,13 @@ const Sidebar = () => {
         <ul>
           <li>
             <a href="/dashboard">
-              <i className="bi bi-bar-chart"></i>
+              <i><img src= {dashIcon} alt="" /></i>
               {!collapsed && <span>Dashboard</span>}
             </a>
           </li>
           <li>
             <a href="/calendario">
-              <i class="bi bi-calendar4-week"></i>
+              <i><img src= {calendarioIcon} alt="" /></i>
               {!collapsed && <span>Agenda</span>}
             </a>
           </li>
