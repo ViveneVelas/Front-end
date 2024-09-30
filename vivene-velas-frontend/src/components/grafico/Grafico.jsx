@@ -1,5 +1,6 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
+import styel from "./Grafico.module.css"
 
 const Grafico = () => {
   const lineData = [12, 10, 15, 20, 13, 18]; // Dados da linha
@@ -80,7 +81,7 @@ const Grafico = () => {
   }];
 
   return (
-    <div className="card">
+    <div className={styel["grafico"]}>
       <div className="card-body">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <h5 style={{ margin: 0 }}>Quantidade de vendas por meta</h5>
