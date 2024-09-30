@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from 'react-apexcharts';
+import styel from "./Graficobarras.module.css"
 
 const Graficobarras = () => {
   const [velas, setVela] = useState([]);
@@ -93,8 +94,8 @@ const Graficobarras = () => {
   }];
 
   return (
-    <div className="col-lg-8">
-      <div className="card">
+    <div className={styel["grafico"]}>
+      <div>
         <div className="card-body">
           <h5>Velas Mais Vendidas</h5>
           <Chart options={options} series={series} type="bar" height={350} />
