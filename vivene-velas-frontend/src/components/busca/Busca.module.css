@@ -1,0 +1,23 @@
+.div-busca-input{
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+    align-items: center;
+    border: 2px solid #8C5B55;
+    height: 33px;
+    padding-right: 4px;
+}
+
+.input{
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    outline: none;
+    height: 25px;
+    color: #8C5B55;
+}   
+
+input::placeholder{
+    color: #8C5B55;
+    font-weight: 650;
+}

@@ -17,7 +17,8 @@ const Estoque = () => {
     return (
         <>
             <Sidebar />
-            <main id="main" className="main">
+
+             <main id="main" className="main">
                 <section className="section dashboard">
                     <div className="row">
                         <div className="col-lg-12">
@@ -142,7 +143,7 @@ const Estoque = () => {
                         </div>
                     </div>
                 </section>
-            </main>
+            </main> 
         </>
     );
 };

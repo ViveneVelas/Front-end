@@ -1,12 +1,14 @@
 import React from "react";
+import style from "./Busca.module.css"
+import lupa from "../../img/lupaIcon.svg"
 
 const Busca = () => {
     return (
         <>
 
-            <div className="input-group">
-                <input type="text" className="form-control" placeholder="Buscar vela pelo nome" aria-label="Buscar vela pelo nome" />
-                <span className="input-group-text"><i className="bi bi-search"></i></span>
+            <div className={style['div-busca-input']}>
+                <input type="text" placeholder='Buscar vela pelo nome' className={style['input']} />
+                <i><img src={lupa} alt="Lupa" /></i>
             </div>
         </>
     );
