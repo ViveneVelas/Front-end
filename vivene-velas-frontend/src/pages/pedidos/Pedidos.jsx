@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import style from './Pedidos.module.css'
 import Sidebar from '../../components/sidebar/Sidebar';
 import BarraData from '../../components/barradata/BarraData';
+import Busca from '../../components/busca/Busca';
 
 const Pedidos = () => {
 
@@ -16,10 +17,7 @@ const Pedidos = () => {
                 <div className={style['div-topo-busca-filtro']}>
                     <div className={style['div-caixa-busca']}>
 
-                        <div className={style['div-busca-input']}>
-                            <input type="text" placeholder='Buscar vela pelo nome' className={style['input']} />
-                            <i className=' bi bi-search'></i>
-                        </div>
+                        <Busca/>
 
                         <div >
                             <button className={style['botao-filtrar']}>
