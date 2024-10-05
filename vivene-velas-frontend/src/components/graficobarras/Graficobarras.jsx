@@ -16,9 +16,9 @@ const Graficobarras = () => {
             'accept': '*/*',
           },
         });
-        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].totalVendido);
-        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].nomeVela);
-        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data.length);
+        // console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].totalVendido);
+        // console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].nomeVela);
+        // console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data.length);
 
         setVela(velaResponse.data);
       } catch (error) {
