@@ -27,10 +27,10 @@ function Dashboard() {
             },
           })
         ]);
-        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0].nomeVela)
+        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0])
 
         // setQtd(quantidadeResponse.data);
-        setQtd(10);
+        setQtd(velaResponse.data[0].qtd);
         setVela(velaResponse.data[0].nomeVela);
       } catch (error) {
         console.error('Erro ao buscar os dados:', error);
@@ -71,7 +71,7 @@ function Dashboard() {
         <div className={style['div_grafico_tabela']}>
 
           <div className={style['div_tabela']}>
-            <Tabelavelas />
+            <Tabelavendas />
 
           </div>
 

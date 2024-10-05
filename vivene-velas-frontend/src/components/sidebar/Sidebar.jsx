@@ -18,7 +18,7 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
+    <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : styles.nonCollapsed}`}>
       <button className={styles.toggleBtn} onClick={handleToggle}>
         {collapsed ? <i class="bi bi-list"></i> : <i class="bi bi-x-lg"></i>}
       </button>
