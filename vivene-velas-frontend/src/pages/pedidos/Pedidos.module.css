@@ -39,19 +39,6 @@
     padding: 0 5px;
 }
 
-.botao-filtrar{
-    padding: 5px 10px;
-    margin-left: 14px;
-    border: none;
-    background-color: #F2795C;
-    cursor: pointer;
-    width: 100px;
-    height: 30px;
-    color: white;
-    display: flex;
-    justify-content: space-evenly;
-}
-
 
 .div-caixa-busca{
     display: flex;

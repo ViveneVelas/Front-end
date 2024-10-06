@@ -3,6 +3,7 @@ import style from './Pedidos.module.css'
 import Sidebar from '../../components/sidebar/Sidebar';
 import BarraData from '../../components/barradata/BarraData';
 import Busca from '../../components/busca/Busca';
+import Filtrar from "../../components/filtrarBusca/Filtrar"
 
 const Pedidos = () => {
 
@@ -18,13 +19,8 @@ const Pedidos = () => {
                     <div className={style['div-caixa-busca']}>
 
                         <Busca/>
-
-                        <div >
-                            <button className={style['botao-filtrar']}>
-                                <i class="bi bi-filter"></i>
-                                Filtrar
-                            </button>
-                        </div>
+                        <Filtrar/>
+                        
 
                     </div>
 

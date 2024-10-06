@@ -1,12 +1,61 @@
-.card-estoque{
-    display: flex;
-    gap: 10px;
-}
+    .card-estoque {
+        display: flex;
+        gap: 10px;
+    }
 
-.text-plus{
-    color: "#8C5B55";
-}
+    .text-plus {
+        color: "#8C5B55";
+    }
 
-.sub-title-h4{
-    margin-bottom: -10px;
-}
+    .sub-title-h4 {
+        margin-bottom: -10px;
+    }
+
+
+
+    /* div componentes do topo */
+    .div-caixa-busca {
+        display: flex;
+        align-items: center;
+        border: none;
+        flex-grow: 1;
+    }
+
+    .div-topo-busca-filtro {
+        display: flex;
+        width: 81%;
+        align-items: row;
+        /* align-items: center; */
+        justify-content: space-between;
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+
+
+    /* Estilo dos cards da página */
+    .div-info {
+        width: 100%;
+    }
+
+ 
+
+    /* Barras de casa e estúdio */
+    .div-barra-local {
+        width: 100%;
+    }
+
+    .div-data {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+    }
+
+    .estilo-hr {
+        width: 90%;
+        background-color: black;
+        height: 1px;
+
+    }
+
+
+    /*  */
