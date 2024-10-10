@@ -110,10 +110,9 @@ function Calendario() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+  
   moment.locale('pt-br');
   const localizer = momentLocalizer(moment);
-  
   return (
     <>
       <Sidebar />
