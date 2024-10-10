@@ -4,7 +4,7 @@ function Cardkpi({ velaVendia, qtd, }) {
   return (
     <div className="four-cards-container">
 
-      <div className="card_kpi green-card">
+      <div className="card_kpi orange-card">
         <p className="card-title font-secundaria">Vela mais vendida</p>
         <h3 className="card-content font-padrao h3-nine">{velaVendia}</h3>
         <div className="card-icon"> {/* Ícone aqui */} </div>

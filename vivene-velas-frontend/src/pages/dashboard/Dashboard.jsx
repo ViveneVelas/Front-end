@@ -27,7 +27,7 @@ function Dashboard() {
             },
           })
         ]);
-        console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0])
+        //console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0])
 
         // setQtd(quantidadeResponse.data);
         setQtd(velaResponse.data[0].qtd);

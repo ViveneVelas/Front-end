@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+  import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from 'react-apexcharts';
 import styel from "./Graficobarras.module.css"
