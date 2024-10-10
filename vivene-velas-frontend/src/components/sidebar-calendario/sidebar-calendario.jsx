@@ -9,9 +9,9 @@ const SidebarEventos = ({ dia, eventos, onEventClick }) => {
                 {eventos.length > 0 ? (
                     eventos.map((evento) => (
                         <li key={evento.id} onClick={() => onEventClick(evento)}>
-                            <strong>{evento.title}</strong>
-                            <p>{evento.desc}</p>
-                            <p>{evento.color}</p>
+                            <strong>{evento.titulo}</strong>
+                            <p>{evento.clienteNome}</p>
+                            <p>{evento.preco}</p>
                             <p>Início: {new Date(evento.start).toLocaleTimeString()}</p>
                             <p>Fim: {new Date(evento.end).toLocaleTimeString()}</p>
                         </li>

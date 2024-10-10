@@ -31,8 +31,9 @@
     padding-left: 50px;
 }
 .mesAno{
+    font-size: 18px;
     width: 50%;
-    color: #f3f3f3;
+    color: black;
     justify-content: flex-start;
 }
 .dirtop{

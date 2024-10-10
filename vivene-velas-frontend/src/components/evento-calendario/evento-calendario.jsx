@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import {Modal, Button, Form, Collapse} from 'react-bootstrap'
+import React, { useState, useEffect } from 'react';
+import {Modal, Button, Form} from 'react-bootstrap'
 
 const EventModal = ({evento, onClose, onDelete, onUpdate}) =>{
     const [editedEvent, setEditedEvent] = useState({...evento});
@@ -41,46 +41,53 @@ const EventModal = ({evento, onClose, onDelete, onUpdate}) =>{
         return adjustedDate.toISOString().slice(0,-8);
     };
 
+    useEffect(() => {
+        console.log("AAAAAAAA");
+        console.log("AAAAAAAA");
+        
+        console.log(evento);
+      }, []);
 
     return(
         <Modal show={true} onHide={onClose}>
             <Modal.Header>
-                <Modal.Title>{editedEvent.title}</Modal.Title>
+                <Modal.Title>{editedEvent.titulo}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
+
                 <Form>
                     <Form.Group controlId="formTitle">
                         <Form.Label>Título</Form.Label>
-                        <Form.Control type="text" name='title' value={editedEvent.title} onChange={handleInputChange}/>
+                        <Form.Control type="text" name='title' value={editedEvent.titulo} onChange={handleInputChange}/>
                     </Form.Group>
                     <Form.Group controlId="formDesc">
-                        <Form.Label>Descrição</Form.Label>
-                        <Form.Control as="textarea" rows={3} name='desc' value={editedEvent.desc} onChange={handleInputChange}/>
+                        <Form.Label>Nome do Cliente</Form.Label>
+                        <Form.Control as="textarea" rows={3} name='desc' value={editedEvent.clienteNome} onChange={handleInputChange}/>
+                    </Form.Group>
+                    <div>
+
+                    <Form.Group controlId="formDesc">
+                        <Form.Label>Nome do Cliente</Form.Label>
+                        <Form.Control as="textarea" rows={3} name='desc' value={editedEvent.listaDeVelas[0].qtdVela} onChange={handleInputChange}/>
+                    </Form.Group>
+                    <Form.Group controlId="formDesc">
+                        <Form.Label>Nome do Cliente</Form.Label>
+                        <Form.Control as="textarea" rows={3} name='desc' value={editedEvent.listaDeVelas[0].nomeVela} onChange={handleInputChange}/>
+                    </Form.Group>
+                    </div>
+                    <Form.Group controlId="formDesc">
+                        <Form.Label>Preço</Form.Label>
+                        <Form.Control as="textarea" rows={3} name='desc' value={editedEvent.preco} onChange={handleInputChange}/>
                     </Form.Group>
 
-                    <Collapse in={!collapsed}>
                         <div>
-                        <Form.Group controlId="formInicio">
-                            <Form.Label>Início</Form.Label>
-                            <Form.Control type="datetime-local" name='start' value={adjustDate(editedEvent.start)} onChange={handleStartDateChange}/>
-                        </Form.Group>
-                        
-                        <Form.Group controlId="formEnd">
-                            <Form.Label>Fim</Form.Label>
-                            <Form.Control type="datetime-local" name='end' value={adjustDate(editedEvent.end)} onChange={handleEndDateChange}/>
-                        </Form.Group>
+                    
                         
                         <Form.Group controlId="formColor">
                             <Form.Label>Cor</Form.Label>
                             <Form.Control type="color" name='color' value={editedEvent.color} onChange={handleColorChange}/>
                         </Form.Group>
-
-                        <Form.Group controlId="formTipo">
-                            <Form.Label>Tipo</Form.Label>
-                            <Form.Control type="text" name='tipo' value={editedEvent.tipo} onChange={handleInputChange}/>
-                        </Form.Group>
                         </div>
-                    </Collapse>
                 </Form>
             </Modal.Body>
             <Modal.Footer className='justify-content-between'>

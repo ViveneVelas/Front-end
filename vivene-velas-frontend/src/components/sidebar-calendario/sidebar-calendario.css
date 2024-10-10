@@ -1,6 +1,6 @@
 .sidebar-eventos {
     width: 300px;
-    height: calc(100vh - 20px);
+    height:100%;
     background-color: #ffffff;
     padding: 20px;
     border-left: 1px solid #ddd;
