@@ -8,15 +8,6 @@ const Grafico = () => {
   const [lineData, setLineData] = useState([]);  // Para armazenar os dados das metas (linha)
   const [data, setData] = useState([]);  // Para armazenar os meses
 
-  // Gerando as cores das barras dinamicamente com base nos valores
-  const barColors = barData.map((barValue, index) => {
-    if (barValue[index] > lineData[index]) {
-      return "#E43939"; // Vermelho se for maior que a meta
-    } else {
-      return '#64D82D'; // Verde se for menor ou igual à meta
-    }
-  });
-
   const fetchData = async () => {
     try {
       // Fazendo requisições para pegar metas e vendas
@@ -34,7 +25,10 @@ const Grafico = () => {
 
       // Mapeando os dados para o gráfico de vendas
       const vendas = vendaResponse.data.map(item => item.qtdPedidosConcluidos);
-      const datas = vendaResponse.data.map(item => new Date(item.mesAno).toLocaleString('pt-BR', { month: 'short' })); // Apenas os meses
+    
+      
+      // Filtrando apenas meses referente as Datas das metas
+      const datas = metaResponse.data.map(item => new Date(item.dataInicio).toLocaleString('pt-BR', { month: 'short' })); 
 
       // Atualizando o estado com os dados de vendas e datas
       setBarData(vendas);
@@ -81,7 +75,7 @@ const Grafico = () => {
     },
     fill: {
       opacity: 1,
-      colors: barColors,  // Aplicando as cores dinâmicas nas barras
+      colors: "#64D82D",  // Cor da Barra
     },
     yaxis: {
       title: {
