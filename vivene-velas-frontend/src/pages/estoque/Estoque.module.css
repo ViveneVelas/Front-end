@@ -1,4 +1,5 @@
-    .card-estoque {
+   
+   .card-estoque {
         display: flex;
         gap: 10px;
     }
@@ -37,7 +38,7 @@
         width: 100%;
     }
 
- 
+
 
     /* Barras de casa e estúdio */
     .div-barra-local {
@@ -58,4 +59,22 @@
     }
 
 
-    /*  */
+
+
+    /* Estilização das informações abaixo do estoque */
+
+    .div-velas-estoque {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+        margin-bottom: 30px;
+
+    }
+
+
+    .div-card-lotes{
+        display: flex;
+        flex-direction: row;
+    }

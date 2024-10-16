@@ -74,7 +74,7 @@
 @media (min-width: 800px ) {
   
 #main {
-  margin-left: 250px; /* Largura da sidebar quando expandida */
+  margin-left: 112px; /* Largura da sidebar quando expandida */
   transition: margin-left 0.3s ease;
 }
 }

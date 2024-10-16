@@ -12,7 +12,7 @@ const Filtrar = () => {
                 </button>
             </div>
             
-        </>
+        </>     
     );
 };
 

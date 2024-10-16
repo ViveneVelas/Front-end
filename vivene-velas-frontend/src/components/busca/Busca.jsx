@@ -7,7 +7,9 @@ const Busca = () => {
         <>
 
             <div className={style['div-busca-input']}>
-                <input type="text" placeholder='Buscar vela pelo nome' className={style['input']} />
+                <input type="text" 
+                       placeholder='Buscar vela pelo nome' 
+                       className={style['input']} />
                 <i><img src={lupa} alt="Lupa" /></i>
             </div>
         </>

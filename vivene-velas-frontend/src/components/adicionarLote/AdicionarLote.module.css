@@ -1,0 +1,18 @@
+ /* estilização do card de adicionar Vela*/
+
+ .card-adicionar-estoque {
+     width: 33%;
+     height: 230px;
+     padding-top: 60px;
+
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-direction: column;
+
+     /* box-shadow: 0px 0px 33px -19px rgba(179, 177, 179, 1); */
+     background-color: #fbe4deb4;
+
+     color: #8C5B55;
+
+ }
