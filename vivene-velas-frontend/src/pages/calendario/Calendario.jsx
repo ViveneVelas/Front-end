@@ -1,30 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
-import moment from 'moment';
 import 'moment/locale/pt-br';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import './calendario.css';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import React, { useState, useEffect, useRef } from 'react';
+import moment from 'moment';
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import Sidebar from '../../components/sidebar/Sidebar';
-import eventosPadrao from '../../components/eventosPadrao';
 import EventModal from '../../components/evento-calendario/evento-calendario';
 import CustomTollbar from '../../components/customizar-calendario/customizar-calendario';
 import SidebarEventos from '../../components/sidebar-calendario/sidebar-calendario';
 import axios from 'axios';
 
 const DragAndDropCalendar = withDragAndDrop(Calendar);
+
 function Calendario() {
   const [eventos, setEventos] = useState([])
-  // const [eventos, setEventos] = useState(eventosPadrao);
   const [eventoSelecionado, SeteventoSelecionado] = useState(null);
   const [eventosFiltrados, setEventosFiltrados] = useState([])
-  // const [eventosFiltrados, setEventosFiltrados] = useState(eventosPadrao);
-  const [diaSelecionado, setDiaSelecionado] = useState(null); // Estado para armazenar o dia selecionado
-  const [sidebarVisible, setSidebarVisible] = useState(true); // Estado para controlar a visibilidade do SidebarEventos
-  const sidebarRef = useRef(null); // Ref para o contêiner do SidebarEventos
-
-
+  const [diaSelecionado, setDiaSelecionado] = useState(null);
+  const [sidebarVisible, setSidebarVisible] = useState(true);
+  const sidebarRef = useRef(null);
   const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -44,22 +40,25 @@ function Calendario() {
   };
 
   const handleEventDelete = (eventId) => {
-    // Logica do banco
+    //Deletar evento no banco
+    axios.delete('http://localhost:8080/pedidos/'+eventId, {
+      headers: {
+        'accept': 'application/json'
+      }
+    });
+
+    // Logica para tirar evento do quadro
     const updatedEvents = eventos.filter((event) => event.id !== eventId);
     setEventos(updatedEvents);
     SeteventoSelecionado(null);
   };
 
   const handleEventUpdate = (updatedEvent) => {
-    // Logica do banco
-    const updatedEvents = eventos.map((event) => {
-      if (event.id === updatedEvent.id) {
-        return updatedEvent;
+    axios.delete('http://localhost:8080/pedidos/'+updatedEvent, {
+      headers: {
+        'accept': 'application/json'
       }
-      return event;
     });
-    setEventos(updatedEvents);
-    SeteventoSelecionado(null);
   };
 
   const handleDayClick = (slotInfo) => {
@@ -81,10 +80,7 @@ function Calendario() {
   useEffect(() => {
 
     const fetchPedidos = async () => {
-      console.log("BBBBBBB");
-      console.log("BBBBBBB");
-      console.log("BBBBBBB");
-      
+    
       try {
         const response = await axios.get('http://localhost:8080/pedidos/calendario', {
           headers: {
@@ -112,7 +108,10 @@ function Calendario() {
   }, []);
   
   moment.locale('pt-br');
-  const localizer = momentLocalizer(moment);
+  const localizer = momentLocalizer(moment);  
+  console.log(localizer);
+  
+  
   return (
     <>
       <Sidebar />

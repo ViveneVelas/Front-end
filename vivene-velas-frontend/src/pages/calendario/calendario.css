@@ -1,7 +1,9 @@
 #main{
     margin-top: 0 !important;
 }
-
+.teste{
+    color: red ;
+}
 .tela{
     display: flex;
     background-color: #262626;
@@ -25,14 +27,19 @@
 }
 /*HEADER MOD*/
 .toolbar-container{
+    justify-content: space-between;
     display: flex;
-    height: 10vh;
+    height: 12vh;
     align-items: center;
-    padding-left: 50px;
+}
+.toolbar-container i{
+    color: black;
 }
 .mesAno{
+    display: flex;
+    margin: 0;
+    align-items: center;
     font-size: 18px;
-    width: 50%;
     color: black;
     justify-content: flex-start;
 }
