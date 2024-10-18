@@ -65,16 +65,16 @@
 
     .div-velas-estoque {
         margin-top: 20px;
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-direction: row;
-        margin-left: 10px;
         margin-bottom: 30px;
-
     }
 
-
-    .div-card-lotes{
-        display: flex;
-        flex-direction: row;
-    }
+    .div-card-lotes {
+        width: 66%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 3 colunas fixas */
+        gap: 30px; /* Espaço entre os cards */
+      }
+      

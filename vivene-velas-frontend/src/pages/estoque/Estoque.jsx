@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardeLote from '../../components/cardelote/CardeLote';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Busca from '../../components/busca/Busca';
 import Filtrar from '../../components/filtrarBusca/Filtrar';
 import style from './Estoque.module.css'
 import AdicionarLote from '../../components/adicionarLote/AdicionarLote'
-
-
+import axios from 'axios';
 
 const Estoque = () => {
     const [showCardsCasa, setShowCardsCasa] = useState(false);
     const [showCardsEstudio, setShowCardsEstudio] = useState(false);
+    const [lotesCasa, setLotesCasa] = useState([]);
+    const [lotesEstudio, setLotesEstudio] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
 
     const toggleCardsCasa = () => {
         setShowCardsCasa(!showCardsCasa);
@@ -18,6 +21,50 @@ const Estoque = () => {
     const toggleCardsEstudio = () => {
         setShowCardsEstudio(!showCardsEstudio);
     };
+
+    useEffect(() => {
+
+        const fetchLotesCasa = async () => {
+    
+          try {
+            const response = await axios.get('http://localhost:8080/lotes/casa', {
+              headers: {
+                'accept': 'application/json'
+              }
+            });
+            console.log(response.data);
+    
+            setLotesCasa(response.data); // Armazena os dados retornados no estado
+          } catch (err) {
+            setError('Erro ao carregar Lotes');
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchLotesCasa();
+
+        const fetchLotesEstudio = async () => {
+    
+            try {
+              const response = await axios.get('http://localhost:8080/lotes/estudio', {
+                headers: {
+                  'accept': 'application/json'
+                }
+              });
+              console.log(response.data);
+      
+              setLotesEstudio(response.data); // Armazena os dados retornados no estado
+            } catch (err) {
+              setError('Erro ao carregar Lotes');
+            } finally {
+              setLoading(false);
+            }
+          };
+      
+          fetchLotesEstudio();
+    
+      }, []);
 
     const barraAberta = () => setAberto(!aberto)
     const [aberto, setAberto] = useState(false)
@@ -36,7 +83,8 @@ const Estoque = () => {
                                 <Filtrar />
 
                             </div>
-
+                            <br />
+                            <br />
                             <div className={style['div-info']}>
                                 <div className={style['div-barra-local']}>
 
@@ -58,105 +106,61 @@ const Estoque = () => {
                                             <AdicionarLote />
 
                                             <div className={style['div-card-lotes']}>
-
-                                                <CardeLote
-                                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                    title="Vela de Cacau"
-                                                    qtd={70}
-                                                    qrCode={"010-2-25-09_10_2024"}
-                                                    descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                                />
-
-                                                <CardeLote
-                                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                    title="Vela de Cacau"
-                                                    qtd={70}
-                                                    qrCode={"010-2-25-09_10_2024"}
-                                                    descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                                />
-                                                {/* <Cardestoque
-                                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                    title="Vela de Cacau"
-                                                    qtd={70}
-                                                    dtValidade={"10/09/2005"}
-                                                    descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                                />
-                                                <Cardestoque
-                                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                    title="Vela de Cacau"
-                                                    qtd={70}
-                                                    dtValidade={"10/09/2005"}
-                                                    descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                                />
-                                                <Cardestoque
-                                                    imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                    title="Vela de Cacau"
-                                                    qtd={70}
-                                                    dtValidade={"10/09/2005"}
-                                                    descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                                /> */}
+                                            
+                                            {[...Array(lotesCasa.length)].map((_, index) => (
+                                                    <CardeLote
+                                                        key={index}
+                                                        id={lotesCasa[index].id}
+                                                        imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                                        title={lotesCasa[index].vela.nome}
+                                                        qtd={lotesCasa[index].quantidade}
+                                                        qrCode={lotesCasa[index].qrCode}
+                                                        descr={lotesCasa[index].vela.descricao}
+                                                    />
+                                                ))}
                                             </div>
                                         </div>
                                     )}
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-12 mb-3">
+                            <br />
+                            <div className={style['div-info']}>
+                                <div className={style['div-barra-local']}>
 
                                     <div>
+
                                         <div onClick={toggleCardsEstudio} className={style['div-data']}>
                                             <div>
-                                                <h4>Estúdio</h4>
+                                                <h4>Estudio</h4>
                                             </div>
                                             {showCardsEstudio ? <i class="bi bi-chevron-up"></i> : <i class="bi bi-chevron-down"></i>}
                                         </div>
                                         <div className={style['estilo-hr']} />
+
                                     </div>
-                                </div>
-                                {showCardsEstudio && (
-                                    <div className="col-md-3 col-12 mb-3">
-                                        <div className="card add-card text-center p-4">
-                                            <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                                                <h1 className="display-1 text-plus">+</h1>
-                                                <p>Adicionar lote de velas</p>
+
+                                    {showCardsEstudio && (
+                                        <div className={style['div-velas-estoque']}>
+
+                                            <AdicionarLote />
+
+                                            <div className={style['div-card-lotes']}>
+                                            
+                                            {[...Array(lotesEstudio.length)].map((_, index) => (
+                                                    <CardeLote
+                                                        key={index}
+                                                        id={lotesEstudio[index].id}
+                                                        imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                                        title={lotesEstudio[index].vela.nome}
+                                                        qtd={lotesEstudio[index].quantidade}
+                                                        qrCode={lotesEstudio[index].qrCode}
+                                                        descr={lotesEstudio[index].vela.descricao}
+                                                    />
+                                                ))}
                                             </div>
                                         </div>
-                                    </div>
-                                )}
-                                {showCardsEstudio && (
-                                    <div className="col-md-9 col-12">
-                                        <div className="row">
-                                            {/* <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
-                                            <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
-                                            <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
-                                            <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            /> */}
-                                        </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
