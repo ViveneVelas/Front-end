@@ -1,4 +1,5 @@
-   
+@import url('https://fonts.google.com/selection/embed');
+
    .card-estoque {
         display: flex;
         gap: 10px;
@@ -45,10 +46,19 @@
         width: 100%;
     }
 
+    .div-barra-data{
+        padding: 30px 0px 10px 0px;
+
+
+    }
+
     .div-data {
         display: flex;
         justify-content: space-between;
-        width: 90%;
+        width: 94%;
+        height: 32px;
+        font-size: x-large;
+        font-family: 'Sora';
     }
 
     .estilo-hr {

@@ -103,3 +103,7 @@
     color: white;
     font-size: 14px;
 }
+
+.botao:hover{
+    background-color: #F2795C;
+}

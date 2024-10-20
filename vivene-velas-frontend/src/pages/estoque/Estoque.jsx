@@ -40,11 +40,11 @@ const Estoque = () => {
                             <div className={style['div-info']}>
                                 <div className={style['div-barra-local']}>
 
-                                    <div>
+                                    <div className={style['div-barra-data']}>
 
                                         <div onClick={toggleCardsCasa} className={style['div-data']}>
                                             <div>
-                                                <h4>Casa</h4>
+                                                <p>Casa</p>
                                             </div>
                                             {showCardsCasa ? <i class="bi bi-chevron-up"></i> : <i class="bi bi-chevron-down"></i>}
                                         </div>
@@ -74,7 +74,7 @@ const Estoque = () => {
                                                     qrCode={"010-2-09_10_2024"}
                                                     descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
                                                 />
-                                               
+
                                             </div>
                                         </div>
                                     )}
@@ -83,59 +83,43 @@ const Estoque = () => {
                             <div className="row">
                                 <div className="col-12 mb-3">
 
-                                    <div>
+                                    <div className={style['div-barra-data']}>
+
                                         <div onClick={toggleCardsEstudio} className={style['div-data']}>
                                             <div>
-                                                <h4>Estúdio</h4>
+                                                <p>Estúdio</p>
                                             </div>
                                             {showCardsEstudio ? <i class="bi bi-chevron-up"></i> : <i class="bi bi-chevron-down"></i>}
                                         </div>
                                         <div className={style['estilo-hr']} />
+
                                     </div>
                                 </div>
                                 {showCardsEstudio && (
-                                    <div className="col-md-3 col-12 mb-3">
-                                        <div className="card add-card text-center p-4">
-                                            <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                                                <h1 className="display-1 text-plus">+</h1>
-                                                <p>Adicionar lote de velas</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                                {showCardsEstudio && (
-                                    <div className="col-md-9 col-12">
-                                        <div className="row">
-                                            {/* <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
-                                            <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
-                                            <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
-                                            <Cardestoque
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                dtValidade={"10/09/2005"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            /> */}
-                                        </div>
-                                    </div>
+                                     <div className={style['div-velas-estoque']}>
+
+                                     <AdicionarLote />
+
+                                     <div className={style['div-card-lotes']}>
+
+                                         <CardeLote
+                                             imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                             title="Vela de Cacau"
+                                             qtd={70}
+                                             qrCode={"010-2-09_10_2024"}
+                                             descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
+                                         />
+
+                                         <CardeLote
+                                             imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
+                                             title="Vela de Cacau"
+                                             qtd={70}
+                                             qrCode={"010-2-09_10_2024"}
+                                             descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
+                                         />
+
+                                     </div>
+                                 </div>
                                 )}
                             </div>
                         </div>
