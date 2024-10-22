@@ -28,12 +28,14 @@ function FiltroAtividades({atividades,onSelecionarAtividades}){
             <div className="p-3 rounded border border-white mt-3" style={{backgroundColor: '#e9ecef', color:"#212529"}}>
                 <div    className='ps-1' style={{maxHeight:'28vh', overflowY: 'auto'}}>
                     {tiposAtividades.map(tipo =>(
+                        <div className='teste'>
                             <Form.Check
                             key={tipo}
                             label={tipo}
                             checked={tiposSelecionados.includes(tipo)}
                             onChange={() => toggleTipo(tipo)}
                             className='mr-3 mb-3'/>
+                            </div>
                     ))}
                 </div>
                 <button className='btn btn-outline-secondary btn-hover-gray' onClick={()=> setTiposSelecionados([])}>Limpar Filtro</button>

@@ -1,34 +1,46 @@
-.tela{
-    display: flex;
-    background-color: #ffffff;
-}
-.tela-calendar{
+#main{
     margin-top: 0 !important;
 }
+.teste{
+    color: red ;
+}
+.tela{
+    display: flex;
+    background-color: #262626;
+}
+
 .calendario{
     height: 100vh;
-    width: 100%;
+    width: 80%;
     overflow: auto;
 }
-/* Coisas laterais */
 .toolbar{
     height: 100vh;
     width: 20%;
     min-width: 300px;
-    color: #000000;
-    background-color: #1a1a1a;
+    color: #ffffff;
+    background-color: #ffffff;
     border-right: 1px solid #bbb;
+}
+.calendar{
+    height: 90%;
 }
 /*HEADER MOD*/
 .toolbar-container{
+    justify-content: space-between;
     display: flex;
-    height: 10vh;
+    height: 12vh;
     align-items: center;
-    padding-left: 50px;
+}
+.toolbar-container i{
+    color: black;
 }
 .mesAno{
-    width: 50%;
-    color: #f3f3f3;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    font-size: 18px;
+    color: black;
     justify-content: flex-start;
 }
 .dirtop{
@@ -73,19 +85,18 @@
     border: 0;
 }
 .rbc-toolbar button{
-    color: #cecece;
-    border: 1px solid #cccccc4f;
+    color: #8C5B55;
+    border: 1px solid #8C5B55;
 }
 .rbc-toolbar button:active,
 .rbc-toolbar button.rbc-active{
     background-color: #56565686;
-    border-color: #bbb;
+    border-color: #8C5B55;
 }
 
 /*Corpo*/
 /*Linhas*/
 .rbc-month-view{
-    margin-bottom: 30px;
     border-color: #8C5B55;
 }
 .rbc-month-row+ .rbc-month-row {
@@ -107,16 +118,6 @@
 }
 .rbc-off-range-bg{
     background-color: #F8EFEA;
-}
-.toolbar-navegation{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.toolbar-navegation p{
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: 18px;
 }
 .rbc-today{
     background-color: #FAC9BE;
@@ -155,5 +156,5 @@
 .rbc-agenda-event-cell{
     border-radius: 20px;
     font-weight: bold;
-    color: #e0e0e0;
+    color: #8C5B55;
 }

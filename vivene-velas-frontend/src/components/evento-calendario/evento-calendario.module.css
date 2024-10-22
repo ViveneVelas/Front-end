@@ -1,0 +1,28 @@
+.pedido_header p {
+    position: absolute;
+    top: -14px; 
+    background-color: white;
+    padding: 0 5px;
+    color: #F2795C;
+}
+.pedido_card {
+    border: 1px solid rgb(158, 149, 149);
+    position: relative;
+}
+.margin_card{
+    padding: 10px;
+    border-bottom: 1px solid rgb(158, 149, 149);
+}
+.pedido_header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.pedido_itens {
+    margin-bottom: 10px;
+}
+.pedido_itens p {
+    margin: 5px 0;
+}
+.pedido_preco {
+    padding: 10px;
+}
