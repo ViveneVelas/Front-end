@@ -141,21 +141,6 @@ const Estoque = () => {
                                                     />
                                                    
                                                 ))}
-                                            <CardeLote
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                qrCode={"010-2-09_10_2024"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
-
-                                            <CardeLote
-                                                imgSrc="https://lh3.googleusercontent.com/p/AF1QipM6ailoJrX6ZCIkFd0zmL2GnLcLZlcEgvQrFl0M=s680-w680-h510"
-                                                title="Vela de Cacau"
-                                                qtd={70}
-                                                qrCode={"010-2-09_10_2024"}
-                                                descr={"Vela com aroma de Laranja com pote comprido, e com tampa. O pavio é do tipo...."}
-                                            />
 
                                         </div>
                                     </div>
