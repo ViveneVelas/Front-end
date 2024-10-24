@@ -42,7 +42,7 @@ const Vela = () => {
 
                 <section className="section dashboard">
                     <div className="row">
-                        <div className="col-lg-12">
+                        <div className="col-lg-12 testeNow">
 
                             <div className="div-filtros col-lg-12">
                                 <div className='div-one col-lg-7'>

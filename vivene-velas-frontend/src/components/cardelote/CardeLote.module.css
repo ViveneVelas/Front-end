@@ -3,12 +3,12 @@
 
 .card-lote {
     background-color: #FCE4DE;
-    width: 44%;
+    width: 100%;
     height: 230px;
     display: flex;
     align-items: center;
     color: #8C5B55;
-    margin-left: 1.5%;
+    margin-left: 20px;
     /* box-shadow: 0px 0px 33px -19px rgba(179,177,179,1); */
 }
 
@@ -42,7 +42,7 @@
 }
 
 .img-editar-lote {
-    width: 7%;
+    width: 5%;
     margin: 0px 4px 0px 4px;
 }
 

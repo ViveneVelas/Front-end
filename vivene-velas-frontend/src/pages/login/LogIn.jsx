@@ -33,9 +33,9 @@ function Login() {
       localStorage.setItem('nomeUser', JSON.stringify(response.data.nome));
       window.location.href = '/dashboard';
     } catch (error) {
-      console.log("=========================================")
-      console.log("DEU ERRO NA HORA DE PEGAR O ID DO USUARIO")
-      console.log("=========================================")
+      console.log("+===========================================+")
+      console.log("| DEU ERRO NA HORA DE PEGAR O ID DO USUARIO |")
+      console.log("+===========================================+")
     }
   }
 
