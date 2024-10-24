@@ -17,12 +17,12 @@ function Cardkpi({ velaVendia, qtd, }) {
       </div>
 
       <div className="card_kpi yellow-card">
-        <p className="card-title font-secundaria">Título</p>
+        <p className="card-title font-secundaria">Maior pedido</p>
         <h3 className="card-content font-padrao h3-nine">Conteúdo</h3>
       </div>
 
       <div className="card_kpi red-card">
-        <p className="card-title font-secundaria">Próxima Entrega</p>
+        <p className="card-title font-secundaria">Vela com menor quantidade</p>
         <h3 className="card-content font-padrao h3-nine">Conteúdo</h3>
       </div>
     </div>
