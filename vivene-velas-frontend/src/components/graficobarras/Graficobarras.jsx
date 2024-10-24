@@ -40,9 +40,6 @@ const Graficobarras = () => {
 
       setNome(novoNome); // Atualiza o estado 'nome'
       setQtd(novoQtd); // Atualiza o estado 'soma'
-
-      console.log("NOMES:", novoNome);
-      console.log("SOMAS:", novoQtd);
     }
   }, [velas]);
 

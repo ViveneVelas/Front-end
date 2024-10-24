@@ -1,46 +1,35 @@
-import React, { useState } from 'react';
-import moment from 'moment';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
+import 'moment/locale/pt-br';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
-import '../../components/Components-Calendario-css.css';
-import eventosPadrao from '../../components/eventosPadrao';
-import EventModal from '../../components/ModalEvent/EventModal';
-import Adicionar from '../../components/adicionar/Adicionar';
-import CustomTollbar from '../../components/CustomCalendar/CustomTollbar';
-import FiltroAtividades from '../../components/filtro/FiltroAtividades.jsx';
+import './calendario.css';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import React, { useState, useEffect, useRef } from 'react';
+import moment from 'moment';
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import Sidebar from '../../components/sidebar/Sidebar';
-
+import EventModal from '../../components/evento-calendario/evento-calendario';
+import CustomTollbar from '../../components/customizar-calendario/customizar-calendario';
+import SidebarEventos from '../../components/sidebar-calendario/sidebar-calendario';
+import axios from 'axios';
 
 const DragAndDropCalendar = withDragAndDrop(Calendar);
-const localizer = momentLocalizer(moment);
 
 function Calendario() {
-  const [eventos, setEventos] = useState(eventosPadrao);
+  const [eventos, setEventos] = useState([])
   const [eventoSelecionado, SeteventoSelecionado] = useState(null);
-  const [eventosFiltrados, setEventosFiltrados] = useState(eventosPadrao);
+  const [eventosFiltrados, setEventosFiltrados] = useState([])
+  const [diaSelecionado, setDiaSelecionado] = useState(null);
+  const [sidebarVisible, setSidebarVisible] = useState(true);
+  const sidebarRef = useRef(null);
+  const [pedidos, setPedidos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const eventStyle = (event) => ({
     style: {
       backgroundColor: event.color,
     },
   });
-
-  const moverEventos = (data) => {
-    const { start, end } = data;
-    const updatedEvents = eventos.map((event) => {
-      if (event.id === data.event.id) {
-        return {
-          ...event,
-          start: new Date(start),
-          end: new Date(end),
-        };
-      }
-      return event;
-    });
-    setEventos(updatedEvents);
-  };
 
   const handleEventClick = (evento) => {
     SeteventoSelecionado(evento);
@@ -50,73 +39,126 @@ function Calendario() {
     SeteventoSelecionado(null);
   };
 
-  const handleAdicionar = (novoEvento) => {
-    //Logica do banco
-    setEventos([...eventos, { ...novoEvento, id: eventos.length + 1 }]);
-  };
-
   const handleEventDelete = (eventId) => {
-    //Logica do banco
-    const updatedEvents = eventos.filter((event) => event.id !== eventId)
+    //Deletar evento no banco
+    axios.delete('http://localhost:8080/pedidos/'+eventId, {
+      headers: {
+        'accept': 'application/json'
+      }
+    });
+
+    // Logica para tirar evento do quadro
+    const updatedEvents = eventos.filter((event) => event.id !== eventId);
     setEventos(updatedEvents);
     SeteventoSelecionado(null);
   };
 
   const handleEventUpdate = (updatedEvent) => {
-    //Logica do banco
-    const updatedEvents = eventos.map((event) => {
-      if (event.id === updatedEvent.id) {
-        return updatedEvent;
+    axios.delete('http://localhost:8080/pedidos/'+updatedEvent, {
+      headers: {
+        'accept': 'application/json'
       }
-      return event;
     });
-    setEventos(updatedEvents);
-    SeteventoSelecionado(null);
-  }
+  };
 
-  const handleSelecionarAtividades = (atividadesSelecionadas) => {
-    setEventosFiltrados(atividadesSelecionadas);
-  }
+  const handleDayClick = (slotInfo) => {
+    setDiaSelecionado(slotInfo.start);
+    setSidebarVisible(true);
+  };
 
+  const eventosDoDia = eventosFiltrados.filter((event) =>
+    diaSelecionado && moment(event.start).isSame(diaSelecionado, 'day')
+  );
 
+  // Função para fechar o Sidebar quando clicar fora
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setSidebarVisible(false); // Oculta o Sidebar
+    }
+  };
 
+  useEffect(() => {
+
+    const fetchPedidos = async () => {
+    
+      try {
+        const response = await axios.get('http://localhost:8080/pedidos/calendario', {
+          headers: {
+            'accept': 'application/json'
+          }
+        });
+        console.log(response.data);
+        
+        setEventos(response.data); // Armazena os dados retornados no estado
+        setEventosFiltrados(response.data); // Armazena os dados retornados no estado
+        setPedidos(response.data); // Armazena os dados retornados no estado
+      } catch (err) {
+        setError('Erro ao carregar pedidos');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPedidos();
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
+  moment.locale('pt-br');
+  const localizer = momentLocalizer(moment);  
+  console.log(localizer);
+  
+  
   return (
     <>
       <Sidebar />
       <main id="main" className="main tela-calendar">
-        
-      <div className='tela ' >
-        {/* <div className='toolbar p-4' style={{maxHeight:'100vh', overflowY:'auto'}}>
-                <Adicionar onAdicionar= {handleAdicionar}/>
 
-                <FiltroAtividades atividades={eventos} onSelecionarAtividades={handleSelecionarAtividades}/>
-                </div> */}
-
-        <div className='calendario'>
-          <DragAndDropCalendar
-            defaultDate={moment().toDate()}
-            defaultView='month'
-            events={eventosFiltrados}
-            localizer={localizer}
-            resizable
-            onEventDrop={moverEventos}
-            onEventResize={moverEventos}
-            onSelectEvent={handleEventClick}
-            eventPropGetter={eventStyle}
-            components={{
-              toolbar: CustomTollbar,
-            }}
-            className='calendar'
+        <div className='conteudo-principal'>
+          <div className='calendario'>
+            <DragAndDropCalendar
+              defaultDate={moment().toDate()}
+              defaultView='month'
+              events={eventos}
+              localizer={localizer}
+              resizable
+              onSelectEvent={handleEventClick}
+              onSelectSlot={handleDayClick}
+              selectable
+              eventPropGetter={eventStyle}
+              components={{
+                toolbar: CustomTollbar,
+              }}
+              className='calendar'
             />
+          </div>
+
+          {/* Adicione o div com ref ao redor do SidebarEventos */}
+          {sidebarVisible && diaSelecionado && (
+            <div ref={sidebarRef} style={{ position: 'relative' }}>
+              <SidebarEventos
+                dia={diaSelecionado}
+                eventos={eventosDoDia}
+                onEventClick={handleEventClick}
+              />
+            </div>
+          )}
+
+          {eventoSelecionado && (
+            <EventModal
+              evento={eventoSelecionado}
+              onClose={handleEventClose}
+              onDelete={handleEventDelete}
+              onUpdate={handleEventUpdate}
+            />
+          )}
         </div>
-        {eventoSelecionado && (
-          <EventModal evento={eventoSelecionado} onClose={handleEventClose} onDelete={handleEventDelete} onUpdate={handleEventUpdate} />
-        )}
-      </div>
-        </main>
+      </main>
     </>
   );
 }
-
 
 export default Calendario;
