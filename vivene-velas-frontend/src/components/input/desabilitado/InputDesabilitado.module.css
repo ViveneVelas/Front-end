@@ -1,0 +1,32 @@
+.form-group {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.form-input {
+    margin: 3px;
+    width: 360px;
+    height: 32px;
+    border: 1px solid #8C5B55;
+    border-radius: 8px;
+    /* outline: none; */
+}
+
+.form-label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.8rem;
+    color: #8C5B55;
+    transition: 0.2s ease all;
+    pointer-events: none;
+    background: white;
+    padding: 0 0.2rem;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -1.5rem;
+    left: 0.8rem;
+    font-size: 0.75rem;
+    color: #8C5B55;
+}

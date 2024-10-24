@@ -8,6 +8,7 @@ import Cadastro from './pages/cadastro/Cadastro'
 import CadastroVelas from "./pages/cadastrovelas/CadastroVelas";
 import CadastroPedidos from "./pages/cadastropedidos/CadastroPedidos";
 import Pedidos from "./pages/pedidos/Pedidos";
+import CadastroLotes from "./pages/cadastrolote/CadastroLote";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -26,6 +27,7 @@ function Rotas() {
                     <Route path="/cadastro-velas" element={<CadastroVelas />} />
                     <Route path="/cadastro-pedidos" element={<CadastroPedidos />} />
                     <Route path="/pedidos" element={<Pedidos />} />
+                    <Route path="/cadastro-lote" element={<CadastroLotes/>}/>
                 </Routes>
             </BrowserRouter>
         </>
