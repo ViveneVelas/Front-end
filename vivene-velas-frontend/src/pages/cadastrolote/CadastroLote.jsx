@@ -41,7 +41,7 @@ const CadastroLotes = () => {
                 </div>
 
 
-                <div className="form-align-card">
+                <div className="div-cad-lote">
 
 
                     <div className="form-group image-upload">
@@ -83,13 +83,13 @@ const CadastroLotes = () => {
                             <InputDesabilitado valor={"Tamanho da vela"} />
                             <InputDesabilitado valor={"Valor"} />
 
-                            <div >
-                                <textarea name="" id="" ></textarea>
+                            <div className={style["div-text-area"]}>
+                                <textarea name="" id="" disabled className={style["text-area"]}>fQIFGqo</textarea>
                             </div>
 
                         </div>
 
-                        <div className='form-buttons'>
+                            <div className='form-buttons'>
 
                             <button className='cancel-button' onClick={vela}>Cancelar</button>
                             <button className='confirm-button' onClick={vela}>Cadastrar</button>

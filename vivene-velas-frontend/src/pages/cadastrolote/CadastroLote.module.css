@@ -1,5 +1,11 @@
 @import url('https://fonts.google.com/selection/embed');
 
+
+.div-cad-lote{
+    
+}
+
+
 /* Div dos campos prenchiveis */
 .div-inputs{
     display: flex;
@@ -32,3 +38,15 @@
 
 
 /* text area */
+.div-text-area{
+    margin-top: 16px;
+}
+
+.text-area{
+    width: 360px;
+    resize: vertical;
+    max-height: 200px;
+    resize: none;
+    color: #BA9D99;
+    border-color: #BA9D99;
+}
