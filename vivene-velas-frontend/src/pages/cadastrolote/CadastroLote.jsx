@@ -61,7 +61,7 @@ const CadastroLotes = () => {
 
                     <div className='div-imputs-form'>
 
-                        <div>
+                        <div className={style["div-inputs"]}>
 
                             <select className={style["select-optional"]} name="" id="">
                                 <option disabled selected>Selecione uma vela </option>
@@ -73,7 +73,7 @@ const CadastroLotes = () => {
 
                             <Input valor={"Quantidade de velas"} />
 
-                            <div >
+                            <div className={style["div-check-box"]}>
 
                                 <CheckBox valor={"Casa"} />
                                 <CheckBox valor={"Estúdio"} />
@@ -83,8 +83,9 @@ const CadastroLotes = () => {
                             <InputDesabilitado valor={"Tamanho da vela"} />
                             <InputDesabilitado valor={"Valor"} />
 
-
-
+                            <div >
+                                <textarea name="" id="" ></textarea>
+                            </div>
 
                         </div>
 

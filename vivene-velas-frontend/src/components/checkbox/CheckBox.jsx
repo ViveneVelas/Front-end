@@ -6,7 +6,7 @@ const CheckBox = ({ valor }) => {
         <>
             <div className={style["div-check-box"]}>
                 <input type="checkbox" id='casa' className={style["check-box"]} />
-                <label For="casa">{valor}</label>
+                <label className={style["label"]} for="casa">{valor}</label>
             </div>
 
         </>

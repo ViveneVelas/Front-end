@@ -1,3 +1,11 @@
+@import url('https://fonts.google.com/selection/embed');
+
+/* Div dos campos prenchiveis */
+.div-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
 
 
 /* Select optional */
@@ -8,6 +16,19 @@
    border-color: #8C5B55;
    color: #8C5B55;
    border-radius: 4px;
+
+   font-family: 'Sora';
 }
 
 
+/* Check box */
+.div-check-box{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+/* text area */
