@@ -1,7 +1,36 @@
 @import url('https://fonts.google.com/selection/embed');
 
+.div-pagina{
+    display: flex;
+    margin-top: 50px;
+}
+
+.div-pagina h4{
+    font-family: 'Sora';
+    font-weight: 150;
+    color: #8C5B55;
+}
+
+.div-info-pagina{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+}
 
 .div-cad-lote{
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.div-inputs-form{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     
 }
 
@@ -44,9 +73,10 @@
 
 .text-area{
     width: 360px;
-    resize: vertical;
-    max-height: 200px;
+    height: 178px;
+    max-height: 178px;
     resize: none;
     color: #BA9D99;
     border-color: #BA9D99;
+    border-radius: 4px;
 }
