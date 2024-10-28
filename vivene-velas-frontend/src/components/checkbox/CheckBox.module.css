@@ -1,0 +1,12 @@
+
+.div-check-box{
+    width: 17%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.check-box{
+    width: 20px;
+    height: 20px;
+}

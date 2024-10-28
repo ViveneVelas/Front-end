@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom'
-import Input from '../../components/input/Input'
+import Input from '../../components/input/habilitado/Input'
 import InputDesabilitado from '../../components/input/desabilitado/InputDesabilitado';
+import CheckBox from '../../components/checkbox/CheckBox';
+import style from './CadastroLote.module.css'
 
 const CadastroLotes = () => {
 
@@ -52,9 +54,7 @@ const CadastroLotes = () => {
                             style={{ display: 'none' }}
                         />
                         <label htmlFor="ipt_image" className="form-card">
-                            <div className="upload-icon"><i class="bi bi-camera"></i></div>
-                            <div className="upload-text">Adicionar Foto</div>
-                            {image && <img src={image} alt="Uploaded" className="uploaded-image" />}
+
                         </label>
                     </div>
 
@@ -63,7 +63,7 @@ const CadastroLotes = () => {
 
                         <div>
 
-                            <select name="" id="">
+                            <select className={style["select-optional"]} name="" id="">
                                 <option disabled selected>Selecione uma vela </option>
                                 <option value="Vela de Cacau">Vela de Cacau</option>
                                 <option value="Vela de Cacau">Vela de Cacau</option>
@@ -73,19 +73,17 @@ const CadastroLotes = () => {
 
                             <Input valor={"Quantidade de velas"} />
 
-                            <div>
+                            <div >
 
-                                <input type="checkbox" id='casa' />
-                                <label For="casa">Casa</label>
-
-                                <input type="checkbox" id='casa' />
-                                <label For="casa">Estúdio</label>
+                                <CheckBox valor={"Casa"} />
+                                <CheckBox valor={"Estúdio"} />
 
                             </div>
 
-                            <InputDesabilitado valor={"Tamanho da vela"}/>
-                            <InputDesabilitado valor={"Tamanho da vela"}/>
-                            
+                            <InputDesabilitado valor={"Tamanho da vela"} />
+                            <InputDesabilitado valor={"Valor"} />
+
+
 
 
                         </div>
