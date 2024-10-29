@@ -62,7 +62,7 @@ const AtualizacaoLote = () => {
                                 </select>
 
                                 <Input nome={"Quantidade de velas"}
-                                       valor={"20"}/>
+                                       valor={""}/>
 
                                 <div className={style["div-check-box"]}>
 
@@ -71,10 +71,14 @@ const AtualizacaoLote = () => {
 
                                 </div>
 
-                                <InputDesabilitado nome={"Tamanho da vela"} />
-                                <InputDesabilitado nome={"Valor"} />
+                                <InputDesabilitado nome={"Tamanho da vela"} 
+                                                   valor={""}/>
 
-                                <TextArea nome={"Descrição"}/>
+                                <InputDesabilitado nome={"Valor"} 
+                                                   valor={""}/>
+
+                                <TextArea nome={"Descrição"}
+                                          valor={""}/>
 
                             </div>
 

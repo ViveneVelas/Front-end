@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Input from '../../components/input/habilitado/Input'
 import InputDesabilitado from '../../components/input/desabilitado/InputDesabilitado';
 import CheckBox from '../../components/checkbox/CheckBox';
-import TextArea from '../../components/textarea/desabilitado/TextAreaDesabilitado';
+import TextAreaDesabilitada from '../../components/textarea/desabilitado/TextAreaDesabilitado';
 import style from './CadastroLote.module.css'
 
 const CadastroLotes = () => {
@@ -73,7 +73,8 @@ const CadastroLotes = () => {
                                 <InputDesabilitado nome={"Tamanho da vela"} />
                                 <InputDesabilitado nome={"Valor"} />
 
-                                <TextArea nome={"Descrição"}/>
+                                <TextAreaDesabilitada nome={"Descrição"}
+                                                        valor={""}/>
 
                             </div>
 

@@ -10,12 +10,13 @@
     color: #8C5B55;
     border-color: #8C5B55;
     border-radius: 4px;
+    padding: 10px;
 }
 
 .form-label {
     position: absolute; 
-    top: 69px;
-    left: 3px;
+    top: 20px;
+    left: 10px;
     color: #8C5B55;
     transition: 0.2s ease all;
     pointer-events: none;
@@ -25,12 +26,9 @@
     font-family: 'Sora';
 }
 
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label {
-    top: -60px;
-    left: 3px;
+.text-area:focus + .form-label,
+.text-area:not(:placeholder-shown) + .form-label {
+    top: 40px;
     font-size: 0.75rem;
     color: #8C5B55;
-
-    font-family: 'Sora';
 }
