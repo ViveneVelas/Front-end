@@ -28,8 +28,8 @@
 .upload-icon {
     font-size: 2rem;
     position: absolute;
-    top: 24.2rem;
-    left: 23.7rem;
+    top: 21.2rem;
+    left: 14.5rem;
     z-index: 10;
     background: rgba(255, 255, 255, 0.815); 
     border-radius: 15px;
@@ -111,4 +111,13 @@
     display: flex;
     align-items: center;
     flex-direction: end;
+}
+
+.form{
+    display: flex;
+}
+
+.form-group select{
+    padding-left: 10px;
+    color: #8C5B55;
 }

@@ -39,7 +39,7 @@ const Estoque = () => {
             } catch (error) {
                 console.error('Erro ao buscar os dados:', error);
             }
-            
+
             try {
                 const [velaResponse] = await Promise.all([
                     axios.get('http://localhost:8080/lotes/casa', {
@@ -94,9 +94,10 @@ const Estoque = () => {
                                             <AdicionarLote />
 
                                             <div className={style['div-card-lotes']}>
+                                                
                                                 {[...Array(vela.length)].map((_, index) => (
                                                     <CardeLote
-                                                        imgSrc="https://cdn.awsli.com.br/2455/2455036/produto/196605895/lembrancinha-vel-u9vm4nng26.jpg"
+                                                        imgSrc={vela[index].vela.imagem}
                                                         title={vela[index].vela.nome}
                                                         qtd={vela[index].quantidade}
                                                         qrCode={vela[index].qrCode}
@@ -131,16 +132,15 @@ const Estoque = () => {
 
                                         <div className={style['div-card-lotes']}>
 
-                                     {[...Array(velaE.length)].map((_, index) => (
-                                                    <CardeLote
-                                                    imgSrc="https://cdn.awsli.com.br/2455/2455036/produto/196605895/lembrancinha-vel-u9vm4nng26.jpg"
+                                            {[...Array(velaE.length)].map((_, index) => (
+                                                <CardeLote
+                                                    imgSrc={velaE[index].vela.imagem}
                                                     title={velaE[index].vela.nome}
                                                     qtd={velaE[index].quantidade}
                                                     qrCode={velaE[index].qrCode}
                                                     descr={velaE[index].vela.nome}
-                                                    />
-                                                   
-                                                ))}
+                                                />
+                                            ))}
 
                                         </div>
                                     </div>

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './CadastroVelas.modules.css';
 import Sidebar from '../../components/sidebar/Sidebar';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const CadastroVelas = () => {
-
     const [image, setImage] = useState(null);
+    const [nome, setNome] = useState('');
+    const [preco, setpreco] = useState('');
+    const [tamanho, setTamanho] = useState('');
+    const [descricao, setDescricao] = useState('');
 
     const navigate = useNavigate();
-
 
     const vela = () => {
         navigate('/vela');
@@ -16,84 +19,121 @@ const CadastroVelas = () => {
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setImage(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
+        setImage(file);
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('nome', nome);
+        formData.append('tamanho', tamanho);
+        formData.append('preco', preco);
+        formData.append('descricao', descricao);
+        formData.append('imagem', image);
+
+        try {
+            const response = await axios.post('http://localhost:8080/velas', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
+
+            console.log('Resposta:', response.data);
+            alert('Vela adicionada com sucesso!');
+            navigate('/vela');
+        } catch (error) {
+            console.error('Erro ao enviar:', error);
+            alert('Erro ao adicionar a vela.');
+        }
+    };
 
     return (
         <>
             <Sidebar />
             <div className="form-align-card">
+                <form className="form" onSubmit={handleSubmit}>
+                    <div className="form-group image-upload">
+                        <input
+                            type="file"
+                            id="ipt_image"
+                            className="form-input"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            style={{ display: 'none' }}
+                        />
+                        <label htmlFor="ipt_image" className="form-card">
+                            <div className="upload-icon"><i className="bi bi-camera"></i></div>
+                            <div className="upload-text">Adicionar Foto</div>
+                            {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="uploaded-image" />}
+                        </label>
+                    </div>
 
-                <div className="form-group image-upload">
-                    <input
-                        type="file"
-                        id="ipt_image"
-                        className="form-input"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        style={{ display: 'none' }}
-                    />
-                    <label htmlFor="ipt_image" className="form-card">
-                        <div className="upload-icon"><i class="bi bi-camera"></i></div>
-                        <div className="upload-text">Adicionar Foto</div>
-                        {image && <img src={image} alt="Uploaded" className="uploaded-image" />}
-                    </label>
-                </div>
-
-
-                <div className='div-imputs-form'>
-
-                    <div>
-
+                    <div className="div-imputs-form">
                         <div className="form-group">
-                            <input type="text" id="ipt_nome" className="form-input" required placeholder=" " />
+                            <input
+                                type="text"
+                                id="ipt_nome"
+                                className="form-input"
+                                required
+                                placeholder=" "
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                            />
                             <label htmlFor="ipt_nome" className="form-label">Nome</label>
                         </div>
 
                         <div className="form-group">
-                            <input type="text" id="ipt_aroma" className="form-input" required placeholder=" " />
-                            <label htmlFor="ipt_aroma" className="form-label">Aroma</label>
+                            <input
+                                type="number"
+                                id="ipt_preco"
+                                className="form-input"
+                                required
+                                placeholder=" "
+                                step="0.01"
+                                min="0"
+                                value={preco}
+                                onChange={(e) => setpreco(e.target.value)}
+                            />
+                            <label htmlFor="ipt_preco" className="form-label">Preco</label>
                         </div>
 
                         <div className="form-group">
-                            <input type="text" id="ipt_tamanho" className="form-input" required placeholder=" " />
-                            <label htmlFor="ipt_tamanho" className="form-label">Tamanho</label>
+                            <select
+                                id="sel_tamanho"
+                                className="form-input"
+                                required
+                                value={tamanho}
+                                onChange={(e) => setTamanho(e.target.value)}
+                            >
+                                <option value="" disabled hidden>
+                                    Tamanho
+                                </option>
+                                <option value="P">Pequeno</option>
+                                <option value="M">Médio</option>
+                                <option value="G">Grande</option>
+                            </select>
                         </div>
+
 
                         <div className="form-group">
-                            <textarea id="ipt_tamanho" className="form-text-area" required placeholder=" " />
-                            <label htmlFor="ipt_tamanho" className="form-label">Descrição</label>
+                            <textarea
+                                id="ipt_descricao"
+                                className="form-text-area"
+                                required
+                                placeholder=" "
+                                value={descricao}
+                                onChange={(e) => setDescricao(e.target.value)}
+                            />
+                            <label htmlFor="ipt_descricao" className="form-label">Descrição</label>
                         </div>
 
+                        <div className="form-buttons">
+                            <button type="button" className="cancel-button" onClick={vela}>Cancelar</button>
+                            <button type="submit" className="confirm-button">Adicionar Vela</button>
+                        </div>
                     </div>
-
-                    <div className='form-buttons'>
-
-                        <button className='cancel-button' onClick={vela}>Cancelar</button>
-                        <button className='confirm-button' onClick={vela}>Adicionar Vela</button>
-
-                    </div>
-
-
-                </div>
-
+                </form>
             </div>
-
-
-
         </>
-
-
-
-
-
     );
 };
 

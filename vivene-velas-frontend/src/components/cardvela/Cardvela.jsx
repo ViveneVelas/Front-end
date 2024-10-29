@@ -74,8 +74,8 @@ const InfoContainer = styled.div`
 `;
 
 const Cardvela = ({ img, titulo, descricao, funcaoDeletar, funcaoAlterar, id, preco, tamanho }) => {
-  
-  
+
+
   const deleteVela = async () => {
     try {
       const response = await axios.delete(`http://localhost:8080/velas/${id}`, {
@@ -113,8 +113,10 @@ const Cardvela = ({ img, titulo, descricao, funcaoDeletar, funcaoAlterar, id, pr
       </Modal>
       <Container id={id} className="col-lg-12">
         <ImageContainer>
-          <img src={img} alt="Candle" />
-        </ImageContainer>
+          <img
+            src={`data:image/jpeg;base64,${img}`}
+            />        
+          </ImageContainer>
         <Content>
           <h3 className="font-padrao titulo-h3">{titulo}</h3>
           <p>

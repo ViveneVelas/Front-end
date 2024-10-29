@@ -70,7 +70,7 @@ const Vela = () => {
                                                     <Cardvela
                                                         key={index}
                                                         id={vela[index].id}
-                                                        img={velaPng}
+                                                        img={vela[index].imagem}
                                                         titulo={vela[index].nome}
                                                         descricao={vela[index].descricao}
                                                         preco={vela[index].preco}

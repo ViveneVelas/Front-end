@@ -11,7 +11,7 @@ const CardeLote = ({ imgSrc, title, qtd, qrCode, descr }) => {
             <div className={style["card-lote"]}>
 
                 <div className={style["div-img"]}>
-                    <img src={imgSrc}
+                    <img src={`data:image/jpeg;base64,${imgSrc}`}
                         className={style["img"]}
                         alt={title} />
                 </div>
