@@ -1,0 +1,13 @@
+.div-text-area{
+    margin-top: 16px;
+}
+
+.text-area{
+    width: 360px;
+    height: 178px;
+    max-height: 178px;
+    resize: none;
+    color: #BA9D99;
+    border-color: #BA9D99;
+    border-radius: 4px;
+}
