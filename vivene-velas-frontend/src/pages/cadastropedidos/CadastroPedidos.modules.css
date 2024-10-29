@@ -1,6 +1,6 @@
 .form-group {
     position: relative;
-    margin: 0.8rem 0;
+   
 }
 
 .form-input {
@@ -9,7 +9,7 @@
     height: 32px;
     border: 1px solid #8C5B55;
     border-radius: 8px;
-    /* outline: none; */
+   
 }
 
 .form-label {
@@ -35,8 +35,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: 410px;
     border: 1px solid #8C5B55;
     border-radius: 4px;
     cursor: pointer;

@@ -1,0 +1,21 @@
+@import url('https://fonts.google.com/selection/embed');
+
+.div-check-box{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.check-box{
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.label{
+    margin-left: 4px;
+    color: #8C5B55;
+    font-family: 'Sora';
+}
+
