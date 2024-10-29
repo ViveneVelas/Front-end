@@ -1,12 +1,14 @@
 import React from 'react';
-import style from './Input.module.css'
+import style from './TextArea.module.css'
 
-const Input = ({valor}) => {
+const TextArea = ({valor,nome}) => {
     return (
         <>
-            <div className={style["form-group"]}>
-                <input type="text" id="ipt_nome" className={style["form-input"]} required placeholder=" " />
-                <label htmlFor="ipt_nome" className={style["form-label"]}>{valor}</label>
+            <div className={style["div-text-area"]}>
+                <textarea name="" id="txta_nome" className={style["text-area"]}>
+                    {valor}
+                </textarea>
+                <label htmlFor="txta_nome" className={style["form-label"]}>{nome}</label>
             </div>
 
 
@@ -15,4 +17,4 @@ const Input = ({valor}) => {
     );
 };
 
-export default Input;
+export default TextArea;

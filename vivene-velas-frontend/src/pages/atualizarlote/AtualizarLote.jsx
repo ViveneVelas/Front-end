@@ -5,9 +5,9 @@ import Input from '../../components/input/habilitado/Input'
 import InputDesabilitado from '../../components/input/desabilitado/InputDesabilitado';
 import CheckBox from '../../components/checkbox/CheckBox';
 import TextArea from '../../components/textarea/desabilitado/TextAreaDesabilitado';
-import style from './CadastroLote.module.css'
+import style from './AtualizarLote.module.css'
 
-const CadastroLotes = () => {
+const AtualizacaoLote = () => {
 
     const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ const CadastroLotes = () => {
                 <div className={style["div-info-pagina"]}>
 
                     <div>
-                        <h4>Cadastro de Lote</h4>
+                        <h4>Atualizar de Lote</h4>
 
                     </div>
 
@@ -61,12 +61,13 @@ const CadastroLotes = () => {
 
                                 </select>
 
-                                <Input nome={"Quantidade de velas"} />
+                                <Input nome={"Quantidade de velas"}
+                                       valor={"20"}/>
 
                                 <div className={style["div-check-box"]}>
 
-                                    <CheckBox valor={"Casa"} />
-                                    <CheckBox valor={"Estúdio"} />
+                                    <CheckBox nome={"Casa"} />
+                                    <CheckBox nome={"Estúdio"} />
 
                                 </div>
 
@@ -102,4 +103,4 @@ const CadastroLotes = () => {
     );
 };
 
-export default CadastroLotes;
+export default AtualizacaoLote;
