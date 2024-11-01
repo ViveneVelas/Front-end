@@ -1,0 +1,21 @@
+.div-card-pedidos{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+    
+    width: 85%;
+    margin-top: 100px;
+    margin-left: 10%;
+}
+
+
+.div-inputs{
+    width: 33%;
+}
+
+.div-registro-pedidos{
+    width: 33%;
+    height: 200px;
+    
+}
