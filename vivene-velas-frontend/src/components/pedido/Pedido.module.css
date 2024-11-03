@@ -1,0 +1,27 @@
+.card-pedido{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.div-dados-pedido{
+    width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.span-info-vela{
+    color: #8C5B55;
+}
+
+.span-info-pedido{
+    color: #000000;
+}
+
+.span-info-status-estoque{
+    color: #34963E;
+}

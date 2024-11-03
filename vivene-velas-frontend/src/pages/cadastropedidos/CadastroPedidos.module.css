@@ -1,21 +1,41 @@
-.div-card-pedidos{
+.div-card-pedidos {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: space-evenly;
-    
+
     width: 85%;
     margin-top: 100px;
     margin-left: 10%;
 }
 
+.div-info-pedidos {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
 
-.div-inputs{
+.div-inputs {
     width: 33%;
 }
 
-.div-registro-pedidos{
+.div-registro-pedidos {
     width: 33%;
     height: 200px;
-    
+
+}
+
+.div-botoes {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+hr {
+    width: 100%;
+    height: 2px;
+    border: none;
+    background-color: #BA9D99;
+  
 }
