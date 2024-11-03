@@ -1,9 +1,4 @@
 .dados-pedido{
-    /* display: flex;
-    /* align-items: center; */
-    /* justify-content: center;
-     background-color: bisque; */ 
-    /* background-color: aqua; */
     width: 90%;
     margin-left: 12%;
 }
@@ -54,7 +49,8 @@
     color: white;
     padding: 3px 10px;
     border-radius: 6px;  
-    width: 170px;
+    width: 150px;
+    height: 27px;
 }
 
 .div-topo-busca-filtro{
