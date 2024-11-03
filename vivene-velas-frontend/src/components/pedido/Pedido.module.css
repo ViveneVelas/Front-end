@@ -25,3 +25,10 @@
 .span-info-status-estoque{
     color: #34963E;
 }
+
+hr {
+    width: 100%;
+    height: 2px;
+    border: none;
+    background-color: #BA9D99;
+}

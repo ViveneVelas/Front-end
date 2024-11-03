@@ -18,6 +18,13 @@ const CadastroPedidos = () => {
                 <div className={style['div-card-pedidos']}>
 
                     <div>
+                        <select className={style["select-optional"]} name="" id="">
+                            <option disabled selected>Selecione uma vela </option>
+                            <option value="Vela de Cacau">Vela de Cacau</option>
+                            <option value="Vela de Cacau">Vela de Cacau</option>
+                            <option value="Vela de Cacau">Vela de Cacau</option>
+
+                        </select>
 
                         <TextArea nome={"Descrição"} />
                         <Input nome={"Valor unitário"} />
@@ -34,7 +41,7 @@ const CadastroPedidos = () => {
 
                         </div>
 
-                        <button>Adicionar Pedido</button>
+                        <button className={style['botao-positivo']}>Adicionar Pedido</button>
 
                     </div>
 
@@ -42,7 +49,7 @@ const CadastroPedidos = () => {
 
                         <div>
 
-                            <p>Registro do pedido</p>
+                            <span>Registro do pedido</span>
 
 
                             <ScrollContainer>
@@ -72,8 +79,8 @@ const CadastroPedidos = () => {
                         </div>
 
                         <div className={style['div-botoes']}>
-                            <button>Cancelar</button>
-                            <button>Salvar Pedidos</button>
+                            <button className={style['botao-negativo']}>Cancelar</button>
+                            <button className={style['botao-positivo']}>Salvar Pedidos</button>
                         </div>
 
 
