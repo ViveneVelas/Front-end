@@ -1,0 +1,56 @@
+@import url('https://fonts.google.com/selection/embed');
+
+.form-group {
+    position: relative;
+    margin-bottom: 8px;
+    margin-right: 16px;
+}
+
+.form-input {
+    width: 280px;
+    height: 32px;
+    border: 2px solid #8C5B55;
+
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px 20px;
+}
+
+.form-label {
+    position: absolute; 
+    transition: all 0.2s ease;
+    top: 5px;
+    left: 3px;
+    color: #8C5B55;
+    transition: 0.2s ease all;
+    pointer-events: none;
+    background: white;
+    padding: 0 0.2rem;
+    font-family: 'Sora';
+
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px; /* Ajuste conforme necessário */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Tamanho do ícone */
+    height: 20px;
+    pointer-events: none; /* Evita que a imagem interfira na interação com o input */
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -1.5rem;
+    left: 3px;
+    font-size: 0.75rem;
+    color: #8C5B55;
+
+    font-family: 'Sora';
+}
+
+.form-input:focus + .form-label ~ .form-group,
+.form-input:not(:placeholder-shown) + .form-label ~ .form-group {
+    margin-top: 30px;
+}
