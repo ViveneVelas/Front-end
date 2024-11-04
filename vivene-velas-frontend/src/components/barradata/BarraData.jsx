@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Style from './BarraData.module.css'
 import CardPedido from '../card-pedido/CardPedido';
 
-const BarraData = ({diaSemana, data}) => {
+const BarraData = ({diaSemana}) => {
     // tipoVela, qtde, nomeCliente, qtdeCompra
     const [aberto, setAberto] = useState(false)
     const [array, setArray] = useState([{tipoVela: 'Cacau', 
@@ -27,7 +27,7 @@ const BarraData = ({diaSemana, data}) => {
                 <div>
                     <div className={Style['div-data']} onClick={barraAberta}>
                         <div>
-                            <span>{diaSemana}</span> <span> - </span> <span>Domingo</span>
+                            <span>{diaSemana}</span> 
                         </div>
                         {aberto ? <i class="bi bi-chevron-down"></i> : <i class="bi bi-chevron-up"></i>}
                     </div>
