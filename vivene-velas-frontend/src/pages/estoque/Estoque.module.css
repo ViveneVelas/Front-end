@@ -88,6 +88,13 @@
     }
 
 
+    .div-filtro {
+        display: flex;
+        justify-content: space-between;
+        width: 94%;
+        height: 32px;
+    }
+
     
 
 

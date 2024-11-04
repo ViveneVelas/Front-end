@@ -1,16 +1,33 @@
-.botao-filtrar{
-    padding: 5px 10px;
-    margin-left: 14px;
-    border: none;
-    background-color: #F2795C;
-    cursor: pointer;
-    width: 100px;
-    height: 30px;
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+
+.btn-filtrar i{font-size: 18px;}
+
+.btn-filtrar {
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    font-size: 15px;
+    height: 35px !important;
+    color: #fff;
+    background-color: #F2795C;
+    font-family: "Sora" !important;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
 }
 
-.botao-filtrar:hover{
+.btn-filtrar:hover{
     background-color: #8C5B55;
+}
+
+.filtros-opcoes {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
 }

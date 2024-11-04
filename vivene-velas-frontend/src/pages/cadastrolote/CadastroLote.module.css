@@ -11,6 +11,10 @@
     color: #8C5B55;
 }
 
+.div-titulo-lote{
+    margin-bottom: 15px;
+}
+
 .div-info-pagina{
     display: flex;
     flex-direction: column;
@@ -40,6 +44,7 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
+    gap: 16px;
 }
 
 
