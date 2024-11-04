@@ -3,60 +3,89 @@ import axios from 'axios';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Cardvela from '../../components/cardvela/Cardvela';
 import Busca from '../../components/busca/Busca';
-import velaPng from "../../img/vela.png"
+import Filtrar from '../../components/filtrarBusca/Filtrar';
 
 const Vela = () => {
     const [vela, setVela] = useState([]);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [velaResponse] = await Promise.all([
-                    axios.get('http://localhost:8080/velas', {
-                        headers: {
-                            'accept': '*/*',
-                        },
-                    })
-                ]);
+    const [filter, setFilter] = useState('id');
+    const [nomeBusca, setNomeBusca] = useState('');
 
-                if (velaResponse.data && velaResponse.data.length > 0) {
-                    console.log("VELA + VENDIDA RESPOSTA: " + velaResponse.data[0]);
-                } else {
-                    console.log("Nenhuma vela encontrada.");
+    const fetchData = async (orderBy) => {
+        try {
+            const response = await axios.get(`http://localhost:8080/velas/filtro/${orderBy}`, {
+                headers: {
+                    'accept': '*/*',
                 }
+            });
 
-                setVela(velaResponse.data || []);
-            } catch (error) {
-                console.error('Erro ao buscar os dados:', error);
+            if (response.data && response.data.length > 0) {
+                console.log("VELA + VENDIDA RESPOSTA: " + response.data[0]);
+            } else {
+                console.log("Nenhuma vela encontrada.");
             }
-        };
 
-        fetchData();
-    }, []);
+            setVela(response.data || []);
+        } catch (error) {
+            console.error('Erro ao buscar os dados:', error);
+        }
+    };
 
+    const fetchByName = async (name) => {
+        try {
+            const response = await axios.get(`http://localhost:8080/velas/filtro-nome/${name}`, {
+                headers: {
+                    'accept': '*/*',
+                }
+            });
 
+            if (response.data) {
+                console.log("Resultado da busca por nome:", response.data);
+                setVela(response.data || []); // Assume que o endpoint retorna um único objeto
+            } else {
+                console.log("Nenhuma vela encontrada com esse nome.");
+                setVela([]);
+            }
+        } catch (error) {
+            console.error('Erro ao buscar vela pelo nome:', error);
+        }
+    };
+
+    useEffect(() => {
+        if (nomeBusca) {
+            fetchByName(nomeBusca);
+        } else {
+            fetchData(filter);
+        }
+    }, [filter, nomeBusca]);
+
+    const handleFilterChange = (orderBy) => {
+        setFilter(orderBy); 
+    };
+
+    const handleBuscaChange = (event) => {
+        setNomeBusca(event.target.value);
+    };
 
     return (
         <>
             <Sidebar />
             <main id="main" className="main">
-
                 <section className="section dashboard">
                     <div className="row">
                         <div className="col-lg-12 testeNow">
-
                             <div className="div-filtros col-lg-12">
                                 <div className='div-one col-lg-7'>
                                     <div className="col-lg-7">
-                                        <Busca />
+                                        <Busca onChange={handleBuscaChange} />
                                     </div>
-                                    <div className="col-lg-4">
-                                        <button type="button" className="btn btn-secondary font-padrao"><i className="bi bi-filter me-1"></i> Filtrar</button>
+                                    <Filtrar onFilterChange={handleFilterChange} />
                                     </div>
-
-                                </div>
-
-                                <div className="col-lg-3 justify-content-end display-flex">
-                                    <button type="button" className="btn btn-primary font-padrao" ><i className="bi bi-plus-lg me-1"></i> Adicionar Vela</button>
+                                <div className="col-lg-5 justify-content-end display-flex">
+                                    <a href="/cadastro-velas">
+                                        <button type="button" className="btn btn-primary font-padrao">
+                                            <i className="bi bi-plus-lg me-1"></i> Adicionar Vela
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                             <br />
@@ -65,21 +94,19 @@ const Vela = () => {
                                 <div className="">
                                     <div className="card-body">
                                         <div className="news">
-                                            <div className=" col-lg-12 coln">
-                                                {[...Array(vela.length)].map((_, index) => (
+                                            <div className="col-lg-12 coln">
+                                                {vela.map((item, index) => (
                                                     <Cardvela
                                                         key={index}
-                                                        id={vela[index].id}
-                                                        img={vela[index].imagem}
-                                                        titulo={vela[index].nome}
-                                                        descricao={vela[index].descricao}
-                                                        preco={vela[index].preco}
-                                                        tamanho={vela[index].tamanho}
+                                                        id={item.id}
+                                                        titulo={item.nome}
+                                                        descricao={item.descricao}
+                                                        preco={item.preco}
+                                                        tamanho={item.tamanho}
                                                     />
                                                 ))}
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

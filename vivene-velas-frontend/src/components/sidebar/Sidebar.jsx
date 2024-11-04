@@ -57,7 +57,7 @@ const Sidebar = () => {
           <li>
             <a href="/pedidos">
             <i class="bi bi-clipboard-plus"></i>
-              {!collapsed && <span>pedidos</span>}
+              {!collapsed && <span>Pedidos</span>}
             </a>
           </li>
           <li onClick={back}>

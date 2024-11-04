@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import CardeLote from '../../components/cardelote/CardeLote';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Busca from '../../components/busca/Busca';
-import Filtrar from '../../components/filtrarBusca/Filtrar';
 import style from './Estoque.module.css'
 import AdicionarLote from '../../components/adicionarLote/AdicionarLote'
 import axios from 'axios';
@@ -67,10 +66,18 @@ const Estoque = () => {
                     <div className="row">
                         <div className="col-lg-12 testeNow">
 
-                            <div className={style['div-caixa-busca']}>
-                                <Busca />
-                                <Filtrar />
+                            <div className={style['div-filtro']}>
+                                <div className='div-one col-lg-7'>
+                                    <div className="col-lg-7">
+                                        <Busca />
+                                    </div>
+                                </div>
 
+                                <div className="col-lg-5 justify-content-end display-flex">
+                                    <a href="/cadastro-lote">
+                                        <button type="button" className="btn btn-primary font-padrao" ><i className="bi bi-plus-lg me-1"></i> Adicionar Lote</button>
+                                    </a>
+                                </div>
                             </div>
 
                             <div className={style['div-info']}>
@@ -94,7 +101,7 @@ const Estoque = () => {
                                             <AdicionarLote />
 
                                             <div className={style['div-card-lotes']}>
-                                                
+
                                                 {[...Array(vela.length)].map((_, index) => (
                                                     <CardeLote
                                                         imgSrc={vela[index].vela.imagem}
