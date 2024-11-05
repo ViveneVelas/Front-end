@@ -3,6 +3,8 @@ import './CadastroVelas.modules.css';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Input from '../../components/input/habilitado/Input'
+import Textarea from '../../components/textarea/habilitado/TextArea'
 
 const CadastroVelas = () => {
     const [image, setImage] = useState(null);
@@ -69,31 +71,17 @@ const CadastroVelas = () => {
 
                     <div className="div-imputs-form">
                         <div className="form-group">
-                            <input
-                                type="text"
-                                id="ipt_nome"
-                                className="form-input"
-                                required
-                                placeholder=" "
+                            <Input nome={"Nome da vela"}
                                 value={nome}
-                                onChange={(e) => setNome(e.target.value)}
-                            />
-                            <label htmlFor="ipt_nome" className="form-label">Nome</label>
+                                onChange={(e) => setNome(e.target.value)} />
                         </div>
 
                         <div className="form-group">
-                            <input
-                                type="number"
-                                id="ipt_preco"
-                                className="form-input"
-                                required
-                                placeholder=" "
-                                step="0.01"
-                                min="0"
+                            <Input nome={"Preço da vela"}
                                 value={preco}
                                 onChange={(e) => setpreco(e.target.value)}
                             />
-                            <label htmlFor="ipt_preco" className="form-label">Preco</label>
+
                         </div>
 
                         <div className="form-group">
@@ -115,11 +103,8 @@ const CadastroVelas = () => {
 
 
                         <div className="form-group">
-                            <textarea
-                                id="ipt_descricao"
-                                className="form-text-area"
-                                required
-                                placeholder=" "
+                            <Textarea
+                                nome={"Descrição da vela"}
                                 value={descricao}
                                 onChange={(e) => setDescricao(e.target.value)}
                             />
