@@ -14,7 +14,9 @@
 .div-titulo-lote{
     margin-bottom: 15px;
 }
-
+.img-vela-escolhida{
+    width: 100%;
+}
 .div-info-pagina{
     display: flex;
     flex-direction: column;

@@ -69,7 +69,7 @@ const Estoque = () => {
                             <div className={style['div-filtro']}>
                                 <div className='div-one col-lg-7'>
                                     <div className="col-lg-7">
-                                        <Busca />
+                                    <Busca/>
                                     </div>
                                 </div>
 

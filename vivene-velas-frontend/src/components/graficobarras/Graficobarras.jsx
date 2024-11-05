@@ -1,12 +1,13 @@
   import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from 'react-apexcharts';
-import styel from "./Graficobarras.module.css"
+import style from "./Graficobarras.module.css"
 
 const Graficobarras = () => {
   const [velas, setVela] = useState([]);
   const [nome, setNome] = useState([]); 
   const [qtd, setQtd] = useState([]);
+  const [nomeArquivo, setNomeArquivo] = useState('top-5-velas-mais-vendidas');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +43,33 @@ const Graficobarras = () => {
       setQtd(novoQtd); // Atualiza o estado 'soma'
     }
   }, [velas]);
+
+  const downloadCSV = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/velas/arq-criar/top-cinco-velas',
+        null,
+        {
+          params: { nomeArq: nomeArquivo },
+          headers: {
+            'accept': 'application/octet-stream',
+          },
+          responseType: 'blob',
+        }
+      );
+
+      var url = window.URL.createObjectURL(new Blob([response.data]));
+      var link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${nomeArquivo}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+    } catch (error) {
+      console.error('Erro ao baixar o CSV:', error);
+    }
+  };
 
 
   const options = {
@@ -91,11 +119,16 @@ const Graficobarras = () => {
   }];
 
   return (
-    <div className={styel["grafico"]}>
+    <div className={style["grafico"]}>
       <div>
         <div className="card-body">
+          <div className={style['div-titulo-botao']}>
           <h5>Velas Mais Vendidas</h5>
-          <Chart options={options} series={series} type="bar" height={350} />
+          <button onClick={downloadCSV}><i class="bi bi-file-earmark-arrow-down"></i>Baixar CSV </button>
+          </div>
+          <div className={style['div-grafico']}>
+            <Chart options={options} series={series} type="bar" height={350} />
+          </div>
         </div>
       </div>
     </div>
