@@ -1,7 +1,35 @@
 .grafico{
-    height: 100%;
     box-shadow: 0px 0px 8px 0px rgba(189, 189, 189, 0.452);
     border-radius: 8px;
     padding: 5px;
     border: 1px solid #dbd1d1;
+}
+
+.div-titulo-botao{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.div-titulo-botao button{
+    display: flex;
+    font-size: 16px;
+    gap: 10px;
+    color: #FFF;
+    height: 35px;
+    background-color: #8C5B55;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.div-grafico{
+    padding-left:30px ;
+    padding-right:30px ;
 }

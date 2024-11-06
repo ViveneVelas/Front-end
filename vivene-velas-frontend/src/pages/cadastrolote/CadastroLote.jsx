@@ -6,24 +6,26 @@ import InputDesabilitado from '../../components/input/desabilitado/InputDesabili
 import CheckBox from '../../components/checkbox/CheckBox';
 import TextAreaDesabilitada from '../../components/textarea/desabilitado/TextAreaDesabilitado';
 import style from './CadastroLote.module.css'
+import imagemCarregando from '../../img/imagem-carregando.png'
 
 const CadastroLotes = () => {
 
     const [velas, setVelas] = useState([]);
     const [selectedCheckbox, setSelectedCheckbox] = useState(null);
-    const [detalhesVela, setDetalhesVela] = useState({ tamanho: '', valor: '', descricao: '' });
+    const [detalhesVela, setDetalhesVela] = useState({ tamanho: '', valor: '', descricao: '', imagem: imagemCarregando });
 
     const [velaEscolhida, setVelaEscolhida] = useState(0);
     const [qtdEscolhida, setQtdEscolhida] = useState(0);
     const [localizacaoEscolhida, setLocalizacaoEscolhida] = useState(0);
-    
+
     const navigate = useNavigate();
 
     useEffect(() => {
         setDetalhesVela({
             tamanho: 'Tamanho da Vela',
             valor: 'Valor',
-            descricao: 'Descrição'
+            descricao: 'Descrição',
+            imagem: "Imagem da vela"
         });
 
         const fetchData = async () => {
@@ -38,7 +40,7 @@ const CadastroLotes = () => {
 
                 setVelas(velaResponse.data || []);
             } catch (error) {
-                console.error('Erro ao buscar os dados:', error);
+                console.error('Erro ao buasascar os dados:', error);
             }
         };
 
@@ -62,14 +64,17 @@ const CadastroLotes = () => {
                     })
                 ]);
 
+                console.log(velaResponse.data)
+
                 setDetalhesVela({
                     tamanho: velaResponse.data.tamanho || '',
                     valor: velaResponse.data.preco || '',
-                    descricao: velaResponse.data.descricao || ''
+                    descricao: velaResponse.data.descricao || '',
+                    imagem: velaResponse.data.imagem || imagemCarregando
                 });
                 setVelaEscolhida(selectedVela.id)
             } catch (error) {
-                console.error('Erro ao buscar os dados:', error);
+                console.error('Erro ao buscar os dados AQUI:', error);
             }
         };
 
@@ -78,9 +83,9 @@ const CadastroLotes = () => {
 
     const handleCheckboxChange = (valor) => {
         setSelectedCheckbox(valor === selectedCheckbox ? null : valor);
-        if(valor == 'Casa'){
+        if (valor == 'Casa') {
             setLocalizacaoEscolhida(0)
-        }else{
+        } else {
             setLocalizacaoEscolhida(1)
         }
     };
@@ -94,7 +99,7 @@ const CadastroLotes = () => {
                 quantidade: qtdEscolhida,
                 dataFabricacao: localDate,
                 localizacao: localizacaoEscolhida
-              });
+            });
 
             console.log('Resposta:', response.data);
             // alert('Vela adicionada com sucesso!');
@@ -123,16 +128,10 @@ const CadastroLotes = () => {
 
 
                         <div className="form-group image-upload">
-                            <input
-                                type="file"
-
-                                id="ipt_image"
-                                className="form-input"
-                                style={{ display: 'none' }}
+                            <img
+                                className={style['img-vela-escolhida']}
+                                src={`data:image/jpeg;base64,${detalhesVela.imagem}`}
                             />
-                            <label htmlFor="ipt_image" className="form-card">
-
-                            </label>
                         </div>
 
 
@@ -147,8 +146,8 @@ const CadastroLotes = () => {
                                     ))}
                                 </select>
 
-                                <Input 
-                                    nome={"Quantidade de velas"} 
+                                <Input
+                                    nome={"Quantidade de velas"}
                                     onChange={(e) => setQtdEscolhida(e.target.value)}
                                 />
 

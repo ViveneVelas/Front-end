@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import style from "./Tabelavendas.module.css"
+
 
 const Tabelavendas = () => {
-  const [dados, setDados] = useState([]); // Variável global para 'nome'
+  const [nomeArquivo, setNomeArquivo] = useState('top-5-clientes-mais-compras');
+  const [dados, setDados] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,7 +16,7 @@ const Tabelavendas = () => {
           },
         });
 
-        setDados(velaResponse.data); // Atualiza o estado 'velas'
+        setDados(velaResponse.data);
       } catch (error) {
         console.error('Erro ao buscar os dados:', error);
       }
@@ -22,11 +25,40 @@ const Tabelavendas = () => {
     fetchData();
   }, []);
 
+  const downloadTXT = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/clientes/arq-criar/clientes-mais-compras',
+        null,
+        {
+          params: { nomeArq: nomeArquivo },
+          headers: {
+            'accept': 'application/octet-stream',
+          },
+          responseType: 'blob',
+        }
+      );
+
+      var url = window.URL.createObjectURL(new Blob([response.data]));
+      var link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${nomeArquivo}.txt`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+    } catch (error) {
+      console.error('Erro ao baixar o TXT:', error);
+    }
+  };
 
   return (
     <>
       <div className="table-container card">
-        <h5>Clientes Mais Assíduos </h5>
+        <div className={style['div-titulo-botao']}>
+          <h5>Velas Mais Vendidas</h5>
+          <button onClick={downloadTXT}><i class="bi bi-file-earmark-arrow-down"></i>Baixar TXT </button>
+        </div>
         <table className="tabela-vendas">
           <thead>
             <tr>
@@ -35,15 +67,12 @@ const Tabelavendas = () => {
             </tr>
           </thead>
           <tbody>
-            
-            {[...Array(dados.length)].map((_, index) => (
-              <tr key={dados[index]}>
-                <td>{dados[index].nomeCliente}</td>
-                <td>{dados[index].numPedidos}</td>
+            {dados.map((item, index) => (
+              <tr key={index}>
+                <td>{item.nomeCliente}</td>
+                <td>{item.numPedidos}</td>
               </tr>
-
             ))}
-
           </tbody>
         </table>
       </div>

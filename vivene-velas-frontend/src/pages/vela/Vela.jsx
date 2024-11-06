@@ -40,7 +40,7 @@ const Vela = () => {
 
             if (response.data) {
                 console.log("Resultado da busca por nome:", response.data);
-                setVela(response.data || []); // Assume que o endpoint retorna um único objeto
+                setVela(response.data || []);
             } else {
                 console.log("Nenhuma vela encontrada com esse nome.");
                 setVela([]);
@@ -98,6 +98,7 @@ const Vela = () => {
                                                 {vela.map((item, index) => (
                                                     <Cardvela
                                                         key={index}
+                                                        img={item.imagem}
                                                         id={item.id}
                                                         titulo={item.nome}
                                                         descricao={item.descricao}
