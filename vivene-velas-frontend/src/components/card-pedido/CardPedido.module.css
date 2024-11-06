@@ -91,3 +91,8 @@
     color: white;
     border-radius: 8px;
 }
+
+
+.card-container:hover{
+    background-color: #fce4de8d;
+}
