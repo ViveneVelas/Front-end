@@ -41,7 +41,7 @@ function Calendario() {
 
   const handleEventDelete = (eventId) => {
     //Deletar evento no banco
-    axios.delete('http://localhost:8080/pedidos/'+eventId, {
+    axios.delete('http://localhost:8080/pedidos/' + eventId, {
       headers: {
         'accept': 'application/json'
       }
@@ -54,7 +54,7 @@ function Calendario() {
   };
 
   const handleEventUpdate = (updatedEvent) => {
-    axios.delete('http://localhost:8080/pedidos/'+updatedEvent, {
+    axios.delete('http://localhost:8080/pedidos/' + updatedEvent, {
       headers: {
         'accept': 'application/json'
       }
@@ -80,7 +80,7 @@ function Calendario() {
   useEffect(() => {
 
     const fetchPedidos = async () => {
-    
+
       try {
         const response = await axios.get('http://localhost:8080/pedidos/calendario', {
           headers: {
@@ -88,7 +88,7 @@ function Calendario() {
           }
         });
         console.log(response.data);
-        
+
         setEventos(response.data); // Armazena os dados retornados no estado
         setEventosFiltrados(response.data); // Armazena os dados retornados no estado
         setPedidos(response.data); // Armazena os dados retornados no estado
@@ -106,12 +106,12 @@ function Calendario() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-  
+
   moment.locale('pt-br');
-  const localizer = momentLocalizer(moment);  
+  const localizer = momentLocalizer(moment);
   console.log(localizer);
-  
-  
+
+
   return (
     <>
       <Sidebar />

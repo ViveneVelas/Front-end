@@ -41,8 +41,12 @@
     justify-content: flex-end;
 }
 
+.div-editar-lote button{
+    background-color: transparent;
+}
+
 .img-editar-lote {
-    width: 5%;
+    width: 100%;
     margin: 0px 4px 0px 4px;
 }
 

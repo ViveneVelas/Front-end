@@ -1,5 +1,5 @@
 .dados-pedido{
-    width: 90%;
+    width: 88%;
     margin-left: 12%;
 }
 
@@ -8,8 +8,7 @@
     align-items: baseline;
     justify-content: center;
     flex-direction: column;
-}
-
+} 
 .div-busca-input{
     display: flex;
     flex-direction: row;

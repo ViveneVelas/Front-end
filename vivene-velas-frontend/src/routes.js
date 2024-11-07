@@ -28,8 +28,8 @@ function Rotas() {
                     <Route path="/cadastro-velas" element={<CadastroVelas />} />
                     <Route path="/cadastro-pedidos" element={<CadastroPedidos />} />
                     <Route path="/pedidos" element={<Pedidos />} />
-                    <Route path="/cadastro-lote" element={<CadastroLotes/>}/>
-                    <Route path="/atualizar-lote" element={<AtualizacaoLote/>}/>
+                    <Route path="/cadastro-lote" element={<CadastroLotes />} />
+                    <Route path="/atualizar-lote" element={<AtualizacaoLote />} />
                 </Routes>
             </BrowserRouter>
         </>

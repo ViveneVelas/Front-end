@@ -21,7 +21,7 @@ width: 90%;
 
 .div-card-pedido{
     width: 90%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }

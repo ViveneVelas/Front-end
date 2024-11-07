@@ -77,10 +77,11 @@ const CadastroVelas = () => {
                         </div>
 
                         <div className="form-group">
-                            <Input nome={"Preço da vela"}
-                                value={preco}
-                                onChange={(e) => setpreco(e.target.value)}
-                            />
+
+                            <div className={"form-group"}>
+                            <input type="number" id="ipt_nome" className={"form-input"} required placeholder="" value={preco} onChange={(e) => setpreco(e.target.value)} /> 
+                                <label htmlFor="ipt_nome" className={"form-label"}>{"Preço"}</label>
+                            </div>
 
                         </div>
 

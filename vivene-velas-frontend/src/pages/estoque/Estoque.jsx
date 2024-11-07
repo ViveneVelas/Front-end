@@ -69,7 +69,7 @@ const Estoque = () => {
                             <div className={style['div-filtro']}>
                                 <div className='div-one col-lg-7'>
                                     <div className="col-lg-7">
-                                    <Busca/>
+                                    {/* <Busca/> */}
                                     </div>
                                 </div>
 
@@ -104,6 +104,7 @@ const Estoque = () => {
 
                                                 {[...Array(vela.length)].map((_, index) => (
                                                     <CardeLote
+                                                        id={vela[index].id}
                                                         imgSrc={vela[index].vela.imagem}
                                                         title={vela[index].vela.nome}
                                                         qtd={vela[index].quantidade}
@@ -141,6 +142,7 @@ const Estoque = () => {
 
                                             {[...Array(velaE.length)].map((_, index) => (
                                                 <CardeLote
+                                                    id={velaE[index].id}
                                                     imgSrc={velaE[index].vela.imagem}
                                                     title={velaE[index].vela.nome}
                                                     qtd={velaE[index].quantidade}

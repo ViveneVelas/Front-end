@@ -34,7 +34,7 @@ const CustomTollbar = ({ label, onView, onNavigate, views }) => {
 
             <div className="dirtop">
                 <div className="dropdown">
-                    <select name="" id="" className='btn btn-secondary dropdown-toggle'>
+                    {/* <select name="" id="" className='btn btn-secondary dropdown-toggle'>
                         {views.map((view, index) => (
                             <option kay={index}>
                                 <li>
@@ -43,7 +43,7 @@ const CustomTollbar = ({ label, onView, onNavigate, views }) => {
                                 {index === 2 && <hr className='dropdown-divider'></hr>}
                             </option>
                         ))}
-                    </select>
+                    </select> */}
                     {/* <button className='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-bs-toggle="dropdown" aria-expanded="false">
                         {itemText}
                     </button>

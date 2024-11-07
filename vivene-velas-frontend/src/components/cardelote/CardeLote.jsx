@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import style from './CardeLote.module.css'
 import editar from '../../img/canetaIcon.svg'
 import lixeira from '../../img/lixoIcon.svg'
 import qrcode from '../../img/qrcodeIcon.svg'
 
-const CardeLote = ({ imgSrc, title, qtd, qrCode, descr }) => {
-
+const CardeLote = ({ imgSrc, title, qtd, qrCode, descr, id }) => {
+    const deleteVela = async () => {
+        console.log(id);
+        console.log("aaaaa");
+        console.log(id);
+        
+        try {
+          const response = await axios.delete(`http://localhost:8080/lotes/${id}`, {
+            headers: {
+              'accept': '*/*'
+            }
+          });
+          console.log('Vela deletada com sucesso:', response.data);
+        } catch (error) {
+          console.error('Erro ao deletar a vela:', error);
+        }
+        window.location.reload();
+      };
     return (
         <>
             <div className={style["card-lote"]}>
@@ -19,8 +36,12 @@ const CardeLote = ({ imgSrc, title, qtd, qrCode, descr }) => {
                 <div className={style["div-pai"]}>
 
                     <div className={style["div-editar-lote"]}>
-                        <img src={editar} alt="" className={style["img-editar-lote"]} />
-                        <img src={lixeira} alt="" className={style["img-editar-lote"]} />
+                        <button onClick={deleteVela}>
+                            <img src={editar} alt="" className={style["img-editar-lote"]} />
+                        </button>
+                        <button onClick={deleteVela}>
+                            <img src={lixeira} alt=""  className={style["img-editar-lote"]} />
+                        </button>
                     </div>
 
                     <div className={style["div-info"]}>

@@ -1,12 +1,27 @@
-import React, { useState }  from 'react';
+import React, { useEffect, useState } from 'react';
 import Styles from "./CardPedido.module.css"
 
-const CardPedido = ({ valor, nomeCliente, endereco }) => {
-    const [status, setStatus] = useState("nao-iniciado");
+const CardPedido = ({ valor, nomeCliente, entrega, st }) => {
+    const [status, setStatus] = useState(st);
+    const [styleNow, setStyleNow] = useState('');
 
     const handleStatusChange = (e) => {
         setStatus(e.target.value);
     };
+
+    useEffect(() => {
+        const definirStyle = () => {
+            if (status == 'nao-iniciado') {
+                setStyleNow("nao-iniciado")
+            } else if (status == 'em-andamento') {
+                setStyleNow("em-andamento")
+            } else {
+                setStyleNow("em-atraso")
+            }
+            console.log(status)
+        }
+        definirStyle()
+    },);
 
 
     return (
@@ -19,7 +34,7 @@ const CardPedido = ({ valor, nomeCliente, endereco }) => {
                     </div>
 
                     <div>
-                        <span> Endereço: <span> {endereco}</span></span>
+                        <span> Tipo de Entrega: <span> {entrega}</span></span>
                     </div>
 
                     <div>
@@ -33,7 +48,7 @@ const CardPedido = ({ valor, nomeCliente, endereco }) => {
                     <div >
                         <span>Status: </span>
                         <select
-                            className={`${Styles["select-optional"]} ${Styles[status]}`}
+                            className={`${Styles["select-optional"]} ${Styles[styleNow]}`}
                             onChange={handleStatusChange}
                             value={status}
                         >
