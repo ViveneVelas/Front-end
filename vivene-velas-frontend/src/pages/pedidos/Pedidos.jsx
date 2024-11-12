@@ -16,7 +16,7 @@ const Pedidos = () => {
 
     const fetchData = async (orderBy) => {
         try {
-            const response = await axios.get(`http://localhost:8080/pedidos/datas`, {
+            const response = await axios.get(`http://localhost:8080/pedidos/datas/hoje`, {
                 headers: {
                     'accept': '*/*',
                 }
@@ -79,11 +79,11 @@ const Pedidos = () => {
                 <div className={style['div-topo-busca-filtro']}>
                     <div className={style['div-caixa-busca']}>
 
-                        <BuscaPersonalizada nome={"Data de entrega"}
+                        {/* <BuscaPersonalizada nome={"Data de entrega"}
                             img={Calendario} />
 
                         <BuscaPersonalizada nome={"Nome do cliente"}
-                            img={Cliente} />
+                            img={Cliente} /> */}
 
                         {/* <BuscaPersonalizada nome={"Nome da pedido"}
                             img={Lupa} /> */}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 import Sidebar from '../../components/sidebar/Sidebar';
 import Grafico from '../../components/grafico/Grafico';
 import Graficobarras from '../../components/graficobarras/Graficobarras';
@@ -9,6 +10,8 @@ import Tabelavelas from '../../components/tabelavelas/Tabelavelas';
 import style from "./Dashboard.module.css"
 
 function Dashboard() {
+  const navigate = useNavigate();
+
   const [qtd, setQtd] = useState(null);
   const [vela, setVela] = useState(null);
 
@@ -61,21 +64,21 @@ function Dashboard() {
             <Grafico />
           </div>
 
-          <div className={style['div_tabela']}>
-            <Tabelavelas />
-
-          </div>
-        </div>
-
-        {/* Gráfico e tabela 2 */}
-        <div className={style['div_grafico_tabela']}>
+          {/* <div className={style['div_tabela']}> */}
+            {/* <Tabelavelas /> */}
 
           <div className={style['div_tabela']}>
             <Tabelavendas />
 
           </div>
+          {/* </div> */}
+        </div>
 
-          <div className={style['div_grafico']}>
+        {/* Gráfico e tabela 2 */}
+        <div className={style['div_grafico_tabela']}>
+
+
+          <div className={style['div_graficos']}>
             <Graficobarras />
           </div>
 

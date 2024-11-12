@@ -23,6 +23,24 @@ const CardeLote = ({ imgSrc, title, qtd, qrCode, descr, id }) => {
         }
         window.location.reload();
       };
+
+      const vendaVela = async () => {
+        console.log(id);
+        console.log("Chegeui na venda");
+        console.log(id);
+        
+        try {
+          const response = await axios.put(`http://localhost:8080/lotes/venda/${id}`, {
+            headers: {
+              'accept': '*/*'
+            }
+          });
+          console.log('Vela deletada com sucesso:', response.data);
+        } catch (error) {
+          console.error('Erro ao deletar a vela:', error);
+        }
+        window.location.reload();
+      };
     return (
         <>
             <div className={style["card-lote"]}>
@@ -62,7 +80,7 @@ const CardeLote = ({ imgSrc, title, qtd, qrCode, descr, id }) => {
                                 </div>
                             </div>
                             <div>
-                                <button className={style["botao"]}>Vender Vela</button>
+                                <button className={style["botao"]} onClick={vendaVela}>Vender Vela</button>
                             </div>
                         </div>
 

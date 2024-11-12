@@ -73,7 +73,7 @@ const CadastroPedidos = () => {
         }));
 
         const dadosPedido = {
-            dtPedido: new Date().toISOString().split('T')[0], // Data atual
+            dtPedido: dataEntrega,
             preco: registroPedidos.reduce((total, pedido) => total + parseFloat(pedido.valorPedido), 0) + parseFloat(valorFrete),
             descricao: "Pedido de velas",
             tipoEntrega: "test",
