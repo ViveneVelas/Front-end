@@ -62,6 +62,10 @@
   margin: 0 10px;
 }
 
+.nav a:hover img {
+  filter: invert(50%) sepia(200%) saturate(200%) hue-rotate(-50deg) brightness(75%) contrast(75%);
+}
+
 .nav span {
   font-size: 1rem;
   transition: opacity 0.3s;

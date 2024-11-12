@@ -5,10 +5,10 @@ const TextArea = ({valor,nome}) => {
     return (
         <>
             <div className={style["div-text-area"]}>
+                <label htmlFor="txta_nome" >{nome}</label>
                 <textarea name="" id="txta_nome" className={style["text-area"]}>
                     {valor}
                 </textarea>
-                <label htmlFor="txta_nome" className={style["form-label"]}>{nome}</label>
             </div>
 
 
