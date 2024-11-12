@@ -9,8 +9,10 @@ const Vela = () => {
     const [vela, setVela] = useState([]);
     const [filter, setFilter] = useState('id');
     const [nomeBusca, setNomeBusca] = useState('');
+    const [loading, setLoading] = useState(true); // Estado de carregamento
 
     const fetchData = async (orderBy) => {
+        setLoading(true); // Ativa o carregamento antes da requisição
         try {
             const response = await axios.get(`http://localhost:8080/velas/filtro/${orderBy}`, {
                 headers: {
@@ -27,10 +29,13 @@ const Vela = () => {
             setVela(response.data || []);
         } catch (error) {
             console.error('Erro ao buscar os dados:', error);
+        } finally {
+            setLoading(false); // Desativa o carregamento após a resposta
         }
     };
 
     const fetchByName = async (name) => {
+        setLoading(true); // Ativa o carregamento antes da requisição
         try {
             const response = await axios.get(`http://localhost:8080/velas/filtro-nome/${name}`, {
                 headers: {
@@ -47,6 +52,8 @@ const Vela = () => {
             }
         } catch (error) {
             console.error('Erro ao buscar vela pelo nome:', error);
+        } finally {
+            setLoading(false); // Desativa o carregamento após a resposta
         }
     };
 
@@ -95,17 +102,23 @@ const Vela = () => {
                                     <div className="card-body">
                                         <div className="news">
                                             <div className="col-lg-12 coln">
-                                                {vela.map((item, index) => (
-                                                    <Cardvela
-                                                        key={index}
-                                                        img={item.imagem}
-                                                        id={item.id}
-                                                        titulo={item.nome}
-                                                        descricao={item.descricao}
-                                                        preco={item.preco}
-                                                        tamanho={item.tamanho}
-                                                    />
-                                                ))}
+                                                {loading ? (
+                                                    <div className="spinner-border" role="status">
+                                                        <span className="visually-hidden">Carregando...</span>
+                                                    </div>
+                                                ) : (
+                                                    vela.map((item, index) => (
+                                                        <Cardvela
+                                                            key={index}
+                                                            img={item.imagem}
+                                                            id={item.id}
+                                                            titulo={item.nome}
+                                                            descricao={item.descricao}
+                                                            preco={item.preco}
+                                                            tamanho={item.tamanho}
+                                                        />
+                                                    ))
+                                                )}
                                             </div>
                                         </div>
                                     </div>

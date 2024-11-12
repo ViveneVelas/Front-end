@@ -17,9 +17,21 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
+    min-height: 70vh;
   }
-  .testeNow{
+
+.testeNow{
     margin-top: 50px;
+}
+
+.div-spinner{
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spinner-border{
+    display: flex;
 }

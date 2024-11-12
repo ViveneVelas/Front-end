@@ -5,6 +5,14 @@ import CardPedido from '../card-pedido/CardPedido';
 
 const BarraData = ({ diaSemana }) => {
 
+    const [data, setData] = useState(diaSemana);
+
+    const formatarData = (dateString) => {
+        const [year, month, day] = dateString.split("-");
+        setData(`${day}/${month}/${year}`);
+    };
+      
+
     useEffect(() => {
         const fetchData = async (orderBy) => {
             try {
@@ -19,6 +27,8 @@ const BarraData = ({ diaSemana }) => {
                 } else {
                     console.log("Nenhuma pedido encontrada.");
                 }
+
+                formatarData(diaSemana)
     
                 setArray(response.data || []);
             } catch (error) {
@@ -42,7 +52,7 @@ const BarraData = ({ diaSemana }) => {
                 <div>
                     <div className={Style['div-data']} onClick={barraAberta}>
                         <div>
-                            <span>{diaSemana}</span>
+                            <span>{data}</span>
                         </div>
                         {aberto ? <i class="bi bi-chevron-down"></i> : <i class="bi bi-chevron-up"></i>}
                     </div>

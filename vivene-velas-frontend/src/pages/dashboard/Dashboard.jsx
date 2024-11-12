@@ -64,24 +64,24 @@ function Dashboard() {
             <Grafico />
           </div>
 
-          {/* <div className={style['div_tabela']}> */}
-            {/* <Tabelavelas /> */}
+
 
           <div className={style['div_tabela']}>
             <Tabelavendas />
 
           </div>
-          {/* </div> */}
         </div>
 
         {/* Gráfico e tabela 2 */}
         <div className={style['div_grafico_tabela']}>
 
 
-          <div className={style['div_graficos']}>
+          <div className={style['div_tabela']}>
+            <Tabelavelas />
+          </div>
+          <div className={style['div_grafico']}>
             <Graficobarras />
           </div>
-
 
         </div>
 

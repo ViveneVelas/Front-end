@@ -79,24 +79,24 @@ const Pedidos = () => {
                 <div className={style['div-topo-busca-filtro']}>
                     <div className={style['div-caixa-busca']}>
 
-                        {/* <BuscaPersonalizada nome={"Data de entrega"}
+                        <BuscaPersonalizada nome={"Data de entrega"}
                             img={Calendario} />
 
                         <BuscaPersonalizada nome={"Nome do cliente"}
-                            img={Cliente} /> */}
+                            img={Cliente} />
 
-                        {/* <BuscaPersonalizada nome={"Nome da pedido"}
-                            img={Lupa} /> */}
+                        <BuscaPersonalizada nome={"Nome da pedido"}
+                            img={Lupa} />
 
                     </div>
 
-                    <div className="col-lg-5 justify-content-end display-flex">
-                                    <a href="/cadastro-pedidos">
-                                        <button type="button" className="btn btn-primary font-padrao">
-                                            <i className="bi bi-plus-lg me-1"></i> Adicionar Pedido
-                                        </button>
-                                    </a>
-                                </div>
+                    <div className="col-lg-1 justify-content-end display-flex">
+                        <a href="/cadastro-pedidos">
+                            <button type="button" className="btn btn-primary font-padrao">
+                                <i className="bi bi-plus-lg me-1"></i> Adicionar Pedido
+                            </button>
+                        </a>
+                    </div>
 
                 </div>
 
