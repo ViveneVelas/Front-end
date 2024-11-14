@@ -6,6 +6,11 @@
     margin-right: 16px;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
 .form-input {
     width: 280px;
     height: 32px;

@@ -25,3 +25,15 @@ width: 90%;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
+
+.icone-animado {
+    transition: transform 0.3s ease;
+}
+
+.bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+.bi-chevron-up {
+    transform: rotate(0deg);
+}

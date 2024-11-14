@@ -89,7 +89,7 @@ const Tabelavendas = () => {
     <>
       <div className="table-container card">
         <div className={style['div-titulo-botao']}>
-          <h5>Velas Mais Vendidas</h5>
+          <h5>Clientes com mais compras</h5>
           <button onClick={downloadTXT}><i className="bi bi-file-earmark-arrow-down"></i> Baixar TXT</button>
         </div>
 

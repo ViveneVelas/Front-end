@@ -4,26 +4,33 @@ import style from './Pedidos.module.css';
 import Sidebar from '../../components/sidebar/Sidebar';
 import BarraData from '../../components/barradata/BarraData';
 import BuscaPersonalizada from '../../components/bucapersonalisada/BuscaPersolanizada';
-import Lupa from '../../img/lupaIcon.svg'
-import Calendario from '../../img/calendarioMarromIcon.svg'
-import Cliente from '../../img/clienteIcon.svg'
+import BuscaPersonalizadaData from '../../components/bucapersonalisada/BuscaPersolanizadaData';
+import Lupa from '../../img/lupaIcon.svg';
+import Calendario from '../../img/calendarioMarromIcon.svg';
+import Cliente from '../../img/clienteIcon.svg';
 
 const Pedidos = () => {
-
     const [pedido, setPedido] = useState([]);
-    const [filter, setFilter] = useState('id');
     const [nomeBusca, setNomeBusca] = useState('');
+    const [nomeVela, setNomeVela] = useState('');
+    const [dataBusca, setDataBusca] = useState('');
 
-    const fetchData = async (orderBy) => {
+    const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/pedidos/datas/hoje`, {
+            const queryParams = [];
+            if (nomeVela) queryParams.push(`nomeVela=${nomeVela}`);
+            if (dataBusca) queryParams.push(`data=${dataBusca}`);
+            if (nomeBusca) queryParams.push(`nomeCliente=${nomeBusca}`);
+
+            const queryString = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
+            const response = await axios.get(`http://localhost:8080/pedidos/filtro${queryString}`, {
                 headers: {
                     'accept': '*/*',
                 }
             });
 
             if (response.data && response.data.length > 0) {
-                console.log("pedido + VENDIDA RESPOSTA: " + response.data[0]);
+                console.log("Pedido + VENDIDA RESPOSTA: ", response.data[0]);
             } else {
                 console.log("Nenhuma pedido encontrada.");
             }
@@ -34,40 +41,20 @@ const Pedidos = () => {
         }
     };
 
-    const fetchByName = async (name) => {
-        try {
-            const response = await axios.get(`http://localhost:8080/pedidos/filtro-nome/${name}`, {
-                headers: {
-                    'accept': '*/*',
-                }
-            });
-
-            if (response.data) {
-                console.log("Resultado da busca por nome:", response.data);
-                setPedido(response.data || []);
-            } else {
-                console.log("Nenhuma pedido encontrada com esse nome.");
-                setPedido([]);
-            }
-        } catch (error) {
-            console.error('Erro ao buscar pedido pelo nome:', error);
-        }
-    };
-
     useEffect(() => {
-        if (nomeBusca) {
-            fetchByName(nomeBusca);
-        } else {
-            fetchData(filter);
-        }
-    }, [filter, nomeBusca]);
-
-    const handleFilterChange = (orderBy) => {
-        setFilter(orderBy);
-    };
+        fetchData();
+    }, [nomeBusca, nomeVela, dataBusca]);    
 
     const handleBuscaChange = (event) => {
         setNomeBusca(event.target.value);
+    };
+
+    const handleDateChange = (event) => {
+        setDataBusca(event.target.value);
+    };
+
+    const handleNomeVelaChange = (event) => {
+        setNomeVela(event.target.value);
     };
 
     return (
@@ -75,18 +62,31 @@ const Pedidos = () => {
             <Sidebar />
 
             <div className={style['div-global']}>
-
                 <div className={style['div-topo-busca-filtro']}>
                     <div className={style['div-caixa-busca']}>
+                        <BuscaPersonalizadaData
+                            nome="Data de entrega"
+                            img={Calendario}
+                            tipo="text"
+                            valor={dataBusca}
+                            onChange={handleDateChange}
+                        />
 
-                        <BuscaPersonalizada nome={"Data de entrega"}
-                            img={Calendario} />
+                        <BuscaPersonalizada
+                            nome="Nome do cliente"
+                            img={Cliente}
+                            tipo="text"
+                            valor={nomeBusca}
+                            onChange={handleBuscaChange}
+                        />
 
-                        <BuscaPersonalizada nome={"Nome do cliente"}
-                            img={Cliente} />
-
-                        <BuscaPersonalizada nome={"Nome da pedido"}
-                            img={Lupa} />
+                        <BuscaPersonalizada
+                            nome="Nome da Vela"
+                            img={Lupa}
+                            tipo="text"
+                            valor={nomeVela}
+                            onChange={handleNomeVelaChange}
+                        />
 
                     </div>
 
@@ -97,21 +97,17 @@ const Pedidos = () => {
                             </button>
                         </a>
                     </div>
-
                 </div>
 
                 <div className={style['dados-pedido']}>
-                    {[...Array(pedido.length)].map((_, index) => (
+                    {pedido.map((item, index) => (
                         <BarraData
-                            diaSemana={pedido[index]}
+                            key={index}
+                            diaSemana={item}
                         />
                     ))}
                 </div>
-
             </div>
-
-
-
         </>
     );
 };

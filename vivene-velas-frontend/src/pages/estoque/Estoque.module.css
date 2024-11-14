@@ -74,6 +74,15 @@
         gap: 20px; /* Espaço entre os cards */
       }      
 
+      .div-spinner{
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .spinner-border{
+        display: flex;
+    }
 
     /* Estilização das informações abaixo do estoque */
 
