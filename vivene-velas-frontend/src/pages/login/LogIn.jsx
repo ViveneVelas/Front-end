@@ -52,7 +52,7 @@ function Login() {
             <img src={Img} alt="Vela" />
           </div>
           <div className="login-form">
-            <h2 className='font-padrao'>Login</h2>
+            <h2 className='titulo-form'>Login</h2>
             <input 
               type="email" 
               placeholder="E-mail" 
