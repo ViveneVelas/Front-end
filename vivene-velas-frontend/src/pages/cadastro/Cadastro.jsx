@@ -45,7 +45,7 @@ function Cadastro() {
             <img src={Img} alt="Vela" />
           </div>
           <div className="login-form">
-            <h2 className='titulo-form'>Cadastro</h2>
+            <h2 className='titulo-form'>Cadastre-se</h2>
             <input 
               type="text" 
               placeholder="Nome" 
