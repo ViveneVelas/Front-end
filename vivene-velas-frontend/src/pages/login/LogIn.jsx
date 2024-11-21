@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.module.css';
 import axios from 'axios';
 import Img from '../../img/login.png';
+import wave from '../../img/wave.svg';
 import LogoMini from '../../img/logoMini.png';
 
 function Login() {
@@ -33,21 +34,25 @@ function Login() {
       localStorage.setItem('nomeUser', JSON.stringify(response.data.nome));
       window.location.href = '/dashboard';
     } catch (error) {
-      console.log("+===========================================+")
-      console.log("| DEU ERRO NA HORA DE PEGAR O ID DO USUARIO |")
-      console.log("+===========================================+")
+      console.log("=========================================")
+      console.log("DEU ERRO NA HORA DE PEGAR O ID DO USUARIO")
+      console.log("=========================================")
     }
   }
 
   return (
     <>
+      <div id="wave">
+        <img src={wave} alt="Vela" />
+      </div>
+
       <div className="login-container">
         <div className="login-card">
           <div className="login-image">
             <img src={Img} alt="Vela" />
           </div>
           <div className="login-form">
-            <h2 className='font-padrao'>Login</h2>
+            <h2 className='titulo-form'>Entre</h2>
             <input 
               type="email" 
               placeholder="E-mail" 

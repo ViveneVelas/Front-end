@@ -3,21 +3,15 @@ import './CadastroVelas.modules.css';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Input from '../../components/input/habilitado/Input'
-import Textarea from '../../components/textarea/habilitado/TextArea'
 
 const CadastroVelas = () => {
     const [image, setImage] = useState(null);
     const [nome, setNome] = useState('');
-    const [preco, setpreco] = useState('');
+    const [preco, setPreco] = useState('');
     const [tamanho, setTamanho] = useState('');
     const [descricao, setDescricao] = useState('');
 
     const navigate = useNavigate();
-
-    const vela = () => {
-        navigate('/vela');
-    };
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -51,71 +45,82 @@ const CadastroVelas = () => {
     return (
         <>
             <Sidebar />
-            <div className="form-align-card">
+            <div className="container">
+                <h2 className="title">Cadastro de vela padronizada</h2>
                 <form className="form" onSubmit={handleSubmit}>
-                    <div className="form-group image-upload">
+                    {/* Upload de Imagem */}
+                    <div className="image-upload">
                         <input
                             type="file"
                             id="ipt_image"
-                            className="form-input"
                             accept="image/*"
                             onChange={handleImageChange}
                             style={{ display: 'none' }}
                         />
-                        <label htmlFor="ipt_image" className="form-card">
-                            <div className="upload-icon"><i className="bi bi-camera"></i></div>
-                            <div className="upload-text">Adicionar Foto</div>
-                            {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="uploaded-image" />}
+                        <label htmlFor="ipt_image" className="image-label">
+                            {image ? (
+                                <img src={URL.createObjectURL(image)} alt="Preview" className="uploaded-image" />
+                            ) : (
+                                <span>Adicionar Foto</span>
+                            )}
                         </label>
                     </div>
-
-                    <div className="div-imputs-form">
+                    {/* Inputs de Formulário */}
+                    <div className="inputs-container">
                         <div className="form-group">
-                            <Input nome={"Nome da vela"}
+                            <label htmlFor="nome">Nome</label>
+                            <input
+                                type="text"
+                                id="nome"
                                 value={nome}
-                                onChange={(e) => setNome(e.target.value)} />
-                        </div>
-
-                        <div className="form-group">
-
-                            <div className={"form-group"}>
-                            <input type="number" id="ipt_nome" className={"form-input"} required placeholder="" value={preco} onChange={(e) => setpreco(e.target.value)} /> 
-                                <label htmlFor="ipt_nome" className={"form-label"}>{"Preço"}</label>
-                            </div>
-
-                        </div>
-
-                        <div className="form-group">
-                            <select
-                                id="sel_tamanho"
-                                className="form-input"
+                                onChange={(e) => setNome(e.target.value)}
                                 required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="preco">Preço</label>
+                            <input
+                                type="number"
+                                id="preco"
+                                value={preco}
+                                onChange={(e) => setPreco(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="tamanho">Tamanho</label>
+                            <select
+                                id="tamanho"
                                 value={tamanho}
                                 onChange={(e) => setTamanho(e.target.value)}
+                                required
                             >
                                 <option value="" disabled hidden>
-                                    Tamanho
+                                    Selecione o tamanho
                                 </option>
                                 <option value="P">Pequeno</option>
                                 <option value="M">Médio</option>
                                 <option value="G">Grande</option>
                             </select>
                         </div>
-
-
                         <div className="form-group">
-                            <Textarea
-                                nome={"Descrição da vela"}
+                            <label htmlFor="descricao">Descrição</label>
+                            <textarea
+                                id="descricao"
                                 value={descricao}
                                 onChange={(e) => setDescricao(e.target.value)}
+                                required
                             />
-                            <label htmlFor="ipt_descricao" className="form-label">Descrição</label>
                         </div>
-
-                        <div className="form-buttons">
-                            <button type="button" className="cancel-button" onClick={vela}>Cancelar</button>
-                            <button type="submit" className="confirm-button">Adicionar Vela</button>
-                        </div>
+                    </div>
+                    {/* Botões */}
+                    <div className="form-buttons">
+                        <button type="button" onClick={() => navigate('/vela')} className="cancel-button">
+                            Cancelar
+                        </button>
+                        <button type="submit" className="confirm-button">
+                            Cadastrar
+                        </button>
                     </div>
                 </form>
             </div>
