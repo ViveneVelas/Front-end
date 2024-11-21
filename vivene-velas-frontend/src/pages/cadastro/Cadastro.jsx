@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Img from '../../img/login.png';
+import wave from '../../img/wave.svg';
 import LogoMini from '../../img/logoMini.png';
 
 function Cadastro() {
@@ -34,13 +35,17 @@ function Cadastro() {
 
   return (
     <>
+      <div id="wave">
+        <img src={wave} alt="Vela" />
+      </div>
+
       <div className="login-container">
         <div className="login-card reverse">
           <div className="login-image">
             <img src={Img} alt="Vela" />
           </div>
           <div className="login-form">
-            <h2 className='font-padrao'>Cadastro</h2>
+            <h2 className='titulo-form'>Cadastre-se</h2>
             <input 
               type="text" 
               placeholder="Nome" 
