@@ -25,7 +25,7 @@ const CadastroLotes = () => {
             tamanho: 'Tamanho da Vela',
             valor: 'Valor',
             descricao: 'Descrição',
-            imagem: "Imagem da vela"
+            imagem: imagemCarregando
         });
 
         const fetchData = async () => {
@@ -64,15 +64,21 @@ const CadastroLotes = () => {
                     })
                 ]);
 
-                console.log(velaResponse.data)
+                console.log(velaResponse.data);
+
+                // Verifica se a imagem é Base64 ou uma URL
+                const imagemCarregada = velaResponse.data.imagem?.startsWith('data:image')
+                    ? velaResponse.data.imagem
+                    : `data:image/jpeg;base64,${velaResponse.data.imagem}`;
 
                 setDetalhesVela({
                     tamanho: velaResponse.data.tamanho || '',
                     valor: velaResponse.data.preco || '',
                     descricao: velaResponse.data.descricao || '',
-                    imagem: velaResponse.data.imagem || imagemCarregando
+                    imagem: velaResponse.data.imagem ? imagemCarregada : imagemCarregando
                 });
-                setVelaEscolhida(selectedVela.id)
+
+                setVelaEscolhida(selectedVela.id);
             } catch (error) {
                 console.error('Erro ao buscar os dados AQUI:', error);
             }
@@ -80,6 +86,7 @@ const CadastroLotes = () => {
 
         fetchData();
     };
+
 
     const handleCheckboxChange = (valor) => {
         setSelectedCheckbox(valor === selectedCheckbox ? null : valor);
@@ -102,7 +109,6 @@ const CadastroLotes = () => {
             });
 
             console.log('Resposta:', response.data);
-            // alert('Vela adicionada com sucesso!');
             navigate('/estoque');
         } catch (error) {
             console.error('Erro ao enviar:', error);
@@ -130,7 +136,8 @@ const CadastroLotes = () => {
                         <div className="form-group image-upload">
                             <img
                                 className={style['img-vela-escolhida']}
-                                src={`data:image/jpeg;base64,${detalhesVela.imagem}`}
+                                src={detalhesVela.imagem}
+                                alt="Imagem da vela"
                             />
                         </div>
 
@@ -188,3 +195,24 @@ const CadastroLotes = () => {
 };
 
 export default CadastroLotes;
+
+/*
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+ <head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Lista de Pedidos</title>
+ <link rel="stylesheet" href="styles.css" />
+ </head>
+ <style>
+ 
+ </style>
+ <body>
+ 
+ </body>
+</html>
+
+
+*/

@@ -101,7 +101,7 @@ const CadastroPedidos = () => {
         <>
             <div>
                 <Sidebar />
-
+                {/*
                 <div className={style['div-card-pedidos']}>
                     <div className={style['div-card-minimenu']}>
                         <select
@@ -177,6 +177,87 @@ const CadastroPedidos = () => {
                         <div className={style['div-botoes']}>
                             <button className={style['botao-negativo']}>Cancelar</button>
                         </div>
+                    </div>
+                </div>
+                */}
+                <div class="div_dados_vela">
+                    <div>
+                        <h2>Dados da Vela</h2>
+                        <hr />
+                    </div>
+                    <select name="Nome da Vela" id="">
+                        <option value="">Nome da Vela</option>
+                        <option value="">Maçã</option>
+                        <option value="">Café</option>
+                        <option value="">Chocolate</option>
+                    </select>
+                    <input type="number" name="Quantidade de Velas" id="" />
+                </div>
+                <div>
+                    <div class="container">
+                        <h1>Lista de pedidos</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Vela</th>
+                                    <th>Valor Unitário</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="item">
+                                            <button class="delete-btn">✖</button>
+                                            <img
+                                                src="https://via.placeholder.com/50"
+                                                alt="Festa de aniversário"
+                                            />
+                                            <div>
+                                                <p>Vela Brisa da Manhã</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>R$ 75,00</td>
+                                    <td>
+                                        <div class="quantity-control">
+                                            <button>-</button>
+                                            <span>03</span>
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                    <td>R$ 225,00</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="item">
+                                            <button class="delete-btn">✖</button>
+
+                                            <img
+                                                src="https://via.placeholder.com/50"
+                                                alt="Festa de aniversário"
+                                            />
+                                            <div>
+                                                <p>Festa de aniversário</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>R$ 75,00</td>
+                                    <td>
+                                        <div class="quantity-control">
+                                            <button>-</button>
+                                            <span>03</span>
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                    <td>R$ 225,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="div_btn_pedido">
+                        <button class="register-btn">Cadastrar Pedidos</button>
                     </div>
                 </div>
             </div>

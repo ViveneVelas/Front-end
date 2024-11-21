@@ -1,30 +1,32 @@
 @import url('https://fonts.google.com/selection/embed');
 
-.div-pagina{
+.div-pagina {
     display: flex;
     margin-top: 50px;
 }
 
-.div-pagina h4{
+.div-pagina h4 {
     font-family: 'Sora';
     font-weight: 150;
     color: #8C5B55;
 }
 
-.div-titulo-lote{
+.div-titulo-lote {
     margin-bottom: 15px;
 }
-.img-vela-escolhida{
+
+.img-vela-escolhida {
     width: 100%;
 }
-.div-info-pagina{
+
+.div-info-pagina {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin: auto;
 }
 
-.div-cad-lote{
+.div-cad-lote {
     display: flex;
     align-items: flex-start;
     align-content: center;
@@ -32,17 +34,17 @@
 }
 
 
-.div-inputs-form{
+.div-inputs-form {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     align-items: end;
-    
+
 }
 
 
 /* Div dos campos prenchiveis */
-.div-inputs{
+.div-inputs {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -52,23 +54,21 @@
 
 /* Select optional */
 .select-optional {
-   width: 360px;
-   height: 32px;
+    width: 360px;
+    height: 32px;
 
-   border-color: #8C5B55;
-   color: #8C5B55;
-   border-radius: 4px;
+    border-color: #8C5B55;
+    color: #8C5B55;
+    border-radius: 4px;
 
-   font-family: 'Sora';
+    font-family: 'Sora';
 }
 
 
 /* Check box */
-.div-check-box{
+.div-check-box {
     width: 100%;
 
     display: flex;
     flex-direction: row;
 }
-
-
