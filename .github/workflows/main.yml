@@ -30,6 +30,7 @@ jobs:
 
     - name: Gerar build do React
       run: npm run build # Gera os arquivos estáticos para deploy
+      working-directory: ./vivene-velas-frontend/vivene-velas-frontend
 
     - name: Gerar artefato Github com os arquivos do build
       uses: actions/upload-artifact@v4
