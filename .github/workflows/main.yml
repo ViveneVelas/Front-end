@@ -26,6 +26,7 @@ jobs:
 
     - name: Instalar dependências
       run: npm install
+      working-directory: ./vivene-velas-frontend
 
     - name: Gerar build do React
       run: npm run build # Gera os arquivos estáticos para deploy
