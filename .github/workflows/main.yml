@@ -1,0 +1,59 @@
+# Configuração do workflow para deploy do frontend React
+name: CI/CD para React com publicação em EC2
+
+on:
+  push:
+    branches:
+      - main # Executa o workflow ao fazer push na branch main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Atualizar o código
+      uses: actions/checkout@v2
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' # Especifica a versão do Node.js
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Gerar build do React
+      run: npm run build # Gera os arquivos estáticos para deploy
+
+    - name: Gerar artefato Github com os arquivos do build
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-frontend
+        path: build/ # Diretório gerado pelo npm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Recuperar artefatos do build
+      uses: actions/download-artifact@v4
+      with:
+        name: build-frontend
+        path: ./build
+
+    - name: Criar arquivo .pem a partir da variável DEPLOY_KEY e fazer o chmod 400 nele
+      id: criar-arquivo-pem
+      run: |
+        echo "${{ secrets.DEPLOY_KEY }}" >> $HOME/${{ secrets.NOME_ARQUIVO_PEM }}
+        chmod 400 $HOME/${{ secrets.NOME_ARQUIVO_PEM }}
+
+    - name: Enviar arquivos do build para a EC2
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ubuntu
+        password: 123
+        key: ${{ secrets.DEPLOY_KEY }}
+        source: "./build/*" # Envia os arquivos estáticos do React
+        target: "/home/ubuntu/Desktop/Frontend" # Diretório de destino no servidor
