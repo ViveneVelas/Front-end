@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - main # Executa o workflow ao fazer push na branch main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -18,6 +21,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18' # Especifica a versão do Node.js
+
+    - name: Mudar para o diretório correto
+      run: cd vivene-velas-frontend # Mudando para o diretório onde está o package.json
 
     - name: Instalar dependências
       run: npm install
