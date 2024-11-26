@@ -58,11 +58,12 @@ jobs:
         echo "${{ secrets.DEPLOY_KEY }}" >> $HOME/${{ secrets.NOME_ARQUIVO_PEM }}
         chmod 400 $HOME/${{ secrets.NOME_ARQUIVO_PEM }}
 
-    - name: Enviar arquivos do build para a EC2 via SCP
+    - name: Enviar arquivos do build para a EC2 via rsync
       uses: appleboy/ssh-action@v0.1.2
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ubuntu
+        password: 123
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
-          scp -i ${{ secrets.DEPLOY_KEY }} -r ./vivene-velas-frontend/vivene-velas-frontend/build/* ubuntu@${{ secrets.DEPLOY_HOST }}:/home/ubuntu/Desktop/Frontend/
+          rsync -avz --delete ./vivene-velas-frontend/vivene-velas-frontend/build/ /home/ubuntu/Desktop/Frontend/
