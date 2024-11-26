@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-frontend
-        path: ./vivene-velas-frontend/vivene-velas-frontend # Diretório gerado pelo npm run build
+        path: ./vivene-velas-frontend/vivene-velas-frontend/build # Diretório gerado pelo npm run build
 
   deploy:
     needs: build
