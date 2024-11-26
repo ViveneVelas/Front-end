@@ -58,11 +58,23 @@ jobs:
         echo "${{ secrets.DEPLOY_KEY }}" >> $HOME/${{ secrets.NOME_ARQUIVO_PEM }}
         chmod 400 $HOME/${{ secrets.NOME_ARQUIVO_PEM }}
 
-    - name: Enviar arquivos do build para a EC2 via rsync
-      uses: appleboy/ssh-action@v0.1.2
+    - name: Enviar arquivos do build para a EC2 via SCP
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ubuntu
         key: ${{ secrets.DEPLOY_KEY }}
+        port: 22
+        source: "./vivene-velas-frontend/vivene-velas-frontend/build/"
+        target: "/home/ubuntu/Desktop/Frontend/"
+
+    - name: Ajustar permissões no servidor remoto
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ubuntu
+        key: ${{ secrets.DEPLOY_KEY }}
+        port: 22
         script: |
-          rsync -avz --delete ./vivene-velas-frontend/vivene-velas-frontend/build/ /home/ubuntu/Desktop/Frontend/
+          chown -R ubuntu:ubuntu /home/ubuntu/Desktop/Frontend/
+          chmod -R 770 /home/ubuntu/Desktop/Frontend/
