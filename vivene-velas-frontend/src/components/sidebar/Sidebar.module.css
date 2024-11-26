@@ -9,14 +9,13 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  transition: width 0.3s;
+  transition: width 0.3s, height 0.3s, border-radius 0.3s, top 0.3s;
   z-index: 1000;
 }
 
 .collapsed {
   width: 80px;
 }
-
 
 .toggleBtn {
   background: none;
@@ -30,7 +29,7 @@
 .nav {
   flex-grow: 1;
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 
 .nav ul {
@@ -75,30 +74,59 @@
   display: none;
 }
 
-@media (min-width: 800px ) {
-  
-#main {
-  margin-left: 112px; /* Largura da sidebar quando expandida */
-  transition: margin-left 0.3s ease;
-}
+@media (min-width: 800px) {
+  #main {
+    margin-left: 112px; /* Largura da sidebar quando expandida */
+    transition: margin-left 0.3s ease;
+  }
 }
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
+    width: 70%; /* Reduzida a largura para 70% da tela */
+    height: auto; /* Altura ajustada automaticamente */
+    max-height: 75%; /* Para não ocupar toda a tela */
+    position: absolute;
+    top: 10%; /* Centraliza verticalmente com espaçamento */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição horizontal */
+    border-radius: 20px; /* Deixa os cantos arredondados */
+    padding-bottom: 5px; /* Pequeno espaçamento no bottom */
   }
 
   .collapsed {
-    width: 100%;
+    width: 70%; /* Mantém o mesmo ajuste para largura */
   }
 
   .toggleBtn {
     display: none;
   }
+
   #main {
     margin-left: 10px; /* Largura da sidebar quando expandida */
     transition: margin-left 0.3s ease;
+  }
+
+  .nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+  }
+
+  .nav ul {
+    display: flex;
+    flex-direction: row; /* Alinha os itens em uma linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente */
+    padding: 0;
+    margin: 0;
+    gap: 10px; /* Espaçamento entre os itens */
+  }
+
+  .nav li {
+    margin: 0; /* Remove o espaçamento vertical padrão */
+    display: flex;
+    align-items: center; /* Alinha os ícones no centro */
   }
 }
