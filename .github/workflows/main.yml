@@ -63,7 +63,6 @@ jobs:
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ubuntu
-        password: 123
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
           rsync -avz --delete ./vivene-velas-frontend/vivene-velas-frontend/build/ /home/ubuntu/Desktop/Frontend/
