@@ -16,6 +16,9 @@ jobs:
       with:
         path: vivene-velas-frontend
 
+    - name: Set CI environment variable to false
+      run: echo "CI=false" >> $GITHUB_ENV
+
     - name: Configurar Node.js
       uses: actions/setup-node@v3
       with:
