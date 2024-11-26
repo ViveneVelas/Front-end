@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-frontend
-        path: build/ # Diretório gerado pelo npm run build
+        path: ./vivene-velas-frontend/vivene-velas-frontend # Diretório gerado pelo npm run build
 
   deploy:
     needs: build
@@ -50,7 +50,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: build-frontend
-        path: ./build
+        path: ./vivene-velas-frontend/vivene-velas-frontend/build
 
     - name: Criar arquivo .pem a partir da variável DEPLOY_KEY e fazer o chmod 400 nele
       id: criar-arquivo-pem
