@@ -73,9 +73,9 @@ const Vela = () => {
         setNomeBusca(event.target.value);
     };
 
-    return (
-        <>
-            <Sidebar />
+    return (    
+        <>  
+           
             <main id="main" className="main">
                 <section className="section dashboard">
                     <div className="row">
@@ -89,7 +89,7 @@ const Vela = () => {
                                     </div>
                                 <div className="col-lg-5 justify-content-end display-flex">
                                     <a href="/cadastro-velas">
-                                        <button type="button" className="btn btn-primary font-padrao">
+                                        <button id="adicionar-vela" type="button" className="btn btn-primary font-padrao">
                                             <i className="bi bi-plus-lg me-1"></i> Adicionar Vela
                                         </button>
                                     </a>
@@ -128,6 +128,16 @@ const Vela = () => {
                     </div>
                 </section>
             </main>
+            <div className="footer-mobile">
+                <button type="button" className="btn btn-arrow">
+                    <i className="bi bi-arrow-left"></i>
+                </button>
+                <a href="/cadastro-velas">
+                    <button type="button" className="btn btn-primary">
+                        <i className="bi bi-plus-lg"></i> Adicionar Vela
+                    </button>
+                </a>
+            </div>
         </>
     );
 };
