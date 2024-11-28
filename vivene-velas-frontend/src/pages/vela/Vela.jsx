@@ -75,7 +75,7 @@ const Vela = () => {
 
     return (    
         <>  
-           
+           <Sidebar> </Sidebar>
             <main id="main" className="main">
                 <section className="section dashboard">
                     <div className="row">
