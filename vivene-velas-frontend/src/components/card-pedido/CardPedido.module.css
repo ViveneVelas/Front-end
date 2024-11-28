@@ -34,16 +34,22 @@
 }
 
 .nao-iniciado {
-    background-color: #fefbb4;
+    /* background-color: #fefbb4;
     border-color: #fefbb4;
-    color: #C39818;
+    color: #C39818; */
+    background-color: #f6c4c2;
+    border-color: #f6c4c2;
+    color: #B71E1E;
     font-weight: 600;
 }
 
 .em-andamento {
-    background-color: #c8f5b4;
+    /* background-color: #c8f5b4;
     border-color: #c8f5b4;
-    color: #05580D;
+    color: #05580D; */
+    background-color: #fefbb4;
+    border-color: #fefbb4;
+    color: #C39818
 }
 
 .em-atraso{
