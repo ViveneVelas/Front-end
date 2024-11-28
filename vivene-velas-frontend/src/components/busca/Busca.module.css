@@ -21,3 +21,15 @@ input::placeholder{
     color: #8C5B55;
     font-weight: 500;
 }
+
+@media (max-width: 576px) {
+    .div-busca-input{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        border: 2px solid #8C5B55;
+        height: 33px;
+        padding-right: 4px;
+    }
+}

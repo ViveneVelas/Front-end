@@ -5,6 +5,8 @@
     justify-content: space-between;
 }
 
+
+
 .div-filtros {
     display: flex;
     width: 100%;
@@ -32,6 +34,68 @@
     align-items: center;
     justify-content: center;
 }
+
 .spinner-border{
     display: flex;
+}
+/* Cards - Organização */
+.coln {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between; /* Espaçamento horizontal para grandes telas */
+}
+
+.footer-mobile{
+    display: none;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 576px) {
+    .coln {
+        flex-direction: column; /* Um card por linha */
+        gap: 10px; /* Reduz o espaçamento entre cards */
+    }
+
+    .card-body {
+        width: 100%; /* Cada card ocupa 100% da largura */
+    }
+
+    /* Footer responsivo */
+    .footer-mobile {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fff; /* Cor de fundo */
+        border-top: 1px solid #ccc; /* Linha divisória */
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        z-index: 10; /* Garante que o footer fique acima de outros elementos */
+    }
+
+    /* Botões no footer */
+    .footer-mobile button {
+        flex: 1; /* Ocupa espaço igual */
+        margin: 0 5px; /* Espaçamento lateral entre os botões */
+    }
+
+    #adicionar-vela{
+        display: none;
+    }
+
+    .btn-arrow{
+        color: #8C5B55;
+        background-color: #fff;
+
+    }
+}
+
+/* Spinner centralizado */
+.div-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* O spinner ocupa toda a altura da tela */
 }
