@@ -11,9 +11,9 @@ const CardPedido = ({ valor, nomeCliente, entrega, st }) => {
 
     useEffect(() => {
         const definirStyle = () => {
-            if (status == 'nao-iniciado') {
+            if (status == "nao-iniciado") {
                 setStyleNow("nao-iniciado")
-            } else if (status == 'em-andamento') {
+            } else if (status == 'andamento') {
                 setStyleNow("em-andamento")
             } else {
                 setStyleNow("em-atraso")
@@ -52,10 +52,31 @@ const CardPedido = ({ valor, nomeCliente, entrega, st }) => {
                             onChange={handleStatusChange}
                             value={status}
                         >
-                            <option value="nao-iniciado">Não iniciado</option>
-                            <option value="em-andamento">Em andamento</option>
-                            <option value="em-atraso">Em atraso</option>
+                            {styleNow === "em-andamento" && (
+                                <>
+                                    <option value="em-andamento">Em andamento</option>
+                                    <option value="nao-iniciado">Não iniciado</option>
+                                    <option value="em-atraso">Em atraso</option>
+                                </>
+                            )}
+                            {styleNow === "nao-iniciado" && (
+                                <>
+                                    <option value="nao-iniciado">Não iniciado</option>
+                                    <option value="em-andamento">Em andamento</option>
+                                    <option value="em-atraso">Em atraso</option>
+                                </>
+                            )}
+                            {styleNow === "em-atraso" && (
+                                <>
+                                    <option value="em-atraso">Em atraso</option>
+                                    <option value="nao-iniciado">Não iniciado</option>
+                                    <option value="em-andamento">Em andamento</option>
+
+                                </>
+                            )}
                         </select>
+
+
                     </div>
 
                     <div className={Styles["div-botoes"]}>

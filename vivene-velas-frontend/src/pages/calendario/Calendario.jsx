@@ -91,7 +91,9 @@ function Calendario() {
 
         setEventos(response.data); // Armazena os dados retornados no estado
         setEventosFiltrados(response.data); // Armazena os dados retornados no estado
-        setPedidos(response.data); // Armazena os dados retornados no estado
+        setPedidos("------------- Passei Aqui -------------"); // Armazena os dados retornados no estado
+        console.log(response.data);
+        
       } catch (err) {
         setError('Erro ao carregar pedidos');
       } finally {

@@ -14,7 +14,7 @@ const CadastroPedidos = () => {
     const [qtdEscolhida, setQtdEscolhida] = useState(0);
     const [registroPedidos, setRegistroPedidos] = useState([]);
     const [nomeCliente, setNomeCliente] = useState('');
-    const [tipoEntrega, setTipoEntrega] = useState(''); // Tipo de entrega (Endereço)
+    const [tipoEntrega, setTipoEntrega] = useState('');
     const [dataEntrega, setDataEntrega] = useState('');
     const [valorFrete, setValorFrete] = useState(0);
 
@@ -54,6 +54,7 @@ const CadastroPedidos = () => {
 
     const handleSubmit = () => {
         const novoPedido = {
+            img: detalhesVela.imagem,
             nomeVela: detalhesVela.nome,
             statusEstoque: "Em estoque",
             qtdeVelas: qtdEscolhida,
@@ -63,6 +64,10 @@ const CadastroPedidos = () => {
         };
 
         setRegistroPedidos([...registroPedidos, novoPedido]);
+    };
+
+    const removerPedido = (index) => {
+        setRegistroPedidos(registroPedidos.filter((_, i) => i !== index));
     };
 
     const salvarPedidos = async () => {
@@ -78,7 +83,7 @@ const CadastroPedidos = () => {
             descricao: "Pedido de velas",
             tipoEntrega: "test",
             status: "Em andamento",
-            clienteId: 1, // Substitua pelo ID do cliente
+            clienteId: 1,
             listaVelas: listaVelas
         };
 
@@ -100,9 +105,8 @@ const CadastroPedidos = () => {
     return (
         <>
             <div>
-                <Sidebar />
-                {/*
-                <div className={style['div-card-pedidos']}>
+                
+                {/* <div className={style['div-card-pedidos']}>
                     <div className={style['div-card-minimenu']}>
                         <select
                             className={style["select-optional"]}
@@ -178,88 +182,100 @@ const CadastroPedidos = () => {
                             <button className={style['botao-negativo']}>Cancelar</button>
                         </div>
                     </div>
-                </div>
-                */}
-                <div class="div_dados_vela">
-                    <div>
-                        <h2>Dados da Vela</h2>
-                        <hr />
-                    </div>
-                    <select name="Nome da Vela" id="">
-                        <option value="">Nome da Vela</option>
-                        <option value="">Maçã</option>
-                        <option value="">Café</option>
-                        <option value="">Chocolate</option>
-                    </select>
-                    <input type="number" name="Quantidade de Velas" id="" />
-                </div>
-                <div>
-                    <div class="container">
-                        <h1>Lista de pedidos</h1>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Vela</th>
-                                    <th>Valor Unitário</th>
-                                    <th>Quantidade</th>
-                                    <th>Valor Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="item">
-                                            <button class="delete-btn">✖</button>
-                                            <img
-                                                src="https://via.placeholder.com/50"
-                                                alt="Festa de aniversário"
-                                            />
-                                            <div>
-                                                <p>Vela Brisa da Manhã</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>R$ 75,00</td>
-                                    <td>
-                                        <div class="quantity-control">
-                                            <button>-</button>
-                                            <span>03</span>
-                                            <button>+</button>
-                                        </div>
-                                    </td>
-                                    <td>R$ 225,00</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="item">
-                                            <button class="delete-btn">✖</button>
+                </div> */}
+               
+                <Sidebar />
+                <div class={style["div_dados_gerais"]}>
 
-                                            <img
-                                                src="https://via.placeholder.com/50"
-                                                alt="Festa de aniversário"
-                                            />
-                                            <div>
-                                                <p>Festa de aniversário</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>R$ 75,00</td>
-                                    <td>
-                                        <div class="quantity-control">
-                                            <button>-</button>
-                                            <span>03</span>
-                                            <button>+</button>
-                                        </div>
-                                    </td>
-                                    <td>R$ 225,00</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class={style["div_dados_vela"]}>
+                        <div>
+                            <h2>Dados da Vela</h2>
+                            <hr />
+                        </div>
+                        <select
+                            className={style["select-optional"]}
+                            onChange={escolherVela}
+                            defaultValue=""
+                        >
+                            <option disabled value="">Selecione uma vela</option>
+                            {velas.map((velaNow) => (
+                                <option key={velaNow.id} value={velaNow.id}>{velaNow.nome}</option>
+                            ))}
+                        </select>
+                        <div className={style["form-group"]}>
+                            <input
+                                type="number"
+                                id="ipt_nome"
+                                className={style["form-input"]}
+                                required
+                                placeholder=""
+                                onChange={(e) => setQtdEscolhida(parseInt(e.target.value) || 0)}
+                            />
+                            <label htmlFor="ipt_nome" className={style["form-label"]}>{"Quantidade de velas"}</label>
+                        </div>
+                        <div className={style["div_btn_pedido"]}>
+                            
+                                <button type="button" className="btn btn-primary font-padrao" onClick={handleSubmit} >+ Adicionar Vela</button>
+                            
+                        </div>
                     </div>
-                    <div class="div_btn_pedido">
-                        <button class="register-btn">Cadastrar Pedidos</button>
+                    <div>
+                        <div class={style["container"]}>
+                            <h1>Lista de pedidos</h1>
+                            <div class={style["div-tabela"]}>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>VELA</th>
+                                        <th>VALOR UNITÁRIO</th>
+                                        <th>QUANTIDADE</th>
+                                        <th>VALOR TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {registroPedidos.map((pedido, index) => (
+                                <tr>
+                                        <td>
+                                            <div class={style["item"]}>
+                                                <button
+                                                    className={style["delete-btn"]}
+                                                    onClick={() => removerPedido(index)}
+                                                >
+                                                    <i className="bi bi-x-circle"></i>
+                                                </button>
+                                                <img class={style["img-logo-vela"]}
+                                                    src={`data:image/jpeg;base64,${pedido.img}`}
+                                                />   
+                                                <div>
+                                                    <p>{pedido.nomeVela}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>R$ {pedido.valorVela}</td>
+                                        <td>
+                                            <div class={style["quantity-control"]}>
+                                                <button>-</button>
+                                                <span>{pedido.qtdeVelas}</span>
+                                                <button>+</button>
+                                            </div>
+                                        </td>
+                                        <td>R$ {pedido.valorPedido}</td>
+                                    </tr>
+                            ))}
+ 
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        <div className={style["div_btn_pedido"]}>
+                            <a href="/cadastro-lote">
+                                <button type="button" className="btn btn-primary font-padrao" >Cadastrar Pedido</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </>
     );
