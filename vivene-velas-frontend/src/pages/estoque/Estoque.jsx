@@ -25,10 +25,10 @@ const Estoque = () => {
 
             try {
                 const [velaResponse, velaEResponse] = await Promise.all([
-                    axios.get('http://44.204.200.174/lotes/casa', {
+                    axios.get('http://44.204.200.174:8080/lotes/casa', {
                         headers: { 'accept': '*/*' },
                     }),
-                    axios.get('http://44.204.200.174/lotes/estudio', {
+                    axios.get('http://44.204.200.174:8080/lotes/estudio', {
                         headers: { 'accept': '*/*' },
                     }),
                 ]);

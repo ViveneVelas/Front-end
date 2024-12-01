@@ -23,7 +23,7 @@ const Pedidos = () => {
             if (nomeBusca) queryParams.push(`nomeCliente=${nomeBusca}`);
 
             const queryString = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
-            const response = await axios.get(`http://44.204.200.174/pedidos/filtro${queryString}`, {
+            const response = await axios.get(`http://44.204.200.174:8080/pedidos/filtro${queryString}`, {
                 headers: {
                     'accept': '*/*',
                 }

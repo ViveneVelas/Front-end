@@ -33,7 +33,7 @@ const CadastroVelas = () => {
         formData.append('imagem', image);
 
         try {
-            const response = await axios.post('http://44.204.200.174/velas', formData, {
+            const response = await axios.post('http://44.204.200.174:8080/velas', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 

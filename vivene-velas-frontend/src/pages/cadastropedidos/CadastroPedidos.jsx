@@ -21,7 +21,7 @@ const CadastroPedidos = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://44.204.200.174/velas/buscar-nomes-velas', {
+                const response = await axios.get('http://44.204.200.174:8080/velas/buscar-nomes-velas', {
                     headers: { 'accept': '*/*' },
                 });
                 setVelas(response.data || []);
@@ -54,7 +54,7 @@ const CadastroPedidos = () => {
         setVelaEscolhida(selectedVelaId);
 
         try {
-            const response = await axios.get(`http://44.204.200.174/velas/${selectedVelaId}`, {
+            const response = await axios.get(`http://44.204.200.174:8080/velas/${selectedVelaId}`, {
                 headers: { 'accept': '*/*' },
             });
             setDetalhesVela({
@@ -108,7 +108,7 @@ const CadastroPedidos = () => {
         console.log(dadosPedido);
 
         try {
-            const response = await axios.post('http://44.204.200.174/pedidos', dadosPedido, {
+            const response = await axios.post('http://44.204.200.174:8080/pedidos', dadosPedido, {
                 headers: {
                     'accept': 'application/json',
                     'Content-Type': 'application/json'
