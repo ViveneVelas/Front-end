@@ -47,14 +47,17 @@ const Pedidos = () => {
 
     const handleBuscaChange = (event) => {
         setNomeBusca(event.target.value);
+        fetchData()
     };
 
     const handleDateChange = (event) => {
         setDataBusca(event.target.value);
+        fetchData()
     };
 
     const handleNomeVelaChange = (event) => {
         setNomeVela(event.target.value);
+        fetchData()
     };
 
     return (
@@ -104,6 +107,7 @@ const Pedidos = () => {
                         <BarraData
                             key={index}
                             diaSemana={item}
+                            nome={nomeBusca}
                         />
                     ))}
                 </div>

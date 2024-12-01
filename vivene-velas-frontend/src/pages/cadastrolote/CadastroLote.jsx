@@ -7,8 +7,11 @@ import CheckBox from '../../components/checkbox/CheckBox';
 import TextAreaDesabilitada from '../../components/textarea/desabilitado/TextAreaDesabilitado';
 import style from './CadastroLote.module.css'
 import imagemCarregando from '../../img/imagem-carregando.png'
+import Notificacao from '../../components/notificacao/Notificacao';
 
 const CadastroLotes = () => {
+    const [showAlertSuccess, setShowAlertSuccess] = useState(false);
+    const [showAlertError, setShowAlertError] = useState(false);
 
     const [velas, setVelas] = useState([]);
     const [selectedCheckbox, setSelectedCheckbox] = useState(null);
@@ -25,7 +28,7 @@ const CadastroLotes = () => {
             tamanho: 'Tamanho da Vela',
             valor: 'Valor',
             descricao: 'Descrição',
-            imagem: imagemCarregando
+            imagem: null
         });
 
         const fetchData = async () => {
@@ -108,15 +111,19 @@ const CadastroLotes = () => {
                 localizacao: localizacaoEscolhida
             });
 
+            setShowAlertSuccess(true)
             console.log('Resposta:', response.data);
-            navigate('/estoque');
+            setTimeout(() => {
+                navigate('/estoque');
+            }, 5000);
         } catch (error) {
+            setShowAlertError(true)
             console.error('Erro ao enviar:', error);
-            alert('Erro ao adicionar a vela.');
+            setTimeout(() => {
+                setShowAlertError(false)
+            }, 5000);
         }
     };
-
-
 
     return (
         <>
@@ -133,12 +140,12 @@ const CadastroLotes = () => {
                     <div className={style["div-cad-lote"]}>
 
 
-                        <div className="form-group image-upload">
-                            <img
-                                className={style['img-vela-escolhida']}
-                                src={detalhesVela.imagem}
-                                alt="Imagem da vela"
-                            />
+                        <div className={`form-group ${style['image-upload-lote']}`}>
+                            {detalhesVela.imagem ? (
+                                <img src={detalhesVela.imagem} alt="Preview" className="uploaded-image" />
+                            ) : (
+                                <span>Selecione uma Vela</span>
+                            )}
                         </div>
 
 
@@ -185,6 +192,26 @@ const CadastroLotes = () => {
                 </div>
             </div>
 
+            {showAlertSuccess && (
+                <Notificacao
+                    message=" Lote Cadastrado com Sucesso!"
+                    duration={5000}
+                    type="success"
+                    icon="bi bi-check2-circle"
+                    onClose={() => setShowAlertSuccess(false)}
+                />
+            )}
+
+            {showAlertError && (
+                <Notificacao
+                    message=" Erro ao cadastrar um Lote!"
+                    duration={5000}
+                    type="error"
+                    icon="bi bi-x-circle"
+                    onClose={() => setShowAlertSuccess(false)}
+                />
+            )}
+
         </>
 
 
@@ -195,24 +222,3 @@ const CadastroLotes = () => {
 };
 
 export default CadastroLotes;
-
-/*
-<!DOCTYPE html>
-
-<html lang="pt-BR">
- <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Lista de Pedidos</title>
- <link rel="stylesheet" href="styles.css" />
- </head>
- <style>
- 
- </style>
- <body>
- 
- </body>
-</html>
-
-
-*/

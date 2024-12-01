@@ -76,9 +76,10 @@ const CadastroPedidos = () => {
             nomeVela: pedido.nomeVela,
             qtdVela: pedido.qtdeVelas
         }));
+        const localDate = new Date().toISOString().split('T')[0];
 
         const dadosPedido = {
-            dtPedido: dataEntrega,
+            dtPedido: localDate,
             preco: registroPedidos.reduce((total, pedido) => total + parseFloat(pedido.valorPedido), 0) + parseFloat(valorFrete),
             descricao: "Pedido de velas",
             tipoEntrega: "test",
@@ -87,6 +88,10 @@ const CadastroPedidos = () => {
             listaVelas: listaVelas
         };
 
+        console.log("AAAAAAAAAAAAAAAAA");
+        
+        console.log(dadosPedido);
+        
         try {
             const response = await axios.post('http://localhost:8080/pedidos', dadosPedido, {
                 headers: {
@@ -269,9 +274,9 @@ const CadastroPedidos = () => {
                             </div>
                         </div>
                         <div className={style["div_btn_pedido"]}>
-                            <a href="/cadastro-lote">
-                                <button type="button" className="btn btn-primary font-padrao" >Cadastrar Pedido</button>
-                            </a>
+                            
+                                <button type="button" onClick={salvarPedidos} className="btn btn-primary font-padrao" >Cadastrar Pedido</button>
+                            
                         </div>
                     </div>
                 </div>

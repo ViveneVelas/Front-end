@@ -3,7 +3,7 @@ import axios from 'axios';
 import Style from './BarraData.module.css';
 import CardPedido from '../card-pedido/CardPedido';
 
-const BarraData = ({ diaSemana }) => {
+const BarraData = ({ diaSemana, nome }) => {
     const [data, setData] = useState('');
     const [aberto, setAberto] = useState(false);
     const [array, setArray] = useState([]);
@@ -15,7 +15,7 @@ const BarraData = ({ diaSemana }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/pedidos/filtro/data/now?data=${diaSemana}`, {
+            const response = await axios.get(`http://localhost:8080/pedidos/filtro/data/now?data=${diaSemana}&nomeCliente=${nome}`, {
                 headers: {
                     'accept': '*/*',
                 }
@@ -35,9 +35,9 @@ const BarraData = ({ diaSemana }) => {
     };
 
     useEffect(() => {
-        console.log("DIA DE AGR:", diaSemana);
+        console.log("DIA DE AGR:", diaSemana, "NOME:", nome);
         fetchData();
-    }, [diaSemana]); // Executa o fetchData sempre que diaSemana mudar
+    }, [diaSemana, nome]); // Inclua 'nome' para escutar alterações    
 
     const barraAberta = () => setAberto(!aberto);
 

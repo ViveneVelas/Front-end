@@ -9,30 +9,89 @@
     box-shadow: -6px 0px 5px rgba(0, 0, 0, 0.5);
 }
 .div_pedidos_geral{
-    background-color: #7CC6D7;
-    /* background-color: #297889; */
-    color: white;
-    padding: 10px;
+    padding: 8px;
     position: relative;
     border-radius: 12px; /* Apenas cantos esquerdos arredondados */
     margin-bottom: 25px;
 }
-.div_pedidos_geral::before {
+
+.sidebar-eventos h4 {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-eventos h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Distância da linha em relação ao texto */
+    width: 100%;
+    height: 2px;
+    background-color: #333; /* Cor da linha */
+  }
+  
+.sidebar-eventos h5{
+    padding-left: 10px !important; 
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+.div_pedidos_geral h6{
+    padding-left: 10px;
+}
+
+.concluido{
+    background-color: #5fce2c;
+    color: white;
+    font-weight: 600;
+}
+
+.concluido::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     width: 10px; /* Largura da borda */
-    background-color: #4ca1af; /* Cor da borda */
+    background-color: #2f8309; /* Cor da borda */
     border-radius: 12px 0 0 12px; /* Apenas cantos esquerdos arredondados */
-  }
-.sidebar-eventos h4 {
-    text-align: center;
-    margin-bottom: 20px;
 }
-.div_pedidos_geral h6{
-    padding-left: 10px;
+
+.nao-iniciado {
+    background-color: #d52929;
+    color: white;
+    font-weight: 600;
+}
+
+.nao-iniciado::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px; /* Largura da borda */
+    background-color: #a60a0a; /* Cor da borda */
+    border-radius: 12px 0 0 12px; /* Apenas cantos esquerdos arredondados */
+}
+
+.em-andamento {
+    color: white;
+    background-color: rgb(255 210 0)
+}
+
+.em-andamento::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px; /* Largura da borda */
+    background-color: rgb(255, 174, 25); /* Cor da borda */
+    border-radius: 12px 0 0 12px; /* Apenas cantos esquerdos arredondados */
 }
 
 .sidebar-eventos ul {

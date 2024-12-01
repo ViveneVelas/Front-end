@@ -26,6 +26,21 @@
     margin: auto;
 }
 
+.image-upload-lote {
+    color: #8C5B55;
+    width: 400px;
+    height: 420px;
+    border: 2px dashed #8C5B55;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
 .div-cad-lote {
     display: flex;
     align-items: flex-start;

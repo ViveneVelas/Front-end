@@ -3,8 +3,12 @@ import './CadastroVelas.modules.css';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Notificacao from '../../components/notificacao/Notificacao';
 
 const CadastroVelas = () => {
+    const [showAlertSuccess, setShowAlertSuccess] = useState(false);
+    const [showAlertError, setShowAlertError] = useState(false);
+
     const [image, setImage] = useState(null);
     const [nome, setNome] = useState('');
     const [preco, setPreco] = useState('');
@@ -33,12 +37,17 @@ const CadastroVelas = () => {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 
+            setShowAlertSuccess(true)
             console.log('Resposta:', response.data);
-            alert('Vela adicionada com sucesso!');
-            navigate('/vela');
+            setTimeout(() => {
+                navigate('/vela');
+            }, 5000);
         } catch (error) {
+            setShowAlertError(true)
             console.error('Erro ao enviar:', error);
-            alert('Erro ao adicionar a vela.');
+            setTimeout(() => {
+                setShowAlertError(false)
+            }, 5000);
         }
     };
 
@@ -124,6 +133,25 @@ const CadastroVelas = () => {
                     </div>
                 </form>
             </div>
+            {showAlertSuccess && (
+                <Notificacao
+                    message=" Vela Cadastrada com Sucesso!"
+                    duration={5000}
+                    type="success"
+                    icon="bi bi-check2-circle"
+                    onClose={() => setShowAlertSuccess(false)}
+                />
+            )}
+
+            {showAlertError && (
+                <Notificacao
+                    message=" Erro ao cadastrar uma vela!"
+                    duration={5000}
+                    type="error"
+                    icon="bi bi-x-circle"
+                    onClose={() => setShowAlertSuccess(false)}
+                />
+            )}
         </>
     );
 };

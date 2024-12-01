@@ -66,16 +66,17 @@ const Vela = () => {
     }, [filter, nomeBusca]);
 
     const handleFilterChange = (orderBy) => {
-        setFilter(orderBy); 
+        setFilter(orderBy);
     };
 
     const handleBuscaChange = (event) => {
         setNomeBusca(event.target.value);
     };
 
-    return (    
-        <>  
-           
+    return (
+        <>
+            <Sidebar />
+
             <main id="main" className="main">
                 <section className="section dashboard">
                     <div className="row">
@@ -86,7 +87,7 @@ const Vela = () => {
                                         <Busca onChange={handleBuscaChange} />
                                     </div>
                                     <Filtrar onFilterChange={handleFilterChange} />
-                                    </div>
+                                </div>
                                 <div className="col-lg-5 justify-content-end display-flex">
                                     <a href="/cadastro-velas">
                                         <button id="adicionar-vela" type="button" className="btn btn-primary font-padrao">
@@ -101,13 +102,15 @@ const Vela = () => {
                                 <div className="">
                                     <div className="card-body">
                                         <div className="news">
-                                            <div className="col-lg-12 coln">
-                                                {loading ? (
+                                            {loading ? (
+                                                <div className="col-lg-12 coln spinner-now">
                                                     <div className="spinner-border" role="status">
                                                         <span className="visually-hidden">Carregando...</span>
                                                     </div>
-                                                ) : (
-                                                    vela.map((item, index) => (
+                                                </div>
+                                            ) : (
+                                                <div className="col-lg-12 coln colunas-velas spinner-now">
+                                                    {vela.map((item, index) => (
                                                         <Cardvela
                                                             key={index}
                                                             img={item.imagem}
@@ -117,9 +120,9 @@ const Vela = () => {
                                                             preco={item.preco}
                                                             tamanho={item.tamanho}
                                                         />
-                                                    ))
-                                                )}
-                                            </div>
+                                                    ))}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

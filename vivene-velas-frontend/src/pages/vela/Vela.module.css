@@ -34,7 +34,11 @@
     align-items: center;
     justify-content: center;
 }
-
+.spinner-now{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .spinner-border{
     display: flex;
 }
@@ -43,9 +47,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between; /* Espaçamento horizontal para grandes telas */
+    /* justify-content: space-between; Espaçamento horizontal para grandes telas */
 }
-
+.colunas-velas{
+    justify-content: space-between
+}
 .footer-mobile{
     display: none;
 }
