@@ -15,7 +15,7 @@ const BarraData = ({ diaSemana, nome }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/pedidos/filtro/data/now?data=${diaSemana}&nomeCliente=${nome}`, {
+            const response = await axios.get(`http://44.204.200.174/pedidos/filtro/data/now?data=${diaSemana}&nomeCliente=${nome}`, {
                 headers: {
                     'accept': '*/*',
                 }

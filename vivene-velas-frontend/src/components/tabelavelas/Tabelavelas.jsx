@@ -8,7 +8,7 @@ const TabelaPedidos = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const pedidoResponse = await axios.get('http://localhost:8080/pedidos/top-cinco-pedidos', {
+          const pedidoResponse = await axios.get('http://44.204.200.174/pedidos/top-cinco-pedidos', {
             headers: {
               'accept': '*/*',
             },

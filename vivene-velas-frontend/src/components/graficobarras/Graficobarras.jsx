@@ -12,7 +12,7 @@ const Graficobarras = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const velaResponse = await axios.get('http://localhost:8080/velas/top-mais-vendidas', {
+        const velaResponse = await axios.get('http://44.204.200.174/velas/top-mais-vendidas', {
           headers: {
             'accept': '*/*',
           },
@@ -47,7 +47,7 @@ const Graficobarras = () => {
   const downloadCSV = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8080/velas/arq-criar/top-cinco-velas',
+        'http://44.204.200.174/velas/arq-criar/top-cinco-velas',
         null,
         {
           params: { nomeArq: nomeArquivo },

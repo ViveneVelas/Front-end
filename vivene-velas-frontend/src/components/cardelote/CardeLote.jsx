@@ -12,7 +12,7 @@ const CardeLote = ({ imgSrc, title, qtd, qrCode, descr, id }) => {
         console.log(id);
         
         try {
-          const response = await axios.delete(`http://localhost:8080/lotes/${id}`, {
+          const response = await axios.delete(`http://44.204.200.174/lotes/${id}`, {
             headers: {
               'accept': '*/*'
             }
@@ -30,7 +30,7 @@ const CardeLote = ({ imgSrc, title, qtd, qrCode, descr, id }) => {
         console.log(id);
         
         try {
-          const response = await axios.put(`http://localhost:8080/lotes/venda/${id}`, {
+          const response = await axios.put(`http://44.204.200.174/lotes/venda/${id}`, {
             headers: {
               'accept': '*/*'
             }
