@@ -104,14 +104,28 @@ textarea {
     cursor: pointer;
 }
 
+/* Botão Cadastrar */
 .confirm-button {
-    background-color: #4ECA5A;
-    color: white;
+    background-color: #8C5B55; /* Fundo da cor desejada */
+    color: white; /* Texto branco */
+    border: 2px solid #8C5B55; /* Borda da mesma cor */
 }
 
+/* Botão Cancelar */
 .cancel-button {
-    background-color: #D94D4D;
-    color: white;
+    background-color: white; /* Fundo branco */
+    color: #8C5B55; /* Texto da cor desejada */
+    border: 2px solid #8C5B55; /* Borda da mesma cor */
+}
+
+.confirm-button:hover {
+    background-color: #6F4846; /* Tom mais escuro para hover */
+}
+
+.cancel-button:hover {
+    background-color: #F4E7E7; /* Tom mais claro para hover */
+    color: #6F4846; /* Texto com tom mais escuro no hover */
+    border-color: #6F4846; /* Borda com tom mais escuro no hover */
 }
 
 /* Responsividade */

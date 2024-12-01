@@ -83,7 +83,7 @@
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 70%; /* Reduzida a largura para 70% da tela */
+    width: 300px; /* Largura fixa */
     height: auto; /* Altura ajustada automaticamente */
     max-height: 75%; /* Para não ocupar toda a tela */
     position: absolute;
@@ -95,7 +95,7 @@
   }
 
   .collapsed {
-    width: 70%; /* Mantém o mesmo ajuste para largura */
+    width: 300px; /* Mantém a largura fixa */
   }
 
   .toggleBtn {
@@ -130,3 +130,4 @@
     align-items: center; /* Alinha os ícones no centro */
   }
 }
+
