@@ -34,7 +34,7 @@ const CadastroLotes = () => {
         const fetchData = async () => {
             try {
                 const [velaResponse] = await Promise.all([
-                    axios.get('http://44.204.200.174:8080/velas/buscar-nomes-velas', {
+                    axios.get('http://98.84.38.39:8080/velas/buscar-nomes-velas', {
                         headers: {
                             'accept': '*/*',
                         },
@@ -60,7 +60,7 @@ const CadastroLotes = () => {
         const fetchData = async () => {
             try {
                 const [velaResponse] = await Promise.all([
-                    axios.get(`http://44.204.200.174:8080/velas/${selectedVela.id}`, {
+                    axios.get(`http://98.84.38.39:8080/velas/${selectedVela.id}`, {
                         headers: {
                             'accept': '*/*',
                         },
@@ -104,7 +104,7 @@ const CadastroLotes = () => {
         const localDate = new Date().toISOString().split('T')[0];
 
         try {
-            const response = await axios.post('http://44.204.200.174:8080/lotes', {
+            const response = await axios.post('http://98.84.38.39:8080/lotes', {
                 fkVela: velaEscolhida,
                 quantidade: qtdEscolhida,
                 dataFabricacao: localDate,

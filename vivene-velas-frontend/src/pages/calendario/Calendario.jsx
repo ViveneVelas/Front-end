@@ -41,7 +41,7 @@ function Calendario() {
 
   const handleEventDelete = (eventId) => {
     //Deletar evento no banco
-    axios.delete('http://44.204.200.174:8080/pedidos/' + eventId, {
+    axios.delete('http://98.84.38.39:8080/pedidos/' + eventId, {
       headers: {
         'accept': 'application/json'
       }
@@ -54,7 +54,7 @@ function Calendario() {
   };
 
   const handleEventUpdate = (updatedEvent) => {
-    axios.delete('http://44.204.200.174:8080/pedidos/' + updatedEvent, {
+    axios.delete('http://98.84.38.39:8080/pedidos/' + updatedEvent, {
       headers: {
         'accept': 'application/json'
       }
@@ -82,7 +82,7 @@ function Calendario() {
     const fetchPedidos = async () => {
 
       try {
-        const response = await axios.get('http://44.204.200.174:8080/pedidos/calendario', {
+        const response = await axios.get('http://98.84.38.39:8080/pedidos/calendario', {
           headers: {
             'accept': 'application/json'
           }

@@ -19,12 +19,12 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const [quantidadeResponse, velaResponse] = await Promise.all([
-          axios.get('http://44.204.200.174:8080/velas/maisvendida', {
+          axios.get('http://98.84.38.39:8080/velas/maisvendida', {
             headers: {
               'accept': '*/*',
             },
           }),
-          axios.get('http://44.204.200.174:8080/velas/maisvendida', {
+          axios.get('http://98.84.38.39:8080/velas/maisvendida', {
             headers: {
               'accept': '*/*',
             },

@@ -21,7 +21,7 @@ const CadastroPedidos = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://44.204.200.174:8080/velas/buscar-nomes-velas', {
+                const response = await axios.get('http://98.84.38.39:8080/velas/buscar-nomes-velas', {
                     headers: { 'accept': '*/*' },
                 });
                 setVelas(response.data || []);
