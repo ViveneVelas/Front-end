@@ -14,7 +14,7 @@ function Cadastro() {
 
   const handleCadastro = async () => {
     try {
-      const response = await axios.post('http://98.84.38.39:8080/usuarios', {
+      const response = await axios.post('/java-api/usuarios', {
         nome: nome,
         telefone: telefone,
         login: {
