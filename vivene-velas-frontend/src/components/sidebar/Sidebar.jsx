@@ -41,51 +41,53 @@ const Sidebar = () => {
         <ul>
           {!isResponsive && (
             <li className="menu-item">
-              <i><img src={dashIcon} alt="" /></i>
-              <span>Dashboard</span>
+              <a href="/dashboard">
+                <i><img src={dashIcon} alt="Ícone Dashboard" /></i>
+                <span>Dashboard</span>
+              </a>
             </li>
           )}
-        
-        
+
           <li className="menu-item">
             <a href="/estoque">
               <i><img src={estoqueIcon} alt="Ícone Estoque" /></i>
-              {!isResponsive && !collapsed && <span>Estoque</span>}
+              <span>Estoque</span>
             </a>
           </li>
 
           <li className="menu-item">
             <a href="/vela">
               <i><img src={velaIcon} alt="Ícone Vela" /></i>
-              {!isResponsive && !collapsed && <span>Velas</span>}
+              <span>Velas</span>
             </a>
           </li>
 
           <li className="menu-item">
             <a href="/pedidos">
               <i><img src={pedidoIcon} alt="Ícone Pedido" /></i>
-              {!isResponsive && !collapsed && <span>Pedidos</span>}
+              <span>Pedidos</span>
             </a>
           </li>
 
           <li className="menu-item">
             <a href="/cadastro-velas">
-            <i className="bi bi-plus-lg"></i>
-            {!isResponsive && !collapsed && <span>Adicionar Velas</span>}
+              <i className="bi bi-plus-lg"></i>
+              <span>Adicionar Velas</span>
             </a>
           </li>
 
           {!isResponsive && (
             <li className="menu-item">
-              <i><img src={calendarioIcon} alt="" /></i>
-              <span>Agenda</span>
+              <a href="/calendario">
+                <i><img src={calendarioIcon} alt="Ícone Agenda" /></i>
+                <span>Agenda</span>
+              </a>
             </li>
           )}
-
-          <li onClick={back} className="menu-item">
-            <a>
+          <li className="menu-item">
+            <a onClick={back}>
               <i className="bi bi-box-arrow-right"></i>
-              {!isResponsive && <span>Sair</span>}
+              <span>Sair</span>
             </a>
           </li>
         </ul>
