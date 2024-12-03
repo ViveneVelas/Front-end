@@ -70,7 +70,7 @@ const CadastroPedidos = () => {
         setVelaEscolhida(selectedVelaId);
 
         try {
-            const response = await axios.get(`http://44.204.200.174:8080/velas/${selectedVelaId}`, {
+            const response = await axios.get(`/host/velas/${selectedVelaId}`, {
                 headers: { 'accept': '*/*' },
             });
             setDetalhesVela({
@@ -126,7 +126,7 @@ const CadastroPedidos = () => {
         console.log(dadosPedido);
 
         try {
-            const response = await axios.post('http://44.204.200.174:8080/pedidos', dadosPedido, {
+            const response = await axios.post('/host/pedidos', dadosPedido, {
                 headers: {
                     'accept': 'application/json',
                     'Content-Type': 'application/json'
