@@ -12,7 +12,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://44.204.200.174:8080/logins/logar', {
+      const response = await axios.post('/host/logins/logar', {
         email: email,
         senha: senha
       });
@@ -29,7 +29,7 @@ function Login() {
   const getIdUser = async () => {
     try {
       var idLogin = localStorage.getItem('idLogin')
-      const response = await axios.get(`http://44.204.200.174:8080/usuarios/fklogin/${idLogin}?loginId=${idLogin}`);
+      const response = await axios.get(`/host/usuarios/fklogin/${idLogin}?loginId=${idLogin}`);
       localStorage.setItem('idUser', JSON.stringify(response.data.id));
       localStorage.setItem('nomeUser', JSON.stringify(response.data.nome));
       window.location.href = '/dashboard';
