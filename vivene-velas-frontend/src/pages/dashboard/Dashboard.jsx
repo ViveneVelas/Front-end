@@ -19,12 +19,12 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const [quantidadeResponse, velaResponse] = await Promise.all([
-          axios.get('http://localhost:8080/velas/maisvendida', {
+          axios.get('/host/velas/maisvendida', {
             headers: {
               'accept': '*/*',
             },
           }),
-          axios.get('http://localhost:8080/velas/maisvendida', {
+          axios.get('/host/velas/maisvendida', {
             headers: {
               'accept': '*/*',
             },

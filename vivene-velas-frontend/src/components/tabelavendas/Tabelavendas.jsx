@@ -12,7 +12,7 @@ const Tabelavendas = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const velaResponse = await axios.get('http://localhost:8080/clientes/clientes-mais-compras', {
+        const velaResponse = await axios.get('http://44.204.200.174:8080/clientes/clientes-mais-compras', {
           headers: { 'accept': '*/*' },
         });
         setDados(velaResponse.data);
@@ -26,7 +26,7 @@ const Tabelavendas = () => {
   const downloadTXT = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8080/clientes/arq-criar/clientes-mais-compras',
+        'http://44.204.200.174:8080/clientes/arq-criar/clientes-mais-compras',
         null,
         {
           params: { nomeArq: nomeArquivo },
@@ -65,7 +65,7 @@ const Tabelavendas = () => {
   
         // Enviar o array de bytes no corpo da requisição
         const response = await axios.post(
-          'http://localhost:8080/clientes/arq-ler/clientes-mais-compras',
+          'http://44.204.200.174:8080/clientes/arq-ler/clientes-mais-compras',
           byteArray, // Envia diretamente como byte array
           {
             headers: {
