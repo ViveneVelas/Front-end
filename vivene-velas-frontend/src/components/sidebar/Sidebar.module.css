@@ -9,14 +9,13 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  transition: width 0.3s;
+  transition: width 0.3s, height 0.3s, border-radius 0.3s, top 0.3s;
   z-index: 1000;
 }
 
 .collapsed {
   width: 80px;
 }
-
 
 .toggleBtn {
   background: none;
@@ -30,7 +29,7 @@
 .nav {
   flex-grow: 1;
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 
 .nav ul {
@@ -75,30 +74,100 @@
   display: none;
 }
 
-@media (min-width: 800px ) {
-  
-#main {
-  margin-left: 112px; /* Largura da sidebar quando expandida */
-  transition: margin-left 0.3s ease;
+.nav a {
+  cursor: pointer;
 }
+
+
+@media (min-width: 800px) {
+  #main {
+    margin-left: 112px; /* Largura da sidebar quando expandida */
+    transition: margin-left 0.3s ease;
+  }
 }
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
+    width: 80px;
+    height: 100vh;
+    background-color: #fff; 
+    color: #fff; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0; 
+    transition: width 0.3s ease;
   }
 
-  .collapsed {
-    width: 100%;
+  .sidebar.collapsed {
+    width: 80px; 
+  }
+
+  .sidebar:not(.collapsed) {
+    width: 150px; 
+    background-color: #F5947D; 
   }
 
   .toggleBtn {
-    display: none;
+    color: #8C5B55; 
   }
-  #main {
-    margin-left: 10px; /* Largura da sidebar quando expandida */
-    transition: margin-left 0.3s ease;
+
+  .nav {
+    display: none; 
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    visibility: hidden; 
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
+
+  .sidebar:not(.collapsed) .nav {
+    display: block; 
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav li {
+    margin: 0; 
+  }
+
+  .sidebar.collapsed {
+    overflow: hidden; 
+    width: 80px; 
+    background-color: transparent; 
+  }
+
+  .sidebar.collapsed .nav {
+    display: none; 
+  }
+
+  .sidebar.collapsed .toggleBtn {
+    display: block; 
+    z-index: 1000; 
+    position: relative; 
+  }
+
+  .nav i {
+    font-size: 1rem; 
+  }
+
+  .nav img {
+    width: 18px; 
+    height: auto; 
+  }
+
+  .nav span {
+    font-size: 1rem; 
+  }
+
 }
+
