@@ -10,7 +10,7 @@
 }
 
 .title {
-    width: 300px;
+    width: 400px;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -136,6 +136,15 @@ textarea {
         align-items: center;
     }
 
+    .title {
+        width: 300px;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #8C5B55;
+    }
+
     .image-upload {
         width: 300px;
         height: 300px;
@@ -143,10 +152,11 @@ textarea {
 
     .inputs-container {
         width: 100%;
+        font-size: 14px;
     }
 
     .form-buttons {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .confirm-button,

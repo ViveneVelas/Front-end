@@ -171,10 +171,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-  body, html {
-    overflow: hidden;
-  }
-
   .login-form h2 {
     font-size: 1.5rem;
   }
@@ -216,10 +212,6 @@ footer {
 
 
 @media (max-width: 380px) {
-  body, html{
-    overflow: hidden;
-  } 
-
   .login-form h2 {
     font-size: 1.2rem;
   }

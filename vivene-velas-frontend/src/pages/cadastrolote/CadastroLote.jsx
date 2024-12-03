@@ -8,6 +8,7 @@ import TextAreaDesabilitada from '../../components/textarea/desabilitado/TextAre
 import style from './CadastroLote.module.css'
 import imagemCarregando from '../../img/imagem-carregando.png'
 import Notificacao from '../../components/notificacao/Notificacao';
+import TextArea from '../../components/textarea/habilitado/TextArea';
 
 const CadastroLotes = () => {
     const [showAlertSuccess, setShowAlertSuccess] = useState(false);
@@ -170,10 +171,6 @@ const CadastroLotes = () => {
                                     <CheckBox valor="Casa" isChecked={selectedCheckbox === 'Casa'} onChange={() => handleCheckboxChange('Casa')} />
                                     <CheckBox valor="Estúdio" isChecked={selectedCheckbox === 'Estúdio'} onChange={() => handleCheckboxChange('Estúdio')} />
                                 </div>
-
-                                <InputDesabilitado nome={detalhesVela.tamanho} />
-                                <InputDesabilitado nome={detalhesVela.valor} />
-                                <TextAreaDesabilitada nome={detalhesVela.descricao} />
                             </div>
 
                             <div className='form-buttons'>

@@ -87,3 +87,96 @@
     display: flex;
     flex-direction: row;
 }
+
+/* Responsividade */
+@media (max-width: 950px) {
+    /* Ajuste do input de imagem */
+    .image-upload-lote {
+        width: 350px;
+        height: 370px;
+        margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+    }
+
+    .div-info-pagina {
+        display: flex;
+        align-items: center;
+    }
+
+    .div-pagina {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-cad-lote {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-inputs-form {
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .select-optional {
+        width: 100%;
+    }
+
+    /* Manter selects lado a lado */
+    .div-check-box {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajuste do input de imagem */
+    .image-upload-lote {
+        width: 300px;
+        height: 320px;
+    }
+
+    .select-optional {
+        font-size: 14px;
+    }
+
+    .div-inputs {
+        gap: 20px; /* Espaçamento consistente */
+    }
+
+    /* Manter selects alinhados horizontalmente */
+    .div-check-box {
+        flex-wrap: nowrap;
+        gap: 10px; /* Reduzindo espaçamento interno para caber */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajuste do input de imagem */
+    .image-upload-lote {
+        width: 280px;
+        height: 300px;
+    }
+
+    .select-optional {
+        font-size: 12px;
+    }
+
+    /* Manter selects alinhados horizontalmente */
+    .div-check-box {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .div-inputs {
+        gap: 16px; /* Espaçamento ajustado para dispositivos compactos */
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .cancel-button, .confirm-button {
+        width: 100%;
+    }
+}
+
