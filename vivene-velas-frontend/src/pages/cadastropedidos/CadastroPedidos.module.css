@@ -255,12 +255,26 @@ tbody td {
 .register-btn:hover {
     background-color: #8b4513;
 }
-
+.div_btn_pedido > .btn_voltar > i{
+    color: #F2795C;
+    font-size: 20px;
+}
+.btn_voltar{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
 .div_btn_pedido {
     margin-top: 20px;
     display: flex;
-    align-items: flex-end;
-    justify-content: end;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.div_btn_pedido_prosseguir{
+    margin-top: 20px;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
 }
 
 .div_dados_vela {
@@ -269,7 +283,7 @@ tbody td {
     width: 300px;
     margin-right: 100px;
     margin-top: 20px;
-    gap: 30px;
+    gap: 14px;
 }
 
 .div_dados_vela hr {
@@ -278,9 +292,34 @@ tbody td {
     border: none;
     width: 100%;
 }
-
+.div_etapa_dois{
+    height: 320px;
+    display: flex;
+    justify-content: space-between;
+}
 .div_dados_vela h2 {
     margin: 0;
     font-size: 18px;
     padding: 0;
+}
+.div_dados_vela .div_dados_mini {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-right: 100px;
+    margin-top: 20px;
+    gap: 14px;
+}
+.ativo {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.inativo {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none; /* Evita interação com a etapa invisível */
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
