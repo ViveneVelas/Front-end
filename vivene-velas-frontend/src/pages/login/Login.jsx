@@ -5,7 +5,6 @@ import Img from '../../img/login.png';
 import wave from '../../img/wave.svg';
 import LogoMini from '../../img/logoMini.png';
 
-
 function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -13,7 +12,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('java-api/logins/logar', {
+      const response = await axios.post('http://54.82.254.93:8080/logins/logar', {
         email: email,
         senha: senha
       });
@@ -30,7 +29,7 @@ function Login() {
   const getIdUser = async () => {
     try {
       var idLogin = localStorage.getItem('idLogin')
-      const response = await axios.get(`/java-api/usuarios/fklogin/${idLogin}?loginId=${idLogin}`);
+      const response = await axios.get(`http://54.82.254.93:8080/usuarios/fklogin/${idLogin}?loginId=${idLogin}`);
       localStorage.setItem('idUser', JSON.stringify(response.data.id));
       localStorage.setItem('nomeUser', JSON.stringify(response.data.nome));
       window.location.href = '/dashboard';

@@ -41,7 +41,7 @@ function Calendario() {
 
   const handleEventDelete = (eventId) => {
     //Deletar evento no banco
-    axios.delete('/java-api/pedidos/' + eventId, {
+    axios.delete('http://54.82.254.93:8080/pedidos/' + eventId, {
       headers: {
         'accept': 'application/json'
       }
@@ -54,7 +54,7 @@ function Calendario() {
   };
 
   const handleEventUpdate = (updatedEvent) => {
-    axios.delete('/java-api/pedidos/' + updatedEvent, {
+    axios.delete('http://54.82.254.93:8080/pedidos/' + updatedEvent, {
       headers: {
         'accept': 'application/json'
       }
@@ -82,7 +82,7 @@ function Calendario() {
     const fetchPedidos = async () => {
 
       try {
-        const response = await axios.get('/java-api/pedidos/calendario', {
+        const response = await axios.get('http://54.82.254.93:8080/pedidos/calendario', {
           headers: {
             'accept': 'application/json'
           }

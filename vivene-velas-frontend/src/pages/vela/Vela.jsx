@@ -14,7 +14,7 @@ const Vela = () => {
     const fetchData = async (orderBy) => {
         setLoading(true); // Ativa o carregamento antes da requisição
         try {
-            const response = await axios.get(`/java-api/velas/filtro/${orderBy}`, {
+            const response = await axios.get(`http://54.82.254.93:8080/velas/filtro/${orderBy}`, {
                 headers: {
                     'accept': '*/*',
                 }
@@ -37,7 +37,7 @@ const Vela = () => {
     const fetchByName = async (name) => {
         setLoading(true); // Ativa o carregamento antes da requisição
         try {
-            const response = await axios.get(`/java-api/velas/filtro-nome/${name}`, {
+            const response = await axios.get(`http://54.82.254.93:8080/velas/filtro-nome/${name}`, {
                 headers: {
                     'accept': '*/*',
                 }
