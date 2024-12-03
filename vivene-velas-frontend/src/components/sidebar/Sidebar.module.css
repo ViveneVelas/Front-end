@@ -99,6 +99,10 @@
     transition: width 0.3s ease;
   }
 
+  #icon{
+    display: none;
+  }
+
   .sidebar.collapsed {
     width: 80px; 
   }

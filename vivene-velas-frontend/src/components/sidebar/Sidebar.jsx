@@ -40,7 +40,7 @@ const Sidebar = () => {
       <nav className={styles.nav}>
         <ul>
           {!isResponsive && (
-            <li className="menu-item">
+            <li id='icon' className="menu-item">
               <a href="/dashboard">
                 <i><img src={dashIcon} alt="Ícone Dashboard" /></i>
                 <span>Dashboard</span>
@@ -77,7 +77,7 @@ const Sidebar = () => {
           </li>
 
           {!isResponsive && (
-            <li className="menu-item">
+            <li id='icon' className="menu-item">
               <a href="/calendario">
                 <i><img src={calendarioIcon} alt="Ícone Agenda" /></i>
                 <span>Agenda</span>
