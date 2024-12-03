@@ -60,7 +60,7 @@ const CadastroLotes = () => {
         const fetchData = async () => {
             try {
                 const [velaResponse] = await Promise.all([
-                    axios.get(`http://54.82.254.93:8080/velas/${selectedVela.id}`, {
+                    axios.get(`/host/velas/${selectedVela.id}`, {
                         headers: {
                             'accept': '*/*',
                         },

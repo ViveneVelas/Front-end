@@ -14,7 +14,7 @@ const Vela = () => {
     const fetchData = async (orderBy) => {
         setLoading(true); // Ativa o carregamento antes da requisição
         try {
-            const response = await axios.get(`/host:8080/velas/filtro/${orderBy}`, {
+            const response = await axios.get(`/host/velas/filtro/${orderBy}`, {
                 headers: {
                     'accept': '*/*',
                 }
