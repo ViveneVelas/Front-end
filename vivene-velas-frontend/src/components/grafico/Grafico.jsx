@@ -23,6 +23,10 @@ const Grafico = () => {
         },
       });
 
+      // const reverseArray = () => {
+      //   setArray([...array].reverse());
+      // };|
+
       // Mapeando os dados para o gráfico de vendas
       const vendas = vendaResponse.data.map(item => item.qtdPedidosConcluidos);
     
@@ -30,12 +34,12 @@ const Grafico = () => {
       const datas = metaResponse.data.map(item => new Date(item.dataInicio+1).toLocaleString('pt-BR', { month: 'short' })); 
 
       // Atualizando o estado com os dados de vendas e datas
-      setBarData(vendas);
-      setData(datas);
+      setBarData(vendas.reverse());
+      setData(datas.reverse());
 
       // Mapeando os dados para o gráfico de metas
       const metas = metaResponse.data.map(item => item.qtdVendas);
-      setLineData(metas);
+      setLineData(metas.reverse());
 
     } catch (error) {
       console.error('Erro ao buscar os dados:', error);
