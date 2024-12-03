@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
     app.use(
-        '/java-api', 
+        '/host',
         createProxyMiddleware({
             target: 'http://98.84.38.39:8080', 
             changeOrigin: true, 

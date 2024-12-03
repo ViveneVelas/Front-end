@@ -34,7 +34,7 @@ const CadastroLotes = () => {
         const fetchData = async () => {
             try {
                 const [velaResponse] = await Promise.all([
-                    axios.get('http://54.82.254.93:8080/velas/buscar-nomes-velas', {
+                    axios.get('/host/velas/buscar-nomes-velas', {
                         headers: {
                             'accept': '*/*',
                         },
@@ -104,7 +104,7 @@ const CadastroLotes = () => {
         const localDate = new Date().toISOString().split('T')[0];
 
         try {
-            const response = await axios.post('http://54.82.254.93:8080/lotes', {
+            const response = await axios.post('/host/lotes', {
                 fkVela: velaEscolhida,
                 quantidade: qtdEscolhida,
                 dataFabricacao: localDate,
