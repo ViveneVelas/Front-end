@@ -26,9 +26,8 @@ const Grafico = () => {
       // Mapeando os dados para o gráfico de vendas
       const vendas = vendaResponse.data.map(item => item.qtdPedidosConcluidos);
     
-      
-      // Filtrando apenas meses referente as Datas das metas
-      const datas = metaResponse.data.map(item => new Date(item.dataInicio).toLocaleString('pt-BR', { month: 'short' })); 
+      // Filtrando apenas meses referente as Datas das metas | Adicionando 1 para deixar os meses corretos 
+      const datas = metaResponse.data.map(item => new Date(item.dataInicio+1).toLocaleString('pt-BR', { month: 'short' })); 
 
       // Atualizando o estado com os dados de vendas e datas
       setBarData(vendas);
