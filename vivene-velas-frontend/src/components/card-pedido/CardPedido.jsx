@@ -3,6 +3,8 @@ import Styles from "./CardPedido.module.css"
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import styled from "styled-components";
+import EventModal from '../../components/evento-calendario/evento-alterar';
 
 const CardPedido = ({ valor, nomeCliente, entrega, st, id }) => {
     const [status, setStatus] = useState(st);
@@ -11,6 +13,8 @@ const CardPedido = ({ valor, nomeCliente, entrega, st, id }) => {
     const handleStatusChange = (e) => {
         setStatus(e.target.value);
     };
+
+    
 
     useEffect(() => {
         const definirStyle = () => {
@@ -45,6 +49,13 @@ const CardPedido = ({ valor, nomeCliente, entrega, st, id }) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
+    const [eventoSelecionado, SeteventoSelecionado] = useState(null);
+    const [diaSelecionado, setDiaSelecionado] = useState(null);
+    
+    const handleShowBig = () => SeteventoSelecionado(true);
+    const handleCloseBig = () => SeteventoSelecionado(false);
+    
     return (
         <>
             <div className={Styles['card-container']}>
@@ -101,8 +112,8 @@ const CardPedido = ({ valor, nomeCliente, entrega, st, id }) => {
                     </div>
 
                     <div className={Styles["div-botoes"]}>
-                        <button className={Styles["botao-cancelar"]} onClick={handleShow}>Cancelar</button>
-                        <button className={Styles["botao-atualizar"]}>Reagendar</button>
+                        <button className={Styles["botao-cancelar"]} onClick={handleShow}>Deletar</button>
+                        <button className={Styles["botao-atualizar"]} onClick={handleShowBig}>Ajustar</button>
                     </div>
 
                 </div>
@@ -122,6 +133,17 @@ const CardPedido = ({ valor, nomeCliente, entrega, st, id }) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            {eventoSelecionado && (
+            <EventModal
+                valor= {valor}
+                nomeCliente = {nomeCliente}
+                st = {st}
+                id = {id}
+                evento={eventoSelecionado}
+                eventoFechar={handleCloseBig}
+            />
+          )}
         </>
     );
 };

@@ -26,3 +26,12 @@
 .pedido_preco {
     padding: 10px;
 }
+.div_com_input{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+.div_com_input h6{
+    margin: 0;
+}
