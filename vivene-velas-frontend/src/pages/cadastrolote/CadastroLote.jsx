@@ -171,6 +171,10 @@ const CadastroLotes = () => {
                                     <CheckBox valor="Casa" isChecked={selectedCheckbox === 'Casa'} onChange={() => handleCheckboxChange('Casa')} />
                                     <CheckBox valor="Estúdio" isChecked={selectedCheckbox === 'Estúdio'} onChange={() => handleCheckboxChange('Estúdio')} />
                                 </div>
+
+                                <InputDesabilitado nome={detalhesVela.tamanho} />
+                                <InputDesabilitado nome={detalhesVela.valor} />
+                                <TextAreaDesabilitada nome={detalhesVela.descricao} />
                             </div>
 
                             <div className='form-buttons'>
