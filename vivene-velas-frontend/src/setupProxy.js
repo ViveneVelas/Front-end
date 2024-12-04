@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.use(
     '/host',  // Quando o frontend fizer uma requisição para /host, será redirecionado
     createProxyMiddleware({
-      target: 'http://localhost:8080',  // O IP e a porta do seu backend
+      target: 'http://54.89.73.36t:8080',  // O IP e a porta do seu backend
       changeOrigin: true,  // Modifica o cabeçalho "Origin" para o target (backend)
       pathRewrite: {
         '^/host': '',  // Remove o /host do caminho antes de encaminhar para o backend

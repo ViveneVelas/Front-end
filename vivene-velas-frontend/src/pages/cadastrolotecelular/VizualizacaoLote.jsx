@@ -30,7 +30,7 @@ const CadastroLotes = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/lotes/${id}`)
+        axios.get(`/host/lotes/${id}`)
           .then(response => setLote(response.data))
           .catch(error => console.error("Erro ao buscar o lote:", error));
       }, [id]);
