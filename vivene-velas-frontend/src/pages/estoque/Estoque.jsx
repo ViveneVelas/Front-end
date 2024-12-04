@@ -57,7 +57,7 @@ const Estoque = () => {
                             <div className={style['div-filtro']}>
                                 <div className='div-one col-lg-7'>
                                     <div className="col-lg-7">
-                                        <Busca />
+                                        {/* <Busca /> */}
                                     </div>
                                 </div>
 
@@ -113,8 +113,8 @@ const Estoque = () => {
                                             )}
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-12 mb-3">
+                                    <div className={style['div-info']}>
+                                        <div className={style['div-barra-local']}>
 
                                             <div className={style['div-barra-data']}>
 

@@ -15,7 +15,7 @@ const BarraData = ({ diaSemana, nome }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://44.204.200.174:8080/pedidos/filtro/data/now?data=${diaSemana}&nomeCliente=${nome}`, {
+            const response = await axios.get(`/host/pedidos/filtro/data/now?data=${diaSemana}&nomeCliente=${nome}`, {
                 headers: {
                     'accept': '*/*',
                 }
@@ -60,11 +60,11 @@ const BarraData = ({ diaSemana, nome }) => {
                     array.map((item, index) => (
                         <CardPedido
                             key={`card-pedido-${index}`}
-                            id={`card-pedido-${index}`}
                             entrega={item.tipoEntrega}
                             valor={item.preco}
                             nomeCliente={item.clienteNome}
                             st={item.status}
+                            id={item.id}
                         />
                     ))}
             </div>

@@ -11,13 +11,13 @@ const Grafico = () => {
   const fetchData = async () => {
     try {
       // Fazendo requisições para pegar metas e vendas
-      const metaResponse = await axios.get('http://44.204.200.174:8080/metas/ultima-meta', {
+      const metaResponse = await axios.get('/host/metas/ultima-meta', {
         headers: {
           'accept': '*/*',
         },
       });
 
-      const vendaResponse = await axios.get('http://44.204.200.174:8080/pedidos/quantidade-vendas', {
+      const vendaResponse = await axios.get('/host/pedidos/quantidade-vendas', {
         headers: {
           'accept': '*/*',
         },

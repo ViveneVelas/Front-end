@@ -12,6 +12,7 @@ import Notificacao from '../../components/notificacao/Notificacao';
 const CadastroLotes = () => {
     const [showAlertSuccess, setShowAlertSuccess] = useState(false);
     const [showAlertError, setShowAlertError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [velas, setVelas] = useState([]);
     const [selectedCheckbox, setSelectedCheckbox] = useState(null);
@@ -60,7 +61,7 @@ const CadastroLotes = () => {
         const fetchData = async () => {
             try {
                 const [velaResponse] = await Promise.all([
-                    axios.get(`http://54.82.254.93:8080/velas/${selectedVela.id}`, {
+                    axios.get(`http://localhost:8080/velas/${selectedVela.id}`, {
                         headers: {
                             'accept': '*/*',
                         },
@@ -102,8 +103,11 @@ const CadastroLotes = () => {
 
     const handleSubmit = async () => {
         const localDate = new Date().toISOString().split('T')[0];
+        setIsLoading(true);
 
         try {
+            console.log(qtdEscolhida);
+
             const response = await axios.post('/host/lotes', {
                 fkVela: velaEscolhida,
                 quantidade: qtdEscolhida,
@@ -122,6 +126,8 @@ const CadastroLotes = () => {
             setTimeout(() => {
                 setShowAlertError(false)
             }, 5000);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -160,10 +166,10 @@ const CadastroLotes = () => {
                                     ))}
                                 </select>
 
-                                <Input
-                                    nome={"Quantidade de velas"}
-                                    onChange={(e) => setQtdEscolhida(e.target.value)}
-                                />
+                                <div className={style["form-group"]}>
+                                    <input type="number" id="ipt_nome" className={style["form-input"]} required placeholder="" onChange={(e) => setQtdEscolhida(e.target.value)} />
+                                    <label htmlFor="ipt_nome" className={style["form-label"]}>Quantidade de velas</label>
+                                </div>
 
                                 <div className={style["div-check-box"]}>
 
@@ -212,11 +218,14 @@ const CadastroLotes = () => {
                 />
             )}
 
+            {isLoading && (
+                <div className="carregando-icone">
+                    <div className="spinner-border all-sp" role="status">
+                        <span className="visually-hidden">Carregando...</span>
+                    </div>
+                </div>
+            )}
         </>
-
-
-
-
 
     );
 };

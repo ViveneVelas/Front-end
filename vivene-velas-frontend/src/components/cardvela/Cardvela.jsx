@@ -78,7 +78,7 @@ const Cardvela = ({ img, titulo, descricao, funcaoDeletar, funcaoAlterar, id, pr
 
   const deleteVela = async () => {
     try {
-      const response = await axios.delete(`http://44.204.200.174:8080/velas/${id}`, {
+      const response = await axios.delete(`/host/velas/${id}`, {
         headers: {
           'accept': '*/*'
         }

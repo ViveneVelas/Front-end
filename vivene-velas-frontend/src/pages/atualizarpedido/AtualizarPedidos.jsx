@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidebar from '../../components/sidebar/Sidebar';
-import style from './CadastroPedidos.module.css';
+import style from './AtualizarPedidos.module.css';
 import Notificacao from '../../components/notificacao/Notificacao';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 const CadastroPedidos = () => {
+    const { id } = useParams();
+
     const [showAlertSuccess, setShowAlertSuccess] = useState(false);
     const [showAlertError, setShowAlertError] = useState(false);
 

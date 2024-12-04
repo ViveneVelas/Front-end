@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import './CadastroVelas.modules.css';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';
+import Input from '../../components/input/habilitado/Input'
+import InputDesabilitado from '../../components/input/desabilitado/InputDesabilitado';
+import CheckBox from '../../components/checkbox/CheckBox';
+import TextAreaDesabilitada from '../../components/textarea/desabilitado/TextAreaDesabilitado';
 import axios from 'axios';
 import Notificacao from '../../components/notificacao/Notificacao';
 
 const CadastroVelas = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [showAlertSuccess, setShowAlertSuccess] = useState(false);
     const [showAlertError, setShowAlertError] = useState(false);
 
@@ -24,6 +29,7 @@ const CadastroVelas = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         const formData = new FormData();
         formData.append('nome', nome);
@@ -37,23 +43,23 @@ const CadastroVelas = () => {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 
-            setShowAlertSuccess(true)
+            setShowAlertSuccess(true);
             console.log('Resposta:', response.data);
             setTimeout(() => {
                 navigate('/vela');
             }, 5000);
         } catch (error) {
-            setShowAlertError(true)
+            setShowAlertError(true);
             console.error('Erro ao enviar:', error);
-            setTimeout(() => {
-                setShowAlertError(false)
-            }, 5000);
+        } finally {
+            setIsLoading(false);
         }
     };
 
     return (
         <>
             <Sidebar />
+
             <div className="container">
                 <h2 className="title">Cadastro de vela padronizada</h2>
                 <form className="form" onSubmit={handleSubmit}>
@@ -133,19 +139,25 @@ const CadastroVelas = () => {
                     </div>
                 </form>
             </div>
+            {isLoading && (
+            <div className="carregando-icone">
+                <div className="spinner-border all-sp" role="status">
+                    <span className="visually-hidden">Carregando...</span>
+                </div>
+            </div>
+            )}
             {showAlertSuccess && (
                 <Notificacao
-                    message=" Vela Cadastrada com Sucesso!"
+                    message="Vela Cadastrada com Sucesso!"
                     duration={5000}
                     type="success"
                     icon="bi bi-check2-circle"
                     onClose={() => setShowAlertSuccess(false)}
                 />
             )}
-
             {showAlertError && (
                 <Notificacao
-                    message=" Erro ao cadastrar uma vela!"
+                    message="Erro ao cadastrar uma vela!"
                     duration={5000}
                     type="error"
                     icon="bi bi-x-circle"

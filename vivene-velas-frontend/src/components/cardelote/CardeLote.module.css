@@ -44,7 +44,16 @@
 .div-editar-lote button{
     background-color: transparent;
 }
-
+.btn_icon_lote{
+    width: 25px;
+}
+.botao_qr_code{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(245, 245, 220, 0);
+}
 .img-editar-lote {
     width: 100%;
     margin: 0px 4px 0px 4px;
