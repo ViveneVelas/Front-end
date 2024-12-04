@@ -6,7 +6,7 @@ O projeto foi desenvolvido utilizando **React** e documentado em português. <br
 ## Andamento do projeto
 
 <p align = "center">
-<img src="https://img.shields.io/static/v1?label=STATUS&message=EM%20ANDAMENTO&color=yellow&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=green&style=for-the-badge"/>
 </p>
 
 ## Convenções de Codificação
